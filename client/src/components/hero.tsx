@@ -16,8 +16,8 @@ export default function Hero() {
       <div className="absolute inset-0 glass-background"></div>
       
       <div className="relative z-10 container-responsive max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center hero-grid">
-          <div className="animate-fade-in-up text-white hero-content">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center hero-grid">
+          <div className="animate-fade-in-up text-white hero-content order-1">
             <h1 className="text-responsive-hero font-bold mb-6 lg:mb-8 leading-tight">
               Professional Excellence. 
               <span className="block bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent">
@@ -77,7 +77,7 @@ export default function Hero() {
             </div>
           </div>
           
-          <div className="relative animate-slide-in hidden lg:block">
+          <div className="relative animate-slide-in hidden lg:block order-2">
             <div className="glass-card overflow-hidden">
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
@@ -95,16 +95,8 @@ export default function Hero() {
             
             {/* Contact CTA */}
             <div className="absolute -top-8 -right-8 glass-card p-4 text-center">
-              <div className="text-workplace-blue font-bold text-lg">(204) 334-2817</div>
+              <div className="text-workplace-blue font-bold text-lg">(204) 415-2910</div>
               <div className="text-workplace-dark text-sm">Call for Quote</div>
-            </div>
-          </div>
-          
-          {/* Mobile-only contact information */}
-          <div className="lg:hidden mt-8">
-            <div className="glass-card p-6 text-center bg-white/10 backdrop-blur-sm">
-              <div className="text-workplace-cyan font-bold text-xl mb-2">(204) 334-2817</div>
-              <div className="text-white text-sm">Call for Instant Quote</div>
             </div>
           </div>
         </div>
