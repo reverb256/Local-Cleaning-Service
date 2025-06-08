@@ -2,7 +2,7 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Services from "@/components/services";
 import QuoteCalculator from "@/components/quote-calculator";
-import Customers from "@/components/customers";
+import Customers from "@/components/customers-simple";
 import Testimonials from "@/components/testimonials";
 import About from "@/components/about";
 import Contact from "@/components/contact";
