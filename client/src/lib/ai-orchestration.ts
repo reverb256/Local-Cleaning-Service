@@ -405,3 +405,35 @@ export class AIOrchestrationSystem {
 }
 
 export const aiOrchestration = new AIOrchestrationSystem();
+
+// Initialize adaptive AI system on startup
+(async () => {
+  try {
+    // Initialize Cloudflare optimization
+    await aiOrchestration.optimizeForCloudflare();
+    
+    // Discover API endpoints and their limits
+    const endpoints = [
+      'https://api.openai.com/v1',
+      'https://api.anthropic.com/v1',
+      'https://api-inference.huggingface.co/models',
+      '/api/chat', // Local endpoint
+      '/api/quotes',
+      '/api/contacts'
+    ];
+    
+    // Discover limits for each endpoint
+    for (const endpoint of endpoints) {
+      try {
+        const limits = await aiOrchestration.discoverApiLimits(endpoint);
+        console.log(`Discovered limits for ${endpoint}:`, limits);
+      } catch (error) {
+        console.log(`Could not discover limits for ${endpoint}, using defaults`);
+      }
+    }
+    
+    console.log('AI system initialized with adaptive capabilities');
+  } catch (error) {
+    console.log('AI system initialized with default configuration');
+  }
+})();
