@@ -5,7 +5,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#2563eb",
+  "theme_color": "#0277BD",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en-CA",
@@ -13,8 +13,20 @@
   "categories": ["business", "productivity", "utilities"],
   "icons": [
     {
-      "src": "/src/assets/wjs-logo-windows.png",
-      "sizes": "192x192",
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
       "type": "image/png",
       "purpose": "any"
     }

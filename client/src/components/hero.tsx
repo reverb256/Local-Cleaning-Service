@@ -120,17 +120,28 @@ export default function Hero() {
               />
             </div>
             
-            {/* Floating Guarantee Badge */}
-            <div className="absolute bottom-4 right-4 glass-card p-6 text-center">
-              <div className="text-2xl font-bold text-workplace-blue mb-2">SATISFACTION</div>
-              <div className="text-lg font-semibold text-workplace-green">GUARANTEED</div>
-              <div className="text-sm text-workplace-dark mt-1">OR IT'S FREE!</div>
+            {/* Contact CTA - Top Right */}
+            <div className="absolute top-4 right-4 glass-card p-4 text-center rounded-xl" style={{
+              background: 'rgba(255, 255, 255, 0.9)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+            }}>
+              <div className="text-workplace-blue font-bold text-base">(204) 415-2910</div>
+              <div className="text-workplace-dark text-xs">Call for Quote</div>
             </div>
             
-            {/* Contact CTA */}
-            <div className="absolute -top-8 -right-8 glass-card p-4 text-center">
-              <div className="text-workplace-blue font-bold text-lg">(204) 415-2910</div>
-              <div className="text-workplace-dark text-sm">Call for Quote</div>
+            {/* Floating Guarantee Badge - Bottom Center */}
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 glass-card p-4 text-center rounded-xl" style={{
+              background: 'rgba(255, 255, 255, 0.9)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+              minWidth: '200px'
+            }}>
+              <div className="text-xl font-bold text-workplace-blue mb-1">SATISFACTION</div>
+              <div className="text-base font-semibold text-workplace-green mb-1">GUARANTEED</div>
+              <div className="text-xs text-workplace-dark">OR IT'S FREE!</div>
             </div>
           </div>
         </div>
