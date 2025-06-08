@@ -249,39 +249,41 @@ export default function Contact() {
             <div className="glass-card p-10">
               <h3 className="text-3xl font-bold text-workplace-dark mb-8">Contact Information</h3>
                 
-                <div className="space-y-6">
-                  {contactInfo.map((info, index) => {
-                    const Icon = info.icon;
-                    return (
-                      <div key={index} className="flex items-start">
-                        <div className="feature-icon mr-4">
+              <div className="space-y-8">
+                {contactInfo.map((info, index) => {
+                  const Icon = info.icon;
+                  return (
+                    <div key={index} className="flex items-start glass-card p-6">
+                      <div className="diamond-shape mr-6">
+                        <div className="diamond-shape-content">
                           <Icon className="w-6 h-6" />
                         </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-900">{info.title}</h4>
-                          <p className="text-gray-600 whitespace-pre-line">{info.content}</p>
-                          <p className="text-sm text-gray-500">{info.subtitle}</p>
-                        </div>
                       </div>
-                    );
-                  })}
-                </div>
-              </CardContent>
-            </Card>
+                      <div>
+                        <h4 className="font-bold text-workplace-dark text-xl mb-2">{info.title}</h4>
+                        <p className="text-workplace-gray text-lg whitespace-pre-line font-medium mb-2">{info.content}</p>
+                        <p className="text-workplace-blue text-base">{info.subtitle}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
 
-            {/* Map Placeholder */}
-            <Card className="bg-white shadow-xl">
-              <CardContent className="p-8">
-                <h4 className="font-semibold text-gray-900 mb-4">Our Location</h4>
-                <div className="bg-gray-200 rounded-lg h-48 flex items-center justify-center">
-                  <img 
-                    src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" 
-                    alt="Map view of Winnipeg downtown area" 
-                    className="rounded-lg w-full h-full object-cover"
-                  />
+            {/* Location */}
+            <div className="glass-card p-10">
+              <h4 className="font-bold text-workplace-dark text-2xl mb-6">Our Location</h4>
+              <div className="bg-workplace-blue bg-opacity-10 rounded-2xl p-8 text-center">
+                <div className="diamond-shape mx-auto mb-4">
+                  <div className="diamond-shape-content">
+                    <MapPin className="w-6 h-6" />
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+                <p className="text-workplace-dark text-lg font-medium">2-761 Marion Street</p>
+                <p className="text-workplace-dark text-lg font-medium">Winnipeg, MB R2J 0K6</p>
+                <p className="text-workplace-gray text-base mt-2">Serving Greater Winnipeg Area</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
