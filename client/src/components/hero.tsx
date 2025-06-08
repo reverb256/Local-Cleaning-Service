@@ -19,13 +19,13 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center hero-grid">
           <div className="animate-fade-in-up text-white hero-content">
             <h1 className="text-responsive-hero font-bold mb-6 lg:mb-8 leading-tight">
-              Exceptional Cleaning You Can 
+              Professional Excellence. 
               <span className="block bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent">
-                Depend On
+                Guaranteed Results.
               </span>
             </h1>
             <p className="text-responsive-large mb-8 lg:mb-10 opacity-95 leading-relaxed">
-              Customized, cost-effective, and superior cleaning solutions for your office and industrial spaces by our trustworthy professionals.
+              Transform your workspace with our premium cleaning solutions. Winnipeg's most trusted commercial cleaning specialists deliver uncompromising quality, every time.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 mb-16">
@@ -34,14 +34,14 @@ export default function Hero() {
                 className="bg-white text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all duration-200 px-8 py-4 text-lg font-bold flex items-center justify-center"
               >
                 <Calculator className="w-5 h-5 mr-2" />
-                <span>Get Free Quote</span>
+                <span>Get Instant Quote</span>
               </Button>
               <Button 
                 onClick={() => scrollToSection('services')}
                 className="bg-workplace-blue text-white hover:bg-workplace-green transition-all duration-200 px-8 py-4 text-lg flex items-center justify-center"
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                <span>View Services</span>
+                <span>Explore Solutions</span>
               </Button>
             </div>
 
@@ -53,8 +53,8 @@ export default function Hero() {
                     <Leaf className="w-6 h-6" />
                   </div>
                 </div>
-                <h3 className="font-bold text-xl mb-3 text-white">OUR PEOPLE</h3>
-                <p className="text-base opacity-90 text-white">Criminal background checks & WCB coverage</p>
+                <h3 className="font-bold text-xl mb-3 text-white">ELITE PROFESSIONALS</h3>
+                <p className="text-base opacity-90 text-white">Rigorously vetted staff with comprehensive insurance protection</p>
               </div>
               <div className="text-center">
                 <div className="diamond-shape mx-auto mb-4">
@@ -62,8 +62,8 @@ export default function Hero() {
                     <Shield className="w-6 h-6" />
                   </div>
                 </div>
-                <h3 className="font-bold text-xl mb-3 text-white">WE RECOMMEND</h3>
-                <p className="text-base opacity-90 text-white">Vendor managed inventory & Biochem Environmental</p>
+                <h3 className="font-bold text-xl mb-3 text-white">ADVANCED SOLUTIONS</h3>
+                <p className="text-base opacity-90 text-white">Strategic inventory management & premium Biochem partnerships</p>
               </div>
               <div className="text-center">
                 <div className="diamond-shape mx-auto mb-4">
@@ -71,8 +71,8 @@ export default function Hero() {
                     <Clock className="w-6 h-6" />
                   </div>
                 </div>
-                <h3 className="font-bold text-xl mb-3 text-white">GUARANTEED CLEAN</h3>
-                <p className="text-base opacity-90 text-white">30-minute guarantee on additional cleaning</p>
+                <h3 className="font-bold text-xl mb-3 text-white">PERFORMANCE PROMISE</h3>
+                <p className="text-base opacity-90 text-white">Immediate response guarantee for exceptional standards</p>
               </div>
             </div>
           </div>

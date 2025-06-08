@@ -132,9 +132,9 @@ export default function QuoteCalculator() {
     <section id="quote" className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get Your Instant Quote</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Executive Quote Generator</h2>
           <p className="text-xl text-gray-600">
-            Calculate your cleaning service cost in seconds
+            Precision pricing for professional excellence
           </p>
         </div>
 

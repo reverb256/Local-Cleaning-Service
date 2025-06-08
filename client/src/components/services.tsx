@@ -3,68 +3,68 @@ import { Briefcase, Sparkles, Hammer, Layers, Square, Leaf } from "lucide-react"
 const services = [
   {
     icon: Briefcase,
-    title: "3-5 Day/Week Office Cleaning",
-    description: "Office cleaning staff at your work site performing tasks to achieve desired results",
+    title: "Premium Daily Operations",
+    description: "Elite cleaning professionals delivering consistent excellence at your workspace",
     features: [
-      "On site guaranteed for 30 minutes more than required",
-      "Adhere to schedule with varying duty frequencies",
-      "Extra time provides immediate attention to spills/accidents",
-      "Professional staff with criminal background checks"
+      "Performance guarantee with 30-minute rapid response commitment",
+      "Precision scheduling with adaptive duty optimization",
+      "Immediate spill response and emergency cleaning protocols",
+      "Thoroughly vetted staff with comprehensive background verification"
     ]
   },
   {
     icon: Sparkles,
-    title: "Customized Office Cleaning",
-    description: "Tailored cleaning programs designed to meet your specific business needs",
+    title: "Tailored Excellence Programs",
+    description: "Strategically designed cleaning solutions engineered for your unique business demands",
     features: [
-      "Custom cleaning schedules",
-      "Specialized industry requirements",
-      "Flexible service arrangements",
-      "Account manager walk-throughs"
+      "Precision-crafted cleaning protocols",
+      "Industry-specific expertise and compliance",
+      "Dynamic service adaptability",
+      "Dedicated account management with regular assessments"
     ]
   },
   {
     icon: Layers,
-    title: "Floor Care Cleaning",
-    description: "Professional floor maintenance and care services",
+    title: "Advanced Floor Mastery",
+    description: "Professional-grade floor preservation and enhancement services",
     features: [
-      "Comprehensive floor maintenance",
-      "Professional cleaning equipment",
-      "Quality results guaranteed",
-      "Regular maintenance schedules"
+      "Complete surface care and restoration",
+      "State-of-the-art maintenance equipment",
+      "Guaranteed superior results",
+      "Proactive maintenance scheduling"
     ]
   },
   {
     icon: Leaf,
-    title: "Bathroom Supplies", 
-    description: "Full line of quality supplies to stock your washrooms and kitchenettes",
+    title: "Executive Supply Solutions", 
+    description: "Premium supply management ensuring your facilities maintain professional standards",
     features: [
-      "Paper towels and toilet paper",
-      "Hand soaps and sanitizers",
-      "Garbage bags and urinal screens",
-      "Vendor managed inventory program"
+      "High-quality paper products and essentials",
+      "Professional-grade soaps and sanitization systems",
+      "Complete waste management solutions",
+      "Strategic vendor-managed inventory optimization"
     ]
   },
   {
     icon: Hammer,
-    title: "Supplemental Janitor Services",
-    description: "Extra capacity for your existing office cleaning team",
+    title: "Strategic Support Services",
+    description: "Enhanced capacity solutions for dynamic operational demands",
     features: [
-      "Special projects support",
-      "Extra high seasonal demand coverage",
-      "Evening work without overtime payments",
-      "Replacement of vacationing employees"
+      "Specialized project execution",
+      "Peak demand surge support",
+      "Cost-effective extended coverage",
+      "Seamless staff continuity solutions"
     ]
   },
   {
     icon: Leaf,
-    title: "Biochem Environmental Partnership",
-    description: "Natural products that are very effective in odor control",
+    title: "Biochem Environmental Excellence",
+    description: "Advanced eco-solutions delivering superior odor elimination and hygiene control",
     features: [
-      "Touch-free feminine hygiene disposal units",
-      "Automatic sink taps and soap dispensers",
-      "Touch-free urinal flushing units",
-      "Hand sanitizer units kill 99% of bacteria"
+      "Touch-free feminine hygiene management systems",
+      "Automated dispensing and sensor technology",
+      "Hands-free urinal maintenance systems",
+      "Professional-grade sanitization eliminating 99% of pathogens"
     ],
     featured: true
   }
@@ -78,9 +78,9 @@ export default function Services() {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-workplace-dark mb-6">Office Cleaning Services</h2>
+          <h2 className="text-5xl font-bold text-workplace-dark mb-6">Elite Commercial Solutions</h2>
           <p className="text-2xl text-workplace-gray max-w-4xl mx-auto leading-relaxed">
-            Customized, cost-effective, and superior cleaning solutions for your office and industrial spaces
+            Transformative cleaning excellence engineered for discerning businesses who demand perfection
           </p>
         </div>
 
