@@ -105,8 +105,11 @@ export default function About() {
                     We don't just complete tasks—we perfect them. Every service includes thorough 
                     attention to detail that ensures your space meets our rigorous standards.
                   </p>
-                  <div className="rounded-lg p-4" style={{backgroundColor: '#F0F9FF'}}>
-                    <p className="font-semibold text-sm" style={{color: '#1A1A1A'}}>
+                  <div className="design-container-floating p-4" style={{
+                    background: 'linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(164, 214, 94, 0.1))',
+                    border: '1px solid rgba(0, 188, 212, 0.2)'
+                  }}>
+                    <p className="font-semibold text-sm glow-underglow" style={{color: '#1A1A1A'}}>
                       Our team takes pride in delivering exceptional results, every single time.
                     </p>
                   </div>

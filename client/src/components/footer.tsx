@@ -40,12 +40,12 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
-          <div>
+          <div className="design-container-accent p-6">
             <div className="flex items-center mb-6">
               <img 
                 src={wjs_logo_windows} 
                 alt="Workplace Janitorial Services" 
-                className="h-10 w-auto"
+                className="h-10 w-auto glow-underglow"
               />
             </div>
             <p className="text-workplace-dark mb-6 leading-relaxed font-medium">
@@ -53,24 +53,28 @@ export default function Footer() {
               uncompromising excellence with comprehensive insurance protection and professional accountability.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com/workplacejanitorialservices" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="https://facebook.com/workplacejanitorialservices" target="_blank" rel="noopener noreferrer" className="design-container-floating p-3 text-white glow-hover" style={{background: 'linear-gradient(45deg, #00BCD4, #A4D65E)'}}>
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/company/workplace-janitorial-services" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="https://linkedin.com/company/workplace-janitorial-services" target="_blank" rel="noopener noreferrer" className="design-container-floating p-3 text-white glow-hover" style={{background: 'linear-gradient(45deg, #A4D65E, #00BCD4)'}}>
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           {/* Services */}
-          <div>
-            <h4 className="text-2xl font-bold mb-6 text-workplace-blue">{footerSections[0].title}</h4>
+          <div className="design-container-elevated p-6">
+            <h4 className="text-2xl font-bold mb-6 text-workplace-blue glow-underglow">{footerSections[0].title}</h4>
             <ul className="space-y-3">
               {footerSections[0].links.map((link, index) => (
                 <li key={index}>
                   <button 
                     onClick={() => scrollToSection('services')}
-                    className="text-workplace-dark hover:text-workplace-blue transition-colors text-left text-base font-medium"
+                    className="text-workplace-dark hover:text-workplace-blue transition-all text-left text-base font-medium design-container-floating px-3 py-2 w-full glow-hover"
+                    style={{
+                      border: '1px solid rgba(0, 188, 212, 0.1)',
+                      background: 'rgba(164, 214, 94, 0.05)'
+                    }}
                   >
                     {link}
                   </button>
@@ -80,8 +84,8 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-2xl font-bold mb-6 text-workplace-blue">{footerSections[1].title}</h4>
+          <div className="design-container-elevated p-6">
+            <h4 className="text-2xl font-bold mb-6 text-workplace-blue glow-underglow">{footerSections[1].title}</h4>
             <ul className="space-y-3">
               {footerSections[1].links.map((link, index) => {
                 const sectionMap: { [key: string]: string } = {
@@ -96,7 +100,11 @@ export default function Footer() {
                   <li key={index}>
                     <button 
                       onClick={() => sectionId ? scrollToSection(sectionId) : undefined}
-                      className="text-workplace-dark hover:text-workplace-blue transition-colors text-left text-base font-medium"
+                      className="text-workplace-dark hover:text-workplace-blue transition-all text-left text-base font-medium design-container-floating px-3 py-2 w-full glow-hover"
+                      style={{
+                        border: '1px solid rgba(164, 214, 94, 0.1)',
+                        background: 'rgba(0, 188, 212, 0.05)'
+                      }}
                     >
                       {link}
                     </button>
@@ -107,19 +115,25 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 className="text-2xl font-bold mb-6 text-workplace-blue">Contact Us</h4>
+          <div className="design-container-premium p-6">
+            <h4 className="text-2xl font-bold mb-6 text-workplace-blue glow-underglow">Contact Us</h4>
             <div className="space-y-4">
-              <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
-                <Phone className="w-5 h-5 mr-3 text-workplace-green" />
+              <div className="flex items-center design-container-accent p-4 glow-hover">
+                <Phone className="w-5 h-5 mr-3 text-white" style={{
+                  filter: 'drop-shadow(0 0 8px rgba(0, 188, 212, 0.6))'
+                }} />
                 <span className="text-base font-medium text-workplace-dark">(204) 415-2910</span>
               </div>
-              <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
-                <Mail className="w-5 h-5 mr-3 text-workplace-green" />
+              <div className="flex items-center design-container-accent p-4 glow-hover">
+                <Mail className="w-5 h-5 mr-3 text-white" style={{
+                  filter: 'drop-shadow(0 0 8px rgba(164, 214, 94, 0.6))'
+                }} />
                 <span className="text-base text-workplace-dark">Executive consultation</span>
               </div>
-              <div className="flex items-start bg-white p-4 rounded-lg border-2 border-workplace-blue">
-                <MapPin className="w-5 h-5 mr-3 text-workplace-green mt-1" />
+              <div className="flex items-start design-container-accent p-4 glow-hover">
+                <MapPin className="w-5 h-5 mr-3 text-white mt-1" style={{
+                  filter: 'drop-shadow(0 0 8px rgba(0, 188, 212, 0.6))'
+                }} />
                 <span className="text-base text-workplace-dark">2-761 Marion Street<br />Winnipeg, MB R2J 0K6</span>
               </div>
             </div>
