@@ -57,6 +57,7 @@ app.use((req, res, next) => {
 
   // Serve the customers page directly without React
   app.get('/', (req, res) => {
+    res.set('Content-Type', 'text/html');
     const customersHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
