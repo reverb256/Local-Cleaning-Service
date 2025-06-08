@@ -321,7 +321,12 @@ export default function QuoteCalculator() {
               <Button 
                 type="submit"
                 disabled={submitQuoteMutation.isPending}
-                className="w-full bg-workplace-blue text-white hover:bg-workplace-blue-dark py-4 text-lg font-semibold flex items-center justify-center"
+                className="w-full design-container-premium py-4 text-lg font-semibold flex items-center justify-center glow-hover text-white"
+                style={{
+                  background: 'linear-gradient(135deg, #00BCD4 0%, #A4D65E 100%)',
+                  border: '2px solid rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 0 30px rgba(0, 188, 212, 0.3)'
+                }}
               >
                 {submitQuoteMutation.isPending ? (
                   <div className="flex items-center">

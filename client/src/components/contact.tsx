@@ -227,7 +227,12 @@ export default function Contact() {
                 <Button 
                   type="submit"
                   disabled={submitContactMutation.isPending}
-                  className="w-full bg-workplace-blue text-white hover:bg-workplace-blue-dark py-4 text-lg font-semibold flex items-center justify-center"
+                  className="w-full design-container-premium py-4 text-lg font-semibold flex items-center justify-center glow-hover text-white"
+                  style={{
+                    background: 'linear-gradient(135deg, #A4D65E 0%, #00BCD4 100%)',
+                    border: '2px solid rgba(255, 255, 255, 0.2)',
+                    boxShadow: '0 0 30px rgba(164, 214, 94, 0.3)'
+                  }}
                 >
                   {submitContactMutation.isPending ? (
                     <div className="flex items-center">

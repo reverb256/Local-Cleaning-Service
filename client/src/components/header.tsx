@@ -78,7 +78,12 @@ export default function Header() {
             </div>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="btn-primary"
+              className="design-container-floating glow-hover text-white px-6 py-2"
+              style={{
+                background: 'linear-gradient(45deg, #00BCD4, #A4D65E)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                boxShadow: '0 0 20px rgba(0, 188, 212, 0.2)'
+              }}
             >
               Engage Excellence
             </Button>
