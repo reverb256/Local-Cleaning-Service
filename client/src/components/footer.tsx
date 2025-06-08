@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Linkedin } from "lucide-react";
 import { Link } from "wouter";
 
 import wjs_logo_windows from "@assets/wjs-logo-windows.png";
@@ -55,9 +55,6 @@ export default function Footer() {
             <div className="flex space-x-4">
               <a href="https://facebook.com/workplacejanitorialservices" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a href="https://twitter.com/wpjanitorial" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
-                <Twitter className="w-5 h-5" />
               </a>
               <a href="https://linkedin.com/company/workplace-janitorial-services" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Linkedin className="w-5 h-5" />
