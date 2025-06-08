@@ -65,8 +65,8 @@ export default function ValueProposition() {
                 key={index}
                 className={`p-6 rounded-2xl transition-all duration-300 hover:transform hover:scale-105 ${
                   point.highlight 
-                    ? 'bg-gradient-to-br from-workplace-blue to-workplace-green text-white shadow-xl' 
-                    : 'bg-white shadow-lg hover:shadow-xl border border-gray-100'
+                    ? 'bg-gradient-to-br from-blue-600 to-green-600 text-white shadow-xl' 
+                    : 'bg-white shadow-lg hover:shadow-xl border-2 border-blue-200'
                 }`}
               >
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${
@@ -111,7 +111,7 @@ export default function ValueProposition() {
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-workplace-blue to-workplace-green rounded-2xl p-8 text-white">
+              <div className="bg-gradient-to-br from-blue-600 to-green-600 rounded-2xl p-8 text-white">
                 <h4 className="text-2xl font-bold mb-4">Ready to Experience the Difference?</h4>
                 <p className="text-lg mb-6 opacity-95">
                   Join the 200+ Winnipeg businesses who trust us with their most important spaces.

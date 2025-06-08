@@ -120,7 +120,7 @@ export default function Services() {
         
         {/* Enhanced Call to Action */}
         <div className="text-center mt-20">
-          <div className="bg-gradient-to-r from-workplace-blue to-workplace-green rounded-2xl p-10 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-10 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-black bg-opacity-10"></div>
             <div className="relative z-10">
               <h3 className="text-4xl font-bold mb-4">Ready for Excellence?</h3>
