@@ -89,26 +89,31 @@ export default function About() {
               className="rounded-2xl shadow-lg w-full mb-8"
             />
             
-            {/* 30-Minute Guarantee */}
-            <div className="glass-card p-8 bg-gradient-to-r from-workplace-blue to-workplace-green">
-              <div className="flex items-center mb-6">
-                <div className="diamond-shape bg-white bg-opacity-20 mr-6">
-                  <div className="diamond-shape-content">
+            {/* Service Excellence Promise */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-workplace-blue">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-workplace-blue rounded-full flex items-center justify-center">
                     <Clock className="w-6 h-6 text-white" />
                   </div>
                 </div>
-                <h3 className="text-3xl font-bold text-white">Our 30-Minute Guarantee</h3>
-              </div>
-              <p className="mb-6 text-white text-lg leading-relaxed">
-                If we finish early, we'll spend an extra 30 minutes on detail work at no additional cost. 
-                Your satisfaction is our priority.
-              </p>
-              <div className="glass-card p-4 bg-white bg-opacity-10">
-                <div className="text-white text-base font-medium">
-                  This guarantee applies to all regular cleaning services
+                <div>
+                  <h3 className="text-2xl font-bold text-workplace-dark mb-4">
+                    Quality Beyond Time Commitment
+                  </h3>
+                  <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                    We don't just complete tasks—we perfect them. Every service includes thorough 
+                    attention to detail that ensures your space meets our rigorous standards.
+                  </p>
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <p className="text-workplace-dark font-semibold text-sm">
+                      Our team takes pride in delivering exceptional results, every single time.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
