@@ -74,7 +74,7 @@ A comprehensive office cleaning service website featuring integrated AI orchestr
 ### Workplace Janitorial Services
 - **Location**: 2-761 Marion Street, Winnipeg, MB R2J 0K6
 - **Phone**: (204) 415-2910
-- **Email**: info@officecleaningwinnipeg.com
+- **Email**: info@workplacejanitorial.ca
 - **Service Area**: Greater Winnipeg Area
 
 ### Key Features
@@ -268,7 +268,7 @@ This project is proprietary software developed for Workplace Janitorial Services
 - **Features**: Contact development team
 
 ### Business Inquiries
-- **Email**: info@officecleaningwinnipeg.com
+- **Email**: info@workplacejanitorial.ca
 - **Phone**: (204) 415-2910
 - **Address**: 2-761 Marion Street, Winnipeg, MB R2J 0K6
 

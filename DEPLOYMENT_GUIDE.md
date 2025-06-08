@@ -58,7 +58,7 @@ Client logos properly integrated:
 ### Contact Information Consistency ✅
 Verified across all components:
 - Phone: (204) 415-2910
-- Email: info@officecleaningwinnipeg.com
+- Email: info@workplacejanitorial.ca
 - Address: 2-761 Marion Street, Winnipeg, MB R2J 0K6
 
 ## Deployment Steps

@@ -89,7 +89,7 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      content: "info@officecleaningwinnipeg.com",
+      content: "info@workplacejanitorial.ca",
       subtitle: "We respond within 2 hours"
     },
     {

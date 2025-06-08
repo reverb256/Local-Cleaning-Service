@@ -8,7 +8,7 @@ Vibecoding is a comprehensive web development methodology that combines authenti
 
 ### 1.1 Authentic Requirements Gathering
 - **Real Business Context**: Workplace Janitorial Services, Winnipeg-based commercial cleaning
-- **Contact Information Verification**: (204) 415-2910, info@officecleaningwinnipeg.com
+- **Contact Information Verification**: (204) 415-2910, info@workplacejanitorial.ca
 - **Service Area Definition**: Greater Winnipeg Area, Manitoba
 - **Competitive Analysis**: Local cleaning service landscape
 - **Brand Identity Integration**: Sky blue (#55C7F7) and lime green (#A4D65E) color scheme
