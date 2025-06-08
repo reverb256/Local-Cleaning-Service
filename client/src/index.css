@@ -13,7 +13,7 @@
   --card-foreground: hsl(222, 84%, 4.9%);
   --border: hsl(214.3, 31.8%, 91.4%);
   --input: hsl(214.3, 31.8%, 91.4%);
-  --primary: hsl(160, 84%, 39%);
+  --primary: hsl(220, 14%, 30%);
   --primary-foreground: hsl(355, 100%, 97%);
   --secondary: hsl(210, 40%, 98%);
   --secondary-foreground: hsl(222.2, 84%, 4.9%);
@@ -21,9 +21,9 @@
   --accent-foreground: hsl(222.2, 84%, 4.9%);
   --destructive: hsl(0, 84.2%, 60.2%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(160, 84%, 39%);
+  --ring: hsl(220, 14%, 30%);
   --radius: 0.5rem;
-  --cyan: hsl(188, 95%, 50%);
+  --cyan: hsl(214, 31%, 65%);
 }
 
 .dark {

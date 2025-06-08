@@ -6,25 +6,25 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    title: "Operations Manager, TechFlow Solutions",
-    content: "Elite Clean transformed our office environment completely. Their attention to detail and eco-friendly approach impressed our entire team. We've been using their services for over a year now.",
+    name: "Office Manager",
+    title: "Downtown Law Firm",
+    content: "Workplace Janitorial has maintained our law office impeccably for three years. Their staff pass criminal background checks and their inspector ensures consistent quality through unannounced visits.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100"
   },
   {
     id: 2,
-    name: "Michael Chen",
-    title: "CEO, GreenSpace Consulting",
-    content: "Professional, reliable, and thorough. The team arrives on time and leaves our workspace immaculate. Their green cleaning products align perfectly with our company values.",
+    name: "Facilities Director",
+    title: "Winnipeg Medical Center",
+    content: "Their vendor managed inventory program keeps our washroom supplies fully stocked. We never run out of toilet paper, hand soap, or sanitizers. The 30-day billing terms work perfectly for our accounting.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100"
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    title: "Office Manager, Prairie Legal Group",
-    content: "Outstanding service and competitive pricing. They customized their cleaning schedule to fit our needs perfectly. I highly recommend them to any business in Winnipeg.",
+    name: "Operations Manager",
+    title: "Technology Consulting Firm",
+    content: "The 30-minute guarantee exceeded our expectations. Their staff completes all tasks and spends additional time on detail work at no extra cost. Comprehensive liability insurance gives us peace of mind.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100"
   }

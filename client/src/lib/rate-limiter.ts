@@ -125,29 +125,141 @@ export class RateLimiter {
     };
   }
 
-  // Discover API limits through progressive testing
+  // Enhanced API limits discovery with model adaptation
   async discoverEndpointLimits(endpoint: string): Promise<void> {
     console.log(`Discovering rate limits for ${endpoint}`);
     
-    // Start with conservative defaults
-    const conservativeLimit: RateLimit = {
+    try {
+      // Test endpoint with HEAD request to get rate limit headers
+      const response = await fetch(endpoint, { 
+        method: 'HEAD',
+        headers: { 
+          'User-Agent': 'WorkplaceJanitorial-AI/1.0',
+          'Accept': 'application/json'
+        }
+      });
+      
+      const headers = response.headers;
+      const rateLimitRemaining = headers.get('X-RateLimit-Remaining') || headers.get('X-Rate-Limit-Remaining');
+      const rateLimitReset = headers.get('X-RateLimit-Reset') || headers.get('X-Rate-Limit-Reset');
+      const rateLimitLimit = headers.get('X-RateLimit-Limit') || headers.get('X-Rate-Limit-Limit');
+      
+      let discoveredLimit: RateLimit;
+      
+      if (rateLimitLimit && rateLimitReset) {
+        // Use actual API limits
+        discoveredLimit = {
+          endpoint,
+          maxRequests: parseInt(rateLimitLimit),
+          windowMs: this.calculateWindowFromReset(rateLimitReset),
+          currentCount: rateLimitLimit && rateLimitRemaining ? 
+            parseInt(rateLimitLimit) - parseInt(rateLimitRemaining) : 0,
+          resetTime: this.parseResetTime(rateLimitReset)
+        };
+      } else {
+        // Fallback to progressive discovery
+        discoveredLimit = await this.progressiveDiscovery(endpoint);
+      }
+      
+      this.limits.set(endpoint, discoveredLimit);
+      console.log(`Discovered limits for ${endpoint}:`, discoveredLimit);
+      
+    } catch (error) {
+      console.log(`API discovery failed for ${endpoint}, using conservative limits`);
+      const conservativeLimit: RateLimit = {
+        endpoint,
+        maxRequests: 5,
+        windowMs: 60000,
+        currentCount: 0,
+        resetTime: Date.now() + 60000
+      };
+      this.limits.set(endpoint, conservativeLimit);
+    }
+  }
+
+  private calculateWindowFromReset(resetHeader: string): number {
+    // Handle different reset header formats
+    const resetValue = parseInt(resetHeader);
+    const now = Date.now() / 1000;
+    
+    if (resetValue > now) {
+      // Reset is a timestamp
+      return (resetValue - now) * 1000;
+    } else {
+      // Reset is seconds from now
+      return resetValue * 1000;
+    }
+  }
+
+  private parseResetTime(resetHeader: string): number {
+    const resetValue = parseInt(resetHeader);
+    const now = Date.now();
+    
+    if (resetValue > now / 1000) {
+      // Reset is a timestamp
+      return resetValue * 1000;
+    } else {
+      // Reset is seconds from now
+      return now + (resetValue * 1000);
+    }
+  }
+
+  private async progressiveDiscovery(endpoint: string): Promise<RateLimit> {
+    const testSequence = [1, 3, 5, 10, 15, 25];
+    let maxSuccessful = 1;
+    
+    for (const testCount of testSequence) {
+      const startTime = Date.now();
+      const success = await this.testEndpointCapacity(endpoint, testCount);
+      
+      if (success) {
+        maxSuccessful = testCount;
+      } else {
+        break;
+      }
+      
+      // Exponential backoff between tests
+      const backoffTime = Math.min(1000 * Math.pow(2, testSequence.indexOf(testCount)), 10000);
+      await new Promise(resolve => setTimeout(resolve, backoffTime));
+    }
+    
+    return {
       endpoint,
-      maxRequests: 5,
+      maxRequests: Math.floor(maxSuccessful * 0.8), // Use 80% of discovered capacity
       windowMs: 60000,
       currentCount: 0,
       resetTime: Date.now() + 60000
     };
+  }
 
-    this.limits.set(endpoint, conservativeLimit);
-
-    // In production, this would involve:
-    // 1. Making test requests at increasing rates
-    // 2. Monitoring for 429 responses
-    // 3. Backing off when limits are hit
-    // 4. Storing discovered limits persistently
-    
-    // For this implementation, we'll use predefined discovery logic
-    this.progressivelyTestLimits(endpoint);
+  private async testEndpointCapacity(endpoint: string, requestCount: number): Promise<boolean> {
+    try {
+      const timeoutMs = 10000; // 10 second timeout
+      const promises = Array(requestCount).fill(null).map(async (_, index) => {
+        const delay = index * 100; // Stagger requests by 100ms
+        await new Promise(resolve => setTimeout(resolve, delay));
+        
+        return fetch(endpoint, { 
+          method: 'HEAD',
+          signal: AbortSignal.timeout(timeoutMs),
+          headers: { 'User-Agent': 'WorkplaceJanitorial-AI/1.0' }
+        });
+      });
+      
+      const results = await Promise.allSettled(promises);
+      const successful = results.filter(result => 
+        result.status === 'fulfilled' && 
+        result.value.status < 400 && 
+        result.value.status !== 429
+      ).length;
+      
+      const successRate = successful / requestCount;
+      return successRate >= 0.8; // Require 80% success rate
+      
+    } catch (error) {
+      console.log(`Capacity test failed for ${endpoint}:`, error);
+      return false;
+    }
   }
 
   private async progressivelyTestLimits(endpoint: string): Promise<void> {

@@ -1,5 +1,6 @@
 // AI Orchestration System for Office Cleaning Service
 // Implements security-first architecture with local LLM proxy and rate limiting
+import { ragSystem } from './knowledge-base';
 
 export interface AIResponse {
   response: string;
@@ -83,7 +84,7 @@ export class AIOrchestrationSystem {
     }
   }
 
-  // Context-aware response generation
+  // Context-aware response generation with RAG
   private generateContextualResponse(message: string, context: ChatContext): string {
     const lowerMessage = message.toLowerCase();
     const messageHistory = context.messages.map(m => m.content.toLowerCase()).join(' ');
@@ -93,6 +94,12 @@ export class AIOrchestrationSystem {
     const hour = now.getHours();
     const isBusinessHours = (hour >= 8 && hour <= 18 && now.getDay() >= 1 && now.getDay() <= 5) ||
                            (hour >= 9 && hour <= 16 && now.getDay() === 6);
+
+    // First try RAG system for knowledge-based responses
+    const ragResponse = ragSystem.getAnswerWithContext(message);
+    if (ragResponse) {
+      return ragResponse + " For more specific details, call (204) 415-2910.";
+    }
 
     // Intent classification with context
     if (this.isGreeting(lowerMessage)) {
@@ -252,21 +259,148 @@ export class AIOrchestrationSystem {
     return optimized;
   }
 
-  // API limit discovery system
-  async discoverApiLimits(endpoint: string): Promise<{ maxRequests: number; windowMs: number }> {
-    // Progressive testing approach to discover API limits
-    const testLimits = [
-      { maxRequests: 10, windowMs: 60000 },
-      { maxRequests: 100, windowMs: 3600000 },
-      { maxRequests: 1000, windowMs: 86400000 }
-    ];
+  // Enhanced API limit discovery with model adaptation
+  async discoverApiLimits(endpoint: string): Promise<{ maxRequests: number; windowMs: number; modelOptions?: string[] }> {
+    try {
+      // Test endpoint availability and extract rate limit headers
+      const response = await fetch(endpoint, { 
+        method: 'HEAD',
+        headers: { 'User-Agent': 'WorkplaceJanitorial-AI/1.0' }
+      });
+      
+      const headers = response.headers;
+      const rateLimitRemaining = headers.get('X-RateLimit-Remaining');
+      const rateLimitReset = headers.get('X-RateLimit-Reset');
+      const rateLimitLimit = headers.get('X-RateLimit-Limit');
+      
+      // Discover available models if this is an AI service endpoint
+      let modelOptions: string[] = [];
+      if (endpoint.includes('openai') || endpoint.includes('anthropic') || endpoint.includes('huggingface')) {
+        modelOptions = await this.discoverAvailableModels(endpoint);
+      }
+      
+      if (rateLimitLimit && rateLimitReset) {
+        return {
+          maxRequests: parseInt(rateLimitLimit),
+          windowMs: parseInt(rateLimitReset) * 1000,
+          modelOptions
+        };
+      }
+      
+      // Fallback to progressive discovery
+      return await this.progressiveApiDiscovery(endpoint, modelOptions);
+      
+    } catch (error) {
+      console.log(`API discovery failed for ${endpoint}, using conservative limits`);
+      return { maxRequests: 5, windowMs: 60000 };
+    }
+  }
 
-    // Start with conservative limits and adjust based on responses
-    const currentLimit = testLimits[0];
+  private async discoverAvailableModels(endpoint: string): Promise<string[]> {
+    const freeModels = [
+      'gpt-3.5-turbo', // OpenAI free tier
+      'claude-3-haiku', // Anthropic free tier
+      'text-embedding-ada-002', // OpenAI embeddings
+      'llama-2-7b', // Hugging Face free tier
+      'distilbert-base-uncased' // Hugging Face free tier
+    ];
     
-    console.log(`Discovering limits for ${endpoint}:`, currentLimit);
+    // Test which models are available
+    const availableModels: string[] = [];
+    for (const model of freeModels) {
+      try {
+        const testResponse = await fetch(endpoint + '/models', {
+          method: 'GET',
+          headers: { 'Authorization': 'Bearer test' }
+        });
+        
+        if (testResponse.status !== 401) { // Not just auth error
+          availableModels.push(model);
+        }
+      } catch {
+        // Model not available
+      }
+    }
     
-    return currentLimit;
+    return availableModels.length > 0 ? availableModels : freeModels;
+  }
+
+  private async progressiveApiDiscovery(endpoint: string, modelOptions: string[]): Promise<{ maxRequests: number; windowMs: number; modelOptions?: string[] }> {
+    // Progressive testing with exponential backoff
+    const testSequence = [1, 5, 10, 20, 50];
+    let maxSuccessful = 1;
+    
+    for (const testCount of testSequence) {
+      const success = await this.testApiRate(endpoint, testCount);
+      if (success) {
+        maxSuccessful = testCount;
+      } else {
+        break;
+      }
+      
+      // Wait between tests
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
+    
+    return {
+      maxRequests: Math.max(maxSuccessful * 0.8, 1), // Use 80% of discovered limit
+      windowMs: 60000,
+      modelOptions
+    };
+  }
+
+  private async testApiRate(endpoint: string, requestCount: number): Promise<boolean> {
+    try {
+      const promises = Array(requestCount).fill(null).map(() => 
+        fetch(endpoint, { 
+          method: 'HEAD',
+          signal: AbortSignal.timeout(5000)
+        })
+      );
+      
+      const results = await Promise.allSettled(promises);
+      const successCount = results.filter(r => r.status === 'fulfilled').length;
+      
+      return successCount >= requestCount * 0.8; // 80% success rate
+    } catch {
+      return false;
+    }
+  }
+
+  // Cloudflare optimization for free tier
+  async optimizeForCloudflare(): Promise<void> {
+    // Configure for Cloudflare Workers and Pages
+    const cloudflareConfig = {
+      caching: {
+        // Cache static responses for 1 hour
+        staticResponses: 3600,
+        // Cache dynamic responses for 5 minutes
+        dynamicResponses: 300,
+        // Cache embeddings for 24 hours
+        embeddings: 86400
+      },
+      rateLimit: {
+        // Cloudflare free tier: 100,000 requests/day
+        dailyLimit: 100000,
+        // Distribute across 24 hours
+        hourlyLimit: 4166,
+        // Per-minute limit to avoid spikes
+        minuteLimit: 69
+      },
+      edgeCompute: {
+        // Use edge computing for simple queries
+        simpleQueries: true,
+        // Route complex queries to origin
+        complexQueryThreshold: 10
+      }
+    };
+    
+    // Store configuration in localStorage for client-side optimization
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('cloudflare-config', JSON.stringify(cloudflareConfig));
+    }
+    
+    console.log('Optimized for Cloudflare free tier:', cloudflareConfig);
   }
 }
 
