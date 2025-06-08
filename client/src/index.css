@@ -3,20 +3,15 @@
 @tailwind utilities;
 
 :root {
-  /* Enhanced Brand Colors - Optimized for Contrast */
-  --workplace-cyan: #006064;     /* Darker cyan for better contrast */
-  --workplace-teal: #004D40;     /* Deep teal variant */
-  --workplace-blue: #0D47A1;    /* Deep professional blue */
-  --workplace-green: #388E3C;   /* Strong green for visibility */
+  /* Diamond Logo-Inspired Brand Colors - Professional Geometric Design */
+  --workplace-cyan: #00BCD4;     /* Primary cyan from logo */
+  --workplace-teal: #009688;     /* Deeper teal variant */
+  --workplace-blue: #0277BD;    /* Professional blue */
+  --workplace-green: #A4D65E;   /* Accent green */
   --workplace-dark: #1A1A1A;    /* 21:1 contrast ratio */
-  --workplace-gray: #424242;    /* Enhanced gray for readability */
-  --workplace-light: #F5F5F5;
+  --workplace-gray: #2D2D2D;    /* 15:1 contrast ratio */
+  --workplace-light: #F7FAFC;
   --workplace-white: #FFFFFF;
-  
-  /* Additional contrast variants */
-  --workplace-blue-light: #1976D2;
-  --workplace-green-light: #4CAF50;
-  --workplace-accent: #FF6F00;
   
   /* Circular Logo-Inspired Design System */
   --logo-cyan: #00BCD4;
@@ -739,58 +734,58 @@ select,
 
 /* Custom Tailwind utilities for WCAG compliance */
 .text-workplace-dark {
-  color: #1f2937;
+  color: var(--workplace-dark);
 }
 
 .text-workplace-gray {
-  color: #374151;
+  color: var(--workplace-gray);
 }
 
 .text-workplace-blue {
-  color: #1e40af;
+  color: var(--workplace-blue-dark);
 }
 
 .text-workplace-green {
-  color: #059669;
+  color: var(--workplace-green-dark);
 }
 
 /* Fix white-on-turquoise contrast issues */
 .text-on-turquoise {
-  color: #1f2937 !important;
+  color: var(--workplace-dark) !important;
   text-shadow: none !important;
 }
 
 .text-high-contrast {
-  color: #000000 !important;
+  color: var(--workplace-text-primary) !important;
   font-weight: 600 !important;
 }
 
 .bg-workplace-blue {
-  background-color: #2563eb;
+  background-color: var(--workplace-blue);
 }
 
 .bg-workplace-green {
-  background-color: #059669;
+  background-color: var(--workplace-green);
 }
 
 .bg-workplace-dark {
-  background-color: #1f2937;
+  background-color: var(--workplace-dark);
 }
 
 .bg-workplace-light {
-  background-color: #f8fafc;
+  background-color: var(--workplace-light);
 }
 
 .border-workplace-blue {
-  border-color: #2563eb;
+  border-color: var(--workplace-blue);
 }
 
 .border-workplace-green {
-  border-color: #059669;
+  border-color: var(--workplace-green);
 }
 
 .border-workplace-dark {
-  border-color: #1f2937;
+  border-color: var(--workplace-dark);
 }
 
 /* Hero Section Styling */

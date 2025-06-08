@@ -35,13 +35,13 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative py-12 overflow-hidden">
+    <section id="about" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 glass-background"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="animate-slide-in">
-            <h2 className="text-5xl font-bold text-gray-900 mb-8">Excellence Redefined</h2>
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+            <h2 className="text-5xl font-bold text-workplace-dark mb-8">Excellence Redefined</h2>
+            <p className="text-xl text-workplace-gray mb-8 leading-relaxed">
               Workplace Janitorial commands Winnipeg's commercial cleaning landscape with 
               unmatched authority. Our decade-plus legacy of operational mastery has 
               established the gold standard that defines industry excellence and 
@@ -59,8 +59,8 @@ export default function About() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-xl mb-3">{feature.title}</h4>
-                      <p className="text-gray-700 text-lg">{feature.description}</p>
+                      <h4 className="font-bold text-workplace-dark text-xl mb-3">{feature.title}</h4>
+                      <p className="text-workplace-gray text-lg">{feature.description}</p>
                     </div>
                   </div>
                 );
@@ -69,11 +69,11 @@ export default function About() {
 
             {/* Certifications */}
             <div className="glass-card p-8">
-              <h4 className="font-bold text-gray-900 text-xl mb-6">Our Certifications</h4>
+              <h4 className="font-bold text-workplace-dark text-xl mb-6">Our Certifications</h4>
               <div className="flex flex-wrap gap-4">
                 {certifications.map((cert, index) => (
-                  <div key={index} className="bg-blue-50 px-6 py-3 rounded-2xl border border-blue-200">
-                    <span className="text-base font-semibold text-gray-900">
+                  <div key={index} className="bg-workplace-blue bg-opacity-10 px-6 py-3 rounded-2xl border border-workplace-blue border-opacity-20">
+                    <span className="text-base font-semibold text-workplace-dark">
                       {cert.icon} {cert.text}
                     </span>
                   </div>
@@ -89,39 +89,26 @@ export default function About() {
               className="rounded-2xl shadow-lg w-full mb-8"
             />
             
-            {/* 30-Minute Guarantee - Enhanced */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-600 to-green-600 rounded-2xl shadow-2xl">
-              <div className="absolute inset-0 bg-black bg-opacity-10"></div>
-              <div className="relative p-8">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-6">
-                    <Clock className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-3xl font-bold text-white mb-1">30-Minute Guarantee</h3>
-                    <p className="text-white text-opacity-90 text-lg">Excellence Beyond Expectations</p>
+            {/* Service Excellence Promise */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-workplace-blue">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-workplace-blue rounded-full flex items-center justify-center">
+                    <Clock className="w-6 h-6 text-white" />
                   </div>
                 </div>
-                
-                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded-xl p-6 mb-6">
-                  <p className="text-white text-lg leading-relaxed mb-4">
-                    When we finish early, we invest an additional 30 minutes in detail work at no extra cost. 
-                    Your complete satisfaction drives our commitment to perfection.
+                <div>
+                  <h3 className="text-2xl font-bold text-workplace-dark mb-4">
+                    Quality Beyond Time Commitment
+                  </h3>
+                  <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                    We don't just complete tasks—we perfect them. Every service includes thorough 
+                    attention to detail that ensures your space meets our rigorous standards.
                   </p>
-                  <div className="flex items-center text-white text-opacity-90">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
-                    <span className="font-medium">Applies to all regular cleaning services</span>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-white bg-opacity-10 rounded-lg p-4">
-                    <h4 className="text-white font-bold mb-2">What This Means</h4>
-                    <p className="text-white text-opacity-90 text-sm">Extra attention to high-touch surfaces, thorough final inspection, and additional detail cleaning</p>
-                  </div>
-                  <div className="bg-white bg-opacity-10 rounded-lg p-4">
-                    <h4 className="text-white font-bold mb-2">Your Benefit</h4>
-                    <p className="text-white text-opacity-90 text-sm">Consistently superior results that exceed industry standards, guaranteed</p>
+                  <div className="bg-gray-50 rounded-lg p-4">
+                    <p className="text-workplace-dark font-semibold text-sm">
+                      Our team takes pride in delivering exceptional results, every single time.
+                    </p>
                   </div>
                 </div>
               </div>

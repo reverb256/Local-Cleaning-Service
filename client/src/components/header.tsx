@@ -30,42 +30,59 @@ export default function Header() {
             </div>
           </div>
           
-          {/* Desktop Navigation - Value-Focused Flow */}
-          <div className="hidden lg:flex items-center space-x-1">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-2">
+            <button 
+              onClick={() => scrollToSection('home')}
+              className="nav-link"
+            >
+              Home
+            </button>
             <button 
               onClick={() => scrollToSection('services')}
-              className="nav-link px-4 py-2 text-workplace-dark hover:text-workplace-blue transition-colors"
+              className="nav-link"
             >
-              Our Solutions
-            </button>
-            <button 
-              onClick={() => scrollToSection('customers')}
-              className="nav-link px-4 py-2 text-workplace-dark hover:text-workplace-blue transition-colors"
-            >
-              Trusted By 200+
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className="nav-link px-4 py-2 text-workplace-dark hover:text-workplace-blue transition-colors"
-            >
-              Why Choose Us
+              Solutions
             </button>
             <button 
               onClick={() => scrollToSection('quote')}
-              className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 px-6 py-3 rounded-lg font-bold transition-all duration-200 transform hover:scale-105 shadow-md"
+              className="nav-link"
             >
-              Get FREE Quote
+              Executive Quote
+            </button>
+            <button 
+              onClick={() => scrollToSection('customers')}
+              className="nav-link"
+            >
+              Clients
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="nav-link"
+            >
+              Excellence
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="bg-blue-600 text-white hover:bg-green-600 px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center"
+              className="nav-link"
             >
-              <Phone className="w-4 h-4 mr-2" />
-              Call Now
+              Partnership
             </button>
           </div>
 
-
+          {/* Desktop CTA */}
+          <div className="hidden lg:flex items-center space-x-6">
+            <div className="flex items-center text-sm text-workplace-dark font-medium">
+              <Phone className="w-4 h-4 mr-2 text-workplace-blue" />
+              <span>(204) 415-2910</span>
+            </div>
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              className="btn-primary"
+            >
+              Engage Excellence
+            </Button>
+          </div>
 
           {/* Mobile menu button */}
           <div className="lg:hidden">
@@ -83,49 +100,54 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="lg:hidden glass-card mt-2 mx-4 mb-4">
-            <div className="px-4 pt-4 pb-6 space-y-3">
-              {/* Priority Actions First */}
-              <div className="space-y-2 pb-4 border-b border-gray-200">
-                <button 
-                  onClick={() => scrollToSection('quote')}
-                  className="w-full bg-yellow-400 text-workplace-dark hover:bg-yellow-500 py-3 px-4 rounded-lg font-bold text-center transition-all"
-                >
-                  Get FREE Quote Now
-                </button>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="w-full bg-workplace-blue text-white hover:bg-workplace-green py-3 px-4 rounded-lg font-medium text-center transition-all flex items-center justify-center"
-                >
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call (204) 415-2910
-                </button>
-              </div>
-              
-              {/* Value-Focused Navigation */}
+            <div className="px-4 pt-4 pb-6 space-y-2">
+              <button 
+                onClick={() => scrollToSection('home')}
+                className="nav-link w-full text-left"
+              >
+                Home
+              </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="nav-link w-full text-left py-2"
+                className="nav-link w-full text-left"
               >
-                Our Solutions
+                Services
+              </button>
+              <button 
+                onClick={() => scrollToSection('quote')}
+                className="nav-link w-full text-left"
+              >
+                Get Quote
               </button>
               <button 
                 onClick={() => scrollToSection('customers')}
-                className="nav-link w-full text-left py-2"
+                className="nav-link w-full text-left"
               >
-                Trusted By 200+ Businesses
+                Clients
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="nav-link w-full text-left py-2"
+                className="nav-link w-full text-left"
               >
-                Why Choose Us
+                About
               </button>
-              
-              {/* Trust Indicators */}
-              <div className="pt-3 border-t border-gray-200">
-                <p className="text-xs text-workplace-gray text-center">
-                  30-Minute Guarantee • Free Consultation • Same-Day Response
-                </p>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="nav-link w-full text-left"
+              >
+                Contact
+              </button>
+              <div className="pt-4 border-t border-white border-opacity-20">
+                <div className="flex items-center text-sm text-workplace-dark font-medium mb-4">
+                  <Phone className="w-4 h-4 mr-2 text-workplace-blue" />
+                  <span>(204) 415-2910</span>
+                </div>
+                <Button 
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full btn-primary"
+                >
+                  Book Now
+                </Button>
               </div>
             </div>
           </div>
