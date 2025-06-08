@@ -107,25 +107,25 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 glass-background"></div>
+    <section id="contact" className="relative py-24 overflow-hidden bg-gradient-to-br from-workplace-light via-white to-blue-50">
+      <div className="absolute inset-0 bg-gradient-to-br from-workplace-blue/5 to-workplace-green/5"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-workplace-dark mb-6">Contact Us</h2>
-          <p className="text-2xl text-workplace-gray">
-            Ready to transform your workspace? Contact us today!
+          <h2 className="text-5xl font-bold text-workplace-dark mb-6">Get in Touch</h2>
+          <p className="text-2xl text-workplace-dark font-medium">
+            Ready to experience our 30-minute guarantee? Contact us today for your free assessment!
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="design-container-premium p-10 glow-hover">
-            <h3 className="text-3xl font-bold text-workplace-dark mb-8">Send us a Message</h3>
+          <div className="design-container-elevated p-10">
+            <h3 className="text-3xl font-bold text-workplace-blue mb-8 border-b-2 border-workplace-green pb-3">Send us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="firstName" className="text-sm font-medium text-gray-700 mb-2 block">
+                    <Label htmlFor="firstName" className="text-base font-semibold text-workplace-dark mb-2 block">
                       First Name *
                     </Label>
                     <Input

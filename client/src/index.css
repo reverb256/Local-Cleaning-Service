@@ -696,6 +696,47 @@ select:focus,
   }
 }
 
+@keyframes rotating-edge {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floating-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes accent-flow {
+  0% {
+    opacity: 0.5;
+    transform: scaleY(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes premium-scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
 /* Advanced Design System - Harmonized Containers */
 .design-container-primary {
   background: linear-gradient(135deg, rgba(0, 188, 212, 0.05) 0%, rgba(164, 214, 94, 0.05) 100%);
