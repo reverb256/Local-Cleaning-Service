@@ -129,7 +129,7 @@ export default function Footer() {
         <div className="border-t-2 border-workplace-blue mt-16 pt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-workplace-dark text-lg font-medium">
-              © 2025 <a href="https://reverb256.ca" target="_blank" rel="noopener noreferrer" className="text-workplace-blue hover:text-workplace-green transition-all duration-300 underline hover:scale-105 inline-block hover:rotate-1 hover:shadow-lg">Reverb Web Design</a>. All rights reserved.
+              All rights reserved. Workplace Janitorial Services | Office Cleaning Winnipeg.
             </p>
             <div className="flex space-x-8 mt-6 md:mt-0">
               <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
@@ -143,6 +143,13 @@ export default function Footer() {
               </button>
             </div>
           </div>
+        </div>
+        
+        {/* Minimal Website Credit */}
+        <div className="text-center py-4 mt-8 border-t border-gray-200">
+          <p className="text-xs text-gray-500">
+            Website by <a href="https://reverb256.ca" target="_blank" rel="noopener noreferrer" className="text-workplace-blue hover:text-workplace-green transition-all duration-300 underline hover:scale-105 inline-block hover:rotate-1">Reverb Web Design</a>
+          </p>
         </div>
       </div>
     </footer>
