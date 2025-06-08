@@ -31,11 +31,20 @@
   --glass-border: rgba(255, 255, 255, 0.18);
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   
-  /* Underglow Animation Properties */
-  --underglow-blue: rgba(2, 119, 189, 0.4);
-  --underglow-green: rgba(164, 214, 94, 0.4);
-  --underglow-cyan: rgba(0, 188, 212, 0.4);
-  --edge-light-intensity: 0.3;
+  /* Deeper Accent Colors from Reference Spectrum */
+  --workplace-blue-deeper: #004D7A;
+  --workplace-cyan-deep: #00838F;
+  --workplace-teal-deep: #00695C;
+  --workplace-green-deeper: #558B2F;
+  --workplace-forest: #2E7D32;
+  --workplace-navy: #1A237E;
+  
+  /* Enhanced Underglow Animation Properties */
+  --underglow-blue: rgba(0, 77, 122, 0.5);
+  --underglow-green: rgba(85, 139, 47, 0.5);
+  --underglow-cyan: rgba(0, 131, 143, 0.5);
+  --underglow-teal: rgba(0, 105, 92, 0.5);
+  --edge-light-intensity: 0.4;
   
   /* Accessibility Focus Colors */
   --focus-ring: #0066CC;
@@ -739,13 +748,13 @@ select:focus,
 
 /* Advanced Design System - Harmonized Containers */
 .design-container-primary {
-  background: linear-gradient(135deg, rgba(0, 188, 212, 0.05) 0%, rgba(164, 214, 94, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(0, 77, 122, 0.08) 0%, rgba(85, 139, 47, 0.08) 100%);
   border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  filter: drop-shadow(0 0 12px rgba(0, 188, 212, 0.2));
+  filter: drop-shadow(0 0 12px rgba(0, 77, 122, 0.3));
 }
 
 .design-container-primary::before {
@@ -763,13 +772,13 @@ select:focus,
 }
 
 .design-container-accent {
-  background: linear-gradient(135deg, rgba(0, 188, 212, 0.08) 0%, rgba(164, 214, 94, 0.08) 100%);
-  border: 1px solid rgba(0, 188, 212, 0.2);
-  border-left: 4px solid #00BCD4;
+  background: linear-gradient(135deg, rgba(0, 131, 143, 0.12) 0%, rgba(85, 139, 47, 0.12) 100%);
+  border: 1px solid rgba(0, 131, 143, 0.25);
+  border-left: 4px solid var(--workplace-cyan-deep);
   border-radius: 12px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 131, 143, 0.1);
 }
 
 .design-container-accent::after {
