@@ -20,8 +20,8 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <span className="text-2xl font-bold text-primary">Elite</span>
-              <span className="text-2xl font-bold text-cyan ml-1">Clean</span>
+              <span className="text-2xl font-bold text-primary">Workplace</span>
+              <span className="text-2xl font-bold text-cyan ml-1">Janitorial</span>
             </div>
           </div>
           

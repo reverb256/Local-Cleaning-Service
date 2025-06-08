@@ -19,7 +19,7 @@ export default function Hero() {
               <span className="block text-cyan">Winnipeg</span>
             </h1>
             <p className="text-xl lg:text-2xl mb-8 opacity-90 leading-relaxed">
-              Professional, eco-friendly cleaning services that keep your workplace pristine and your team productive. 
+              Workplace Janitorial Services - quality office cleaning with comprehensive liability insurance and WCB coverage. 
               <span className="font-semibold text-cyan"> Get your free quote today!</span>
             </p>
             
@@ -47,15 +47,15 @@ export default function Hero() {
                 <div className="feature-icon mx-auto mb-3 bg-white/20">
                   <Leaf className="w-6 h-6" />
                 </div>
-                <h3 className="font-semibold mb-2">Eco-Friendly</h3>
-                <p className="text-sm opacity-80">Green cleaning products safe for your team</p>
+                <h3 className="font-semibold mb-2">Quality Supplies</h3>
+                <p className="text-sm opacity-80">Full line of washroom and kitchenette supplies</p>
               </div>
               <div className="text-center">
                 <div className="feature-icon mx-auto mb-3 bg-white/20">
                   <Shield className="w-6 h-6" />
                 </div>
-                <h3 className="font-semibold mb-2">Bonded & Insured</h3>
-                <p className="text-sm opacity-80">Complete protection and peace of mind</p>
+                <h3 className="font-semibold mb-2">WCB Coverage</h3>
+                <p className="text-sm opacity-80">All staff covered by comprehensive insurance</p>
               </div>
               <div className="text-center">
                 <div className="feature-icon mx-auto mb-3 bg-white/20">
