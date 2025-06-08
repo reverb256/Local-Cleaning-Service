@@ -44,7 +44,6 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
         <div className="min-h-screen bg-background">
           {/* Skip to main content link for screen readers */}
           <a href="#main-content" className="skip-link">
@@ -71,7 +70,6 @@ function App() {
           </main>
         </div>
         <Toaster />
-      </TooltipProvider>
     </QueryClientProvider>
   );
 }
