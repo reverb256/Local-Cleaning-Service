@@ -11,42 +11,50 @@ const customers = [
   {
     name: "Marriott Bonvoy",
     logo: marriottLogo,
-    description: "Premium hospitality services"
+    description: "Premium hospitality services",
+    bgColor: "bg-red-50"
   },
   {
     name: "Long & McQuade",
     logo: longMcQuadeLogo,
-    description: "Musical instrument retail excellence"
+    description: "Musical instrument retail excellence",
+    bgColor: "bg-blue-50"
   },
   {
     name: "The Grande by Lakeview",
     logo: grandeLogo,
-    description: "Luxury residential living"
+    description: "Luxury residential living",
+    bgColor: "bg-green-50"
   },
   {
     name: "Memory Express",
     logo: memoryExpressLogo,
-    description: "Technology retail solutions"
+    description: "Technology retail solutions",
+    bgColor: "bg-purple-50"
   },
   {
     name: "Benson Financial",
     logo: bensonLogo,
-    description: "Financial planning services"
+    description: "Financial planning services",
+    bgColor: "bg-yellow-50"
   },
   {
     name: "Phason",
     logo: phasonLogo,
-    description: "Agricultural technology innovation"
+    description: "Agricultural technology innovation",
+    bgColor: "bg-indigo-50"
   },
   {
     name: "Crown Royal",
     logo: crownRoyalLogo,
-    description: "Premium spirits excellence"
+    description: "Premium spirits excellence",
+    bgColor: "bg-amber-50"
   },
   {
     name: "Gallagher",
     logo: gallagherLogo,
-    description: "Global insurance and risk management"
+    description: "Global insurance and risk management",
+    bgColor: "bg-teal-50"
   }
 ];
 
@@ -73,7 +81,7 @@ export default function CustomersSimple() {
               key={customer.name}
               className="group relative bg-white rounded-2xl p-4 md:p-8 shadow-lg border-2 border-gray-100 transition-all duration-300 hover:border-workplace-blue hover:shadow-xl hover:-translate-y-2"
             >
-              <div className="h-20 flex items-center justify-center bg-white p-2 rounded-lg">
+              <div className={`h-20 flex items-center justify-center p-2 rounded-lg ${customer.bgColor}`}>
                 <img
                   src={customer.logo}
                   alt={`${customer.name} logo`}
