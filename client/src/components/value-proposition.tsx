@@ -38,12 +38,12 @@ export default function ValueProposition() {
   ];
 
   return (
-    <section className="relative py-16 bg-white overflow-hidden">
+    <section className="relative py-12 bg-white overflow-hidden">
       <div className="absolute inset-0 bg-gray-50 bg-opacity-50"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Award className="w-4 h-4 mr-2" />
             Your Success Is Our Priority
@@ -57,7 +57,7 @@ export default function ValueProposition() {
         </div>
 
         {/* Value Points Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {valuePoints.map((point, index) => {
             const Icon = point.icon;
             return (
@@ -75,12 +75,12 @@ export default function ValueProposition() {
                   <Icon className={`w-6 h-6 ${point.highlight ? 'text-white' : 'text-blue-600'}`} />
                 </div>
                 <h3 className={`text-lg font-bold mb-2 ${
-                  point.highlight ? 'text-white' : 'text-workplace-dark'
+                  point.highlight ? 'text-white' : 'text-gray-900'
                 }`}>
                   {point.title}
                 </h3>
                 <p className={`text-sm ${
-                  point.highlight ? 'text-white text-opacity-90' : 'text-workplace-gray'
+                  point.highlight ? 'text-white text-opacity-90' : 'text-gray-700'
                 }`}>
                   {point.description}
                 </p>
@@ -93,10 +93,10 @@ export default function ValueProposition() {
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-3xl font-bold text-workplace-dark mb-6">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">
                 What You Get With Every Service
               </h3>
-              <p className="text-lg text-workplace-gray mb-8">
+              <p className="text-lg text-gray-700 mb-8">
                 We go beyond basic cleaning to deliver comprehensive solutions that enhance your business environment and support your success.
               </p>
               
@@ -104,7 +104,7 @@ export default function ValueProposition() {
                 {benefits.map((benefit, index) => (
                   <div key={index} className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                    <span className="text-workplace-gray">{benefit}</span>
+                    <span className="text-gray-600">{benefit}</span>
                   </div>
                 ))}
               </div>
@@ -122,7 +122,7 @@ export default function ValueProposition() {
                       const element = document.getElementById('quote');
                       if (element) element.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="w-full bg-yellow-400 text-workplace-dark hover:bg-yellow-500 py-3 px-6 rounded-lg font-bold transition-all duration-200 transform hover:scale-105"
+                    className="w-full bg-yellow-400 text-gray-900 hover:bg-yellow-500 py-3 px-6 rounded-lg font-bold transition-all duration-200 transform hover:scale-105"
                   >
                     Get Your Free Quote Now
                   </button>
@@ -131,7 +131,7 @@ export default function ValueProposition() {
                       const element = document.getElementById('contact');
                       if (element) element.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="w-full bg-white bg-opacity-20 backdrop-blur-sm text-white hover:bg-white hover:text-workplace-dark py-3 px-6 rounded-lg border border-white border-opacity-30 transition-all duration-200"
+                    className="w-full bg-white bg-opacity-20 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900 py-3 px-6 rounded-lg border border-white border-opacity-30 transition-all duration-200"
                   >
                     Schedule Free Consultation
                   </button>

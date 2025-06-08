@@ -52,10 +52,10 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section id="testimonials" className="relative py-24 overflow-hidden">
+    <section id="testimonials" className="relative py-12 overflow-hidden">
       <div className="absolute inset-0 glass-background"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
+        <div className="text-center mb-8">
           <div className="inline-flex items-center bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Star className="w-4 h-4 mr-2" />
             Real Stories from Real Clients

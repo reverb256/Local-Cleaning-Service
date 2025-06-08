@@ -35,7 +35,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative py-24 overflow-hidden">
+    <section id="about" className="relative py-12 overflow-hidden">
       <div className="absolute inset-0 glass-background"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
