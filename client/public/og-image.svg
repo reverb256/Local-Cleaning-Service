@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00BCD4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0277BD;stop-opacity:1" />
+    </linearGradient>
+    <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="3" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Geometric pattern overlay -->
+  <g opacity="0.1">
+    <circle cx="100" cy="100" r="50" fill="#FFFFFF"/>
+    <circle cx="300" cy="150" r="30" fill="#FFFFFF"/>
+    <circle cx="500" cy="80" r="40" fill="#FFFFFF"/>
+    <circle cx="800" cy="120" r="35" fill="#FFFFFF"/>
+    <circle cx="1000" cy="100" r="45" fill="#FFFFFF"/>
+    <circle cx="200" cy="500" r="40" fill="#FFFFFF"/>
+    <circle cx="400" cy="550" r="25" fill="#FFFFFF"/>
+    <circle cx="700" cy="520" r="35" fill="#FFFFFF"/>
+    <circle cx="950" cy="480" r="30" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Main content container -->
+  <g transform="translate(100, 150)">
+    <!-- Company logo circle -->
+    <circle cx="100" cy="100" r="80" fill="#FFFFFF" filter="url(#dropShadow)"/>
+    
+    <!-- Cleaning brush icon -->
+    <g transform="translate(50, 50)">
+      <!-- Brush handle -->
+      <rect x="45" y="70" width="10" height="40" fill="#00BCD4" rx="5"/>
+      <!-- Brush head -->
+      <ellipse cx="50" cy="60" rx="30" ry="15" fill="#00BCD4"/>
+      <!-- Sparkle effects -->
+      <circle cx="65" cy="40" r="4" fill="#A4D65E"/>
+      <circle cx="30" cy="45" r="3" fill="#A4D65E"/>
+      <circle cx="70" cy="55" r="2.5" fill="#A4D65E"/>
+      <!-- Motion lines -->
+      <path d="M15 35 L25 45 M20 25 L30 35 M10 45 L20 55" stroke="#A4D65E" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Company name -->
+    <text x="220" y="80" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF" filter="url(#dropShadow)">
+      Workplace Janitorial Services
+    </text>
+    
+    <!-- Tagline -->
+    <text x="220" y="120" font-family="Arial, sans-serif" font-size="24" fill="#FFFFFF" opacity="0.9">
+      Professional Commercial Cleaning • Winnipeg, MB
+    </text>
+    
+    <!-- Service highlights -->
+    <g transform="translate(220, 160)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">
+        ✓ Commercial Office Cleaning
+      </text>
+      <text x="0" y="35" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">
+        ✓ Industrial Cleaning Services
+      </text>
+      <text x="0" y="70" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" font-weight="600">
+        ✓ Eco-Friendly Solutions
+      </text>
+    </g>
+    
+    <!-- Call to action -->
+    <rect x="220" y="280" width="200" height="50" rx="25" fill="#A4D65E" filter="url(#dropShadow)"/>
+    <text x="320" y="312" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+      Get Free Quote
+    </text>
+  </g>
+  
+  <!-- Bottom branding -->
+  <text x="600" y="590" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF" text-anchor="middle" opacity="0.8">
+    workplacejanitorial.ca • Professional Excellence. Guaranteed Results.
+  </text>
+</svg>
