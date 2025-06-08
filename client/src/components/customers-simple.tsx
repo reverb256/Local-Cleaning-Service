@@ -1,42 +1,51 @@
+import marriottLogo from "@assets/image_1749408680607.png";
+import longMcQuadeLogo from "@assets/image_1749408723724.png";
+import grandeLogo from "@assets/image_1749408745351.png";
+import memoryExpressLogo from "@assets/image_1749408766227.png";
+import bensonLogo from "@assets/image_1749408781486.png";
+import phasonLogo from "@assets/image_1749408787386.png";
+import crownRoyalLogo from "@assets/image_1749408861303.png";
+import gallagherLogo from "@assets/screenshot-1749408893954.png";
+
 const customers = [
   {
     name: "Marriott Bonvoy",
-    logo: "/attached_assets/image_1749408680607.png",
+    logo: marriottLogo,
     description: "Premium hospitality services"
   },
   {
     name: "Long & McQuade",
-    logo: "/attached_assets/image_1749408723724.png",
+    logo: longMcQuadeLogo,
     description: "Musical instrument retail excellence"
   },
   {
     name: "The Grande by Lakeview",
-    logo: "/attached_assets/image_1749408745351.png",
+    logo: grandeLogo,
     description: "Luxury residential living"
   },
   {
     name: "Memory Express",
-    logo: "/attached_assets/image_1749408766227.png",
+    logo: memoryExpressLogo,
     description: "Technology retail solutions"
   },
   {
     name: "Benson Financial",
-    logo: "/attached_assets/image_1749408781486.png",
+    logo: bensonLogo,
     description: "Financial planning services"
   },
   {
     name: "Phason",
-    logo: "/attached_assets/image_1749408787386.png",
+    logo: phasonLogo,
     description: "Agricultural technology innovation"
   },
   {
     name: "Crown Royal",
-    logo: "/attached_assets/image_1749408861303.png",
+    logo: crownRoyalLogo,
     description: "Premium spirits excellence"
   },
   {
     name: "Gallagher",
-    logo: "/attached_assets/screenshot-1749408893954.png",
+    logo: gallagherLogo,
     description: "Global insurance and risk management"
   }
 ];
