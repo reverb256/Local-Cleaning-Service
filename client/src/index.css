@@ -3,13 +3,21 @@
 @tailwind utilities;
 
 :root {
-  /* Workplace Janitorial Services Brand Colors - WCAG AAA Compliant */
-  --workplace-blue: #55C7F7;
-  --workplace-green: #A4D65E;
+  /* Diamond Logo-Inspired Brand Colors - Professional Geometric Design */
+  --workplace-cyan: #00BCD4;     /* Primary cyan from logo */
+  --workplace-teal: #009688;     /* Deeper teal variant */
+  --workplace-blue: #0277BD;    /* Professional blue */
+  --workplace-green: #A4D65E;   /* Accent green */
   --workplace-dark: #1A1A1A;    /* 21:1 contrast ratio */
   --workplace-gray: #2D2D2D;    /* 15:1 contrast ratio */
   --workplace-light: #F7FAFC;
   --workplace-white: #FFFFFF;
+  
+  /* Diamond Geometric System */
+  --diamond-angle: 45deg;
+  --diamond-shadow: 0 20px 40px rgba(0, 188, 212, 0.15);
+  --diamond-glow: 0 0 30px rgba(0, 188, 212, 0.2);
+  --angular-border: 12px;
   
   /* High Contrast Variants for AAA Compliance */
   --workplace-blue-dark: #0F4A5C;    /* 10:1 contrast on white */

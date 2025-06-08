@@ -34,28 +34,30 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative glass-footer py-20 text-white overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-workplace-dark to-gray-800"></div>
+    <footer className="relative py-20 bg-workplace-light overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-6">
-              <span className="text-3xl font-bold text-workplace-blue">Workplace</span>
-              <span className="text-3xl font-bold text-workplace-green ml-1">Janitorial</span>
+              <img 
+                src="/logo.svg" 
+                alt="Workplace Janitorial Services" 
+                className="h-10 w-auto"
+              />
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="text-workplace-dark mb-6 leading-relaxed font-medium">
               Workplace Janitorial Services - Quality office cleaning with 
               comprehensive liability insurance and WCB coverage for Winnipeg businesses.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="glass-card p-3 hover:bg-workplace-blue hover:bg-opacity-20 transition-all">
+              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="glass-card p-3 hover:bg-workplace-blue hover:bg-opacity-20 transition-all">
+              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="glass-card p-3 hover:bg-workplace-blue hover:bg-opacity-20 transition-all">
+              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -64,12 +66,12 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="text-2xl font-bold mb-6 text-workplace-blue">{footerSections[0].title}</h4>
-            <ul className="space-y-3 text-gray-300">
+            <ul className="space-y-3">
               {footerSections[0].links.map((link, index) => (
                 <li key={index}>
                   <button 
                     onClick={() => scrollToSection('services')}
-                    className="hover:text-workplace-green transition-colors text-left text-base"
+                    className="text-workplace-dark hover:text-workplace-blue transition-colors text-left text-base font-medium"
                   >
                     {link}
                   </button>
@@ -81,7 +83,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="text-2xl font-bold mb-6 text-workplace-blue">{footerSections[1].title}</h4>
-            <ul className="space-y-3 text-gray-300">
+            <ul className="space-y-3">
               {footerSections[1].links.map((link, index) => {
                 const sectionMap: { [key: string]: string } = {
                   "Get Quote": "quote",
@@ -94,7 +96,7 @@ export default function Footer() {
                   <li key={index}>
                     <button 
                       onClick={() => sectionId ? scrollToSection(sectionId) : undefined}
-                      className="hover:text-workplace-green transition-colors text-left text-base"
+                      className="text-workplace-dark hover:text-workplace-blue transition-colors text-left text-base font-medium"
                     >
                       {link}
                     </button>
@@ -107,36 +109,36 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-2xl font-bold mb-6 text-workplace-blue">Contact Us</h4>
-            <div className="space-y-4 text-gray-300">
-              <div className="flex items-center glass-card p-4">
+            <div className="space-y-4">
+              <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <Phone className="w-5 h-5 mr-3 text-workplace-green" />
-                <span className="text-base font-medium">(204) 415-2910</span>
+                <span className="text-base font-medium text-workplace-dark">(204) 334-2817</span>
               </div>
-              <div className="flex items-center glass-card p-4">
+              <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <Mail className="w-5 h-5 mr-3 text-workplace-green" />
-                <span className="text-base">Contact via phone</span>
+                <span className="text-base text-workplace-dark">Contact via phone</span>
               </div>
-              <div className="flex items-start glass-card p-4">
+              <div className="flex items-start bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <MapPin className="w-5 h-5 mr-3 text-workplace-green mt-1" />
-                <span className="text-base">2-761 Marion Street<br />Winnipeg, MB R2J 0K6</span>
+                <span className="text-base text-workplace-dark">2-761 Marion Street<br />Winnipeg, MB R2J 0K6</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white border-opacity-20 mt-16 pt-12">
+        <div className="border-t-2 border-workplace-blue mt-16 pt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-300 text-lg">
+            <p className="text-workplace-dark text-lg font-medium">
               © 2025 Reverb Web Design. All rights reserved.
             </p>
             <div className="flex space-x-8 mt-6 md:mt-0">
-              <button className="glass-card px-4 py-2 text-gray-300 hover:text-workplace-green transition-all">
+              <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
                 Privacy Policy
               </button>
-              <button className="glass-card px-4 py-2 text-gray-300 hover:text-workplace-green transition-all">
+              <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
                 Terms of Service
               </button>
-              <button className="glass-card px-4 py-2 text-gray-300 hover:text-workplace-green transition-all">
+              <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
                 Sitemap
               </button>
             </div>
