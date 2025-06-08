@@ -4,12 +4,60 @@ import { storage } from "./storage-clean";
 import { insertQuoteSchema, insertContactSchema, insertBookingSchema } from "@shared/schema";
 import { z } from "zod";
 
-// Input sanitization helper
+// Enhanced input sanitization (OWASP Top 10 - A03:2021 Injection)
 function sanitizeInput(input: string): string {
+  if (!input || typeof input !== 'string') return '';
+  
   return input
+    // Remove script tags and event handlers
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-    .replace(/[<>]/g, '')
-    .trim();
+    .replace(/on\w+\s*=\s*["'][^"']*["']/gi, '')
+    .replace(/javascript:/gi, '')
+    .replace(/data:text\/html/gi, '')
+    .replace(/vbscript:/gi, '')
+    // Remove potential SQL injection patterns
+    .replace(/(\b(union|select|insert|update|delete|drop|create|alter|exec|execute)\b)/gi, '')
+    // Remove HTML tags and encode special characters
+    .replace(/<[^>]*>/g, '')
+    .replace(/[<>&"']/g, (match) => {
+      const htmlEntities: { [key: string]: string } = {
+        '<': '&lt;',
+        '>': '&gt;',
+        '&': '&amp;',
+        '"': '&quot;',
+        "'": '&#x27;'
+      };
+      return htmlEntities[match] || match;
+    })
+    .trim()
+    .substring(0, 1000); // Limit input length
+}
+
+// Email validation (OWASP compliant)
+function validateEmail(email: string): boolean {
+  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  return emailRegex.test(email) && email.length <= 254;
+}
+
+// Phone number validation
+function validatePhone(phone: string): boolean {
+  const phoneRegex = /^\+?[\d\s\-\(\)\.]{10,15}$/;
+  return phoneRegex.test(phone.replace(/\s/g, ''));
+}
+
+// Content Security Policy helper
+function validateContent(content: string): boolean {
+  const forbiddenPatterns = [
+    /data:image\/svg\+xml/i,
+    /javascript:/i,
+    /vbscript:/i,
+    /<iframe/i,
+    /<object/i,
+    /<embed/i,
+    /<script/i
+  ];
+  
+  return !forbiddenPatterns.some(pattern => pattern.test(content));
 }
 
 // Rate limiting middleware
@@ -203,12 +251,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
   app.post("/api/contacts", rateLimit(3, 60000), async (req, res) => {
     try {
+      // Enhanced validation for contact data
+      if (!req.body.email || !validateEmail(req.body.email)) {
+        return res.status(400).json({ error: "Valid email address is required" });
+      }
+      
+      if (!req.body.firstName || req.body.firstName.length < 2) {
+        return res.status(400).json({ error: "First name must be at least 2 characters" });
+      }
+      
+      if (!req.body.message || req.body.message.length < 10) {
+        return res.status(400).json({ error: "Message must be at least 10 characters" });
+      }
+      
+      if (!validateContent(req.body.message)) {
+        return res.status(400).json({ error: "Message contains invalid content" });
+      }
+      
       const sanitizedBody = {
         ...req.body,
         firstName: sanitizeInput(req.body.firstName || ''),
         lastName: sanitizeInput(req.body.lastName || ''),
         email: sanitizeInput(req.body.email || ''),
-        phone: sanitizeInput(req.body.phone || ''),
+        phone: req.body.phone ? sanitizeInput(req.body.phone) : '',
         subject: sanitizeInput(req.body.subject || ''),
         message: sanitizeInput(req.body.message || ''),
       };
