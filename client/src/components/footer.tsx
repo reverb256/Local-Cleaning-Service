@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Link } from "wouter";
 
 const footerSections = [
   {
@@ -132,15 +133,21 @@ export default function Footer() {
               All rights reserved. Workplace Janitorial Services | Office Cleaning Winnipeg.
             </p>
             <div className="flex space-x-8 mt-6 md:mt-0">
-              <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
-                Privacy Policy
-              </button>
-              <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
-                Terms of Service
-              </button>
-              <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
-                Sitemap
-              </button>
+              <Link href="/privacy-policy">
+                <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
+                  Privacy Policy
+                </button>
+              </Link>
+              <Link href="/terms-of-service">
+                <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
+                  Terms of Service
+                </button>
+              </Link>
+              <Link href="/sitemap">
+                <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
+                  Sitemap
+                </button>
+              </Link>
             </div>
           </div>
         </div>
