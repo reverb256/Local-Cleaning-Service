@@ -76,7 +76,7 @@ export default function ServiceGuarantee() {
         </div>
 
         {/* Service Process Breakdown */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/20">
+        <div className="bg-workplace-blue-deeper/80 backdrop-blur-sm rounded-2xl p-12 border border-blue-300/30">
           <h3 className="text-3xl font-bold text-white text-center mb-12">
             Our Comprehensive On-Boarding Process
           </h3>
@@ -126,7 +126,7 @@ export default function ServiceGuarantee() {
 
         {/* Guarantee Promise */}
         <div className="text-center mt-16">
-          <div className="inline-block bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+          <div className="inline-block bg-workplace-blue-deeper/80 backdrop-blur-sm rounded-2xl p-8 border border-blue-300/30">
             <h4 className="text-2xl font-bold text-white mb-4">
               Why The Extra 30 Minutes Matters
             </h4>
