@@ -1,59 +1,47 @@
 import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
-import Home from "@/pages/home";
-import PrivacyPolicy from "@/pages/privacy-policy";
-import TermsOfService from "@/pages/terms-of-service";
-import Sitemap from "@/pages/sitemap";
-import { useEffect } from "react";
+
+function SimpleHome() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-turquoise-50 to-turquoise-100">
+      <div className="container mx-auto px-4 py-16">
+        <h1 className="text-4xl font-bold text-center text-gray-900 mb-8">
+          Workplace Janitorial Services
+        </h1>
+        <p className="text-xl text-center text-gray-700 mb-12">
+          Professional Excellence. Guaranteed Results.
+        </p>
+        <div className="text-center">
+          <a href="/privacy-policy" className="text-turquoise-600 hover:text-turquoise-800 mx-4">
+            Privacy Policy
+          </a>
+          <a href="/terms-of-service" className="text-turquoise-600 hover:text-turquoise-800 mx-4">
+            Terms of Service
+          </a>
+          <a href="/sitemap" className="text-turquoise-600 hover:text-turquoise-800 mx-4">
+            Sitemap
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/home" component={Home} />
-      <Route path="/privacy-policy" component={PrivacyPolicy} />
-      <Route path="/terms-of-service" component={TermsOfService} />
-      <Route path="/sitemap" component={Sitemap} />
-      {/* Fallback to home for unknown routes */}
-      <Route component={Home} />
+      <Route path="/" component={SimpleHome} />
+      <Route path="/privacy-policy" component={() => <div className="p-8"><h1 className="text-2xl font-bold">Privacy Policy</h1></div>} />
+      <Route path="/terms-of-service" component={() => <div className="p-8"><h1 className="text-2xl font-bold">Terms of Service</h1></div>} />
+      <Route path="/sitemap" component={() => <div className="p-8"><h1 className="text-2xl font-bold">Sitemap</h1></div>} />
     </Switch>
   );
 }
 
 function App() {
-  useEffect(() => {
-    // Focus management for accessibility
-    const handleRouteChange = () => {
-      const main = document.querySelector('main');
-      if (main) {
-        main.focus();
-      }
-    };
-
-    // Listen for route changes
-    window.addEventListener('popstate', handleRouteChange);
-    
-    // Set page language
-    document.documentElement.lang = 'en';
-    
-    return () => window.removeEventListener('popstate', handleRouteChange);
-  }, []);
-
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-background">
-        <main 
-          id="main-content" 
-          role="main" 
-          aria-label="Main content"
-          tabIndex={-1}
-          className="focus:outline-none"
-        >
-          <Router />
-        </main>
-      </div>
-    </QueryClientProvider>
+    <div className="min-h-screen bg-white">
+      <Router />
+    </div>
   );
 }
 
