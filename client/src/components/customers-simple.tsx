@@ -18,7 +18,7 @@ const customers = [
     name: "Long & McQuade",
     logo: longMcQuadeLogo,
     description: "Musical instrument retail excellence",
-    bgColor: "bg-blue-50"
+    bgColor: "bg-gray-600"
   },
   {
     name: "The Grande by Lakeview",
@@ -94,6 +94,7 @@ export default function CustomersSimple() {
                     customer.bgColor === 'bg-amber-50' ? '#fffbeb' :
                     customer.bgColor === 'bg-teal-50' ? '#f0fdfa' :
                     customer.bgColor === 'bg-white' ? '#ffffff' :
+                    customer.bgColor === 'bg-gray-600' ? '#4b5563' :
                     customer.bgColor === 'bg-gray-900' ? '#111827' : undefined,
                   border: `1px solid ${
                     customer.bgColor === 'bg-red-50' ? 'rgba(239, 68, 68, 0.1)' :
@@ -105,6 +106,7 @@ export default function CustomersSimple() {
                     customer.bgColor === 'bg-amber-50' ? 'rgba(245, 158, 11, 0.1)' :
                     customer.bgColor === 'bg-teal-50' ? 'rgba(20, 184, 166, 0.1)' :
                     customer.bgColor === 'bg-white' ? 'rgba(0, 0, 0, 0.1)' :
+                    customer.bgColor === 'bg-gray-600' ? 'rgba(107, 114, 128, 0.3)' :
                     customer.bgColor === 'bg-gray-900' ? 'rgba(75, 85, 99, 0.3)' : 'transparent'
                   }`
                 }}
