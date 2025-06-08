@@ -40,8 +40,8 @@ export default function About() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="animate-slide-in">
-            <h2 className="text-5xl font-bold text-workplace-dark mb-8">Excellence Redefined</h2>
-            <p className="text-xl text-workplace-gray mb-8 leading-relaxed">
+            <h2 className="text-5xl font-bold text-gray-900 mb-8">Excellence Redefined</h2>
+            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
               Workplace Janitorial commands Winnipeg's commercial cleaning landscape with 
               unmatched authority. Our decade-plus legacy of operational mastery has 
               established the gold standard that defines industry excellence and 
@@ -59,8 +59,8 @@ export default function About() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-bold text-workplace-dark text-xl mb-3">{feature.title}</h4>
-                      <p className="text-workplace-gray text-lg">{feature.description}</p>
+                      <h4 className="font-bold text-gray-900 text-xl mb-3">{feature.title}</h4>
+                      <p className="text-gray-700 text-lg">{feature.description}</p>
                     </div>
                   </div>
                 );
@@ -69,11 +69,11 @@ export default function About() {
 
             {/* Certifications */}
             <div className="glass-card p-8">
-              <h4 className="font-bold text-workplace-dark text-xl mb-6">Our Certifications</h4>
+              <h4 className="font-bold text-gray-900 text-xl mb-6">Our Certifications</h4>
               <div className="flex flex-wrap gap-4">
                 {certifications.map((cert, index) => (
-                  <div key={index} className="bg-workplace-blue bg-opacity-10 px-6 py-3 rounded-2xl border border-workplace-blue border-opacity-20">
-                    <span className="text-base font-semibold text-workplace-dark">
+                  <div key={index} className="bg-blue-50 px-6 py-3 rounded-2xl border border-blue-200">
+                    <span className="text-base font-semibold text-gray-900">
                       {cert.icon} {cert.text}
                     </span>
                   </div>
@@ -90,7 +90,7 @@ export default function About() {
             />
             
             {/* 30-Minute Guarantee - Enhanced */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-workplace-blue via-workplace-blue to-workplace-green rounded-2xl shadow-2xl">
+            <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-600 to-green-600 rounded-2xl shadow-2xl">
               <div className="absolute inset-0 bg-black bg-opacity-10"></div>
               <div className="relative p-8">
                 <div className="flex items-center mb-6">
