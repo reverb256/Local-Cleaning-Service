@@ -146,7 +146,7 @@ export default function PrivacyPolicy() {
           <div className="bg-workplace-blue text-white p-6 rounded-lg text-center">
             <h3 className="text-xl font-bold mb-2">Call Workplace Janitorial for a FREE on-site office cleaning assessment & pricing!</h3>
             <p className="mb-4">We are just a call away!</p>
-            <Link href="#contact">
+            <Link href="/#contact">
               <Button className="bg-white text-workplace-blue hover:bg-gray-100">
                 Contact us today!
               </Button>

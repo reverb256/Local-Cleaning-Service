@@ -221,6 +221,24 @@ body {
   background: linear-gradient(135deg, rgba(85, 199, 247, 0.1), rgba(164, 214, 94, 0.1));
 }
 
+/* 5-second fade-out animation for vibecode link */
+@keyframes fadeOutHighlight {
+  0% {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #22d3ee;
+  }
+  100% {
+    background-color: transparent;
+    color: #2563eb;
+    border-color: transparent;
+  }
+}
+
+.vibecode-link:not(:hover).fade-out {
+  animation: fadeOutHighlight 5s ease-out forwards;
+}
+
 /* WCAG AAA Compliant Button Styles */
 .btn-primary {
   background: var(--workplace-blue-dark);

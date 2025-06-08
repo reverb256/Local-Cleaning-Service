@@ -19,14 +19,13 @@ const footerSections = [
       "Secure Quote",
       "Partnership Inquiry",
       "Strategic Contact",
-      "Industry Insights",
-      "Privacy Standards", 
-      "Professional Terms"
+      "Client Success"
     ]
   }
 ];
 
 export default function Footer() {
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -52,13 +51,13 @@ export default function Footer() {
               uncompromising excellence with comprehensive insurance protection and professional accountability.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="https://facebook.com/workplacejanitorialservices" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="https://twitter.com/wpjanitorial" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="https://linkedin.com/company/workplace-janitorial-services" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -89,7 +88,8 @@ export default function Footer() {
                 const sectionMap: { [key: string]: string } = {
                   "Secure Quote": "quote",
                   "Partnership Inquiry": "about",
-                  "Strategic Contact": "contact"
+                  "Strategic Contact": "contact",
+                  "Client Success": "testimonials"
                 };
                 const sectionId = sectionMap[link];
                 
@@ -113,7 +113,7 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <Phone className="w-5 h-5 mr-3 text-workplace-green" />
-                <span className="text-base font-medium text-workplace-dark">(204) 334-2817</span>
+                <span className="text-base font-medium text-workplace-dark">(204) 415-2910</span>
               </div>
               <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <Mail className="w-5 h-5 mr-3 text-workplace-green" />
@@ -155,7 +155,7 @@ export default function Footer() {
         {/* Minimal Website Credit */}
         <div className="text-center py-4 mt-8 border-t border-gray-200">
           <p className="text-xs text-gray-500">
-            vibecoded by <a href="https://reverb256.ca" target="_blank" rel="noopener noreferrer" className="relative text-workplace-blue hover:text-white transition-all duration-300 px-2 py-1 rounded border-2 border-transparent hover:border-workplace-cyan hover:bg-gradient-to-r hover:from-workplace-blue hover:to-workplace-teal inline-block hover:scale-105 hover:shadow-md group">
+            vibecoded by <a href="https://reverb256.ca" target="_blank" rel="noopener noreferrer" className="relative inline-block px-3 py-1 rounded-md border-2 border-transparent text-blue-600 hover:text-white hover:bg-blue-600 hover:border-cyan-400 transition-all duration-300 hover:scale-105 hover:shadow-lg group vibecode-link">
               <span className="relative z-10 font-medium">Reverb Web Design</span>
               <span className="absolute -top-1 -right-1 text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-1 group-hover:translate-x-0">✨</span>
             </a>

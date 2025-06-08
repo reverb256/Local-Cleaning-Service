@@ -51,6 +51,12 @@ export default function Header() {
               Executive Quote
             </button>
             <button 
+              onClick={() => scrollToSection('customers')}
+              className="nav-link"
+            >
+              Clients
+            </button>
+            <button 
               onClick={() => scrollToSection('about')}
               className="nav-link"
             >
@@ -112,6 +118,12 @@ export default function Header() {
                 className="nav-link w-full text-left"
               >
                 Get Quote
+              </button>
+              <button 
+                onClick={() => scrollToSection('customers')}
+                className="nav-link w-full text-left"
+              >
+                Clients
               </button>
               <button 
                 onClick={() => scrollToSection('about')}

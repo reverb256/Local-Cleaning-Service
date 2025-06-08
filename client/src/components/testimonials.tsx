@@ -52,7 +52,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section id="testimonials" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 glass-background"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
