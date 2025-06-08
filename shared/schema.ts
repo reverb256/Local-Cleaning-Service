@@ -109,6 +109,44 @@ export type ApiLimit = typeof apiLimits.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
+// Relations
+import { relations } from "drizzle-orm";
+
+export const usersRelations = relations(users, ({ many }) => ({
+  quotes: many(quotes),
+  contacts: many(contacts),
+  bookings: many(bookings),
+  chatSessions: many(chatSessions),
+}));
+
+export const quotesRelations = relations(quotes, ({ one }) => ({
+  user: one(users, {
+    fields: [quotes.email],
+    references: [users.username],
+  }),
+}));
+
+export const contactsRelations = relations(contacts, ({ one }) => ({
+  user: one(users, {
+    fields: [contacts.email],
+    references: [users.username],
+  }),
+}));
+
+export const bookingsRelations = relations(bookings, ({ one }) => ({
+  user: one(users, {
+    fields: [bookings.email],
+    references: [users.username],
+  }),
+}));
+
+export const chatSessionsRelations = relations(chatSessions, ({ one }) => ({
+  user: one(users, {
+    fields: [chatSessions.sessionId],
+    references: [users.username],
+  }),
+}));
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
