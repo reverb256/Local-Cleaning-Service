@@ -1,4 +1,4 @@
-import marriottLogo from "@assets/image_1749408680607.png";
+import marriottLogo from "@assets/image_1749417644086.png";
 import longMcQuadeLogo from "@assets/image_1749408723724.png";
 import grandeLogo from "@assets/image_1749408745351.png";
 import memoryExpressLogo from "@assets/image_1749408766227.png";
