@@ -1,6 +1,7 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Services from "@/components/services";
+import ServiceGuarantee from "@/components/service-guarantee";
 import BusinessZones from "@/components/business-zones";
 import QuoteCalculator from "@/components/quote-calculator";
 import Customers from "@/components/customers-simple";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <ServiceGuarantee />
         <BusinessZones />
         <QuoteCalculator />
         <Customers />
