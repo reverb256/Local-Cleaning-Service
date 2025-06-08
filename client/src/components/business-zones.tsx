@@ -58,8 +58,8 @@ export default function BusinessZones() {
             </p>
           </div>
 
-          <div className="design-container-accent p-6 text-center">
-            <div className="w-12 h-12 bg-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+          <div className="design-container-accent hover-floating hover-pulse-border p-6 text-center">
+            <div className="w-12 h-12 bg-red-500 rounded-lg mx-auto mb-4 flex items-center justify-center hover-underglow-intense">
               <span className="text-white font-bold text-xl">B</span>
             </div>
             <h4 className="text-lg font-semibold text-workplace-dark mb-2">Zone B - Clean</h4>
@@ -68,8 +68,8 @@ export default function BusinessZones() {
             </p>
           </div>
 
-          <div className="design-container-accent p-6 text-center">
-            <div className="w-12 h-12 bg-purple-500 rounded-lg mx-auto mb-4 flex items-center justify-center">
+          <div className="design-container-accent hover-floating hover-pulse-border p-6 text-center">
+            <div className="w-12 h-12 bg-purple-500 rounded-lg mx-auto mb-4 flex items-center justify-center hover-underglow-intense">
               <span className="text-white font-bold text-xl">C</span>
             </div>
             <h4 className="text-lg font-semibold text-workplace-dark mb-2">Zone C - Detail</h4>
@@ -78,8 +78,8 @@ export default function BusinessZones() {
             </p>
           </div>
 
-          <div className="design-container-accent p-6 text-center">
-            <div className="w-12 h-12 bg-workplace-green rounded-lg mx-auto mb-4 flex items-center justify-center">
+          <div className="design-container-accent hover-floating hover-pulse-border p-6 text-center">
+            <div className="w-12 h-12 bg-workplace-green rounded-lg mx-auto mb-4 flex items-center justify-center hover-underglow-intense">
               <span className="text-white font-bold text-xl">D</span>
             </div>
             <h4 className="text-lg font-semibold text-workplace-dark mb-2">Zone D - Sanitize</h4>
