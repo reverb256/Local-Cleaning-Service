@@ -4,6 +4,7 @@ import Services from "@/components/services";
 import QuoteCalculator from "@/components/quote-calculator";
 import CustomersSimple from "@/components/customers-simple";
 import Testimonials from "@/components/testimonials";
+import BlogSection from "@/components/blog-section";
 import About from "@/components/about";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
@@ -18,6 +19,7 @@ export default function SimpleApp() {
         <QuoteCalculator />
         <CustomersSimple />
         <Testimonials />
+        <BlogSection />
         <About />
         <Contact />
       </main>

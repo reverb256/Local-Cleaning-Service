@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
 import { Link } from "wouter";
+import VibecodingFooter from "./vibecoding-footer";
 
 const footerSections = [
   {
@@ -161,6 +162,8 @@ export default function Footer() {
             </a>
           </p>
         </div>
+        
+        <VibecodingFooter />
       </div>
     </footer>
   );
