@@ -34,41 +34,42 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="relative glass-footer py-20 text-white overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-workplace-dark to-gray-800"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-white">Workplace</span>
-              <span className="text-2xl font-bold text-cyan ml-1">Janitorial</span>
+            <div className="flex items-center mb-6">
+              <span className="text-3xl font-bold text-workplace-blue">Workplace</span>
+              <span className="text-3xl font-bold text-workplace-green ml-1">Janitorial</span>
             </div>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-300 mb-6 leading-relaxed">
               Workplace Janitorial Services - Quality office cleaning with 
               comprehensive liability insurance and WCB coverage for Winnipeg businesses.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook className="w-6 h-6" />
+              <a href="#" className="glass-card p-3 hover:bg-workplace-blue hover:bg-opacity-20 transition-all">
+                <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="w-6 h-6" />
+              <a href="#" className="glass-card p-3 hover:bg-workplace-blue hover:bg-opacity-20 transition-all">
+                <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="w-6 h-6" />
+              <a href="#" className="glass-card p-3 hover:bg-workplace-blue hover:bg-opacity-20 transition-all">
+                <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">{footerSections[0].title}</h4>
-            <ul className="space-y-2 text-gray-400">
+            <h4 className="text-2xl font-bold mb-6 text-workplace-blue">{footerSections[0].title}</h4>
+            <ul className="space-y-3 text-gray-300">
               {footerSections[0].links.map((link, index) => (
                 <li key={index}>
                   <button 
                     onClick={() => scrollToSection('services')}
-                    className="hover:text-white transition-colors text-left"
+                    className="hover:text-workplace-green transition-colors text-left text-base"
                   >
                     {link}
                   </button>
@@ -79,8 +80,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">{footerSections[1].title}</h4>
-            <ul className="space-y-2 text-gray-400">
+            <h4 className="text-2xl font-bold mb-6 text-workplace-blue">{footerSections[1].title}</h4>
+            <ul className="space-y-3 text-gray-300">
               {footerSections[1].links.map((link, index) => {
                 const sectionMap: { [key: string]: string } = {
                   "Get Quote": "quote",
@@ -93,7 +94,7 @@ export default function Footer() {
                   <li key={index}>
                     <button 
                       onClick={() => sectionId ? scrollToSection(sectionId) : undefined}
-                      className="hover:text-white transition-colors text-left"
+                      className="hover:text-workplace-green transition-colors text-left text-base"
                     >
                       {link}
                     </button>
@@ -105,19 +106,19 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
-            <div className="space-y-3 text-gray-400">
-              <div className="flex items-center">
-                <Phone className="w-5 h-5 mr-2 text-primary" />
-                <span>(204) 415-2910</span>
+            <h4 className="text-2xl font-bold mb-6 text-workplace-blue">Contact Us</h4>
+            <div className="space-y-4 text-gray-300">
+              <div className="flex items-center glass-card p-4">
+                <Phone className="w-5 h-5 mr-3 text-workplace-green" />
+                <span className="text-base font-medium">(204) 415-2910</span>
               </div>
-              <div className="flex items-center">
-                <Mail className="w-5 h-5 mr-2 text-primary" />
-                <span>Contact via phone</span>
+              <div className="flex items-center glass-card p-4">
+                <Mail className="w-5 h-5 mr-3 text-workplace-green" />
+                <span className="text-base">Contact via phone</span>
               </div>
-              <div className="flex items-start">
-                <MapPin className="w-5 h-5 mr-2 text-primary mt-1" />
-                <span>2-761 Marion Street<br />Winnipeg, MB R2J 0K6</span>
+              <div className="flex items-start glass-card p-4">
+                <MapPin className="w-5 h-5 mr-3 text-workplace-green mt-1" />
+                <span className="text-base">2-761 Marion Street<br />Winnipeg, MB R2J 0K6</span>
               </div>
             </div>
           </div>

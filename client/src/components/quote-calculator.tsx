@@ -129,21 +129,17 @@ export default function QuoteCalculator() {
   };
 
   return (
-    <section id="quote" className="relative py-24 overflow-hidden">
-      {/* Glassmorphism Background */}
-      <div className="absolute inset-0 glass-background"></div>
-      
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-workplace-dark mb-6">Get Your Free Quote</h2>
-          <p className="text-2xl text-workplace-gray max-w-3xl mx-auto">
-            Transform your workspace with our unbeatable team - get a spotless workplace that fosters productivity and well-being
+    <section id="quote" className="py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get Your Instant Quote</h2>
+          <p className="text-xl text-gray-600">
+            Calculate your cleaning service cost in seconds
           </p>
         </div>
 
         <div className="quote-section">
-          <div className="p-10">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
               {/* Office Size */}
               <div>
                 <Label htmlFor="squareFootage" className="text-base font-medium text-gray-900 mb-2 block">
@@ -339,9 +335,8 @@ export default function QuoteCalculator() {
                   </>
                 )}
               </Button>
-            </form>
-          </CardContent>
-        </Card>
+          </form>
+        </div>
       </div>
     </section>
   );
