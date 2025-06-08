@@ -1,9 +1,9 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
-import ValueProposition from "@/components/value-proposition";
+import ValuePropositionNew from "@/components/value-proposition-new";
 import Customers from "@/components/customers-simple";
 import Services from "@/components/services";
-import About from "@/components/about";
+import AboutNew from "@/components/about-new";
 import QuoteCalculator from "@/components/quote-calculator";
 import Testimonials from "@/components/testimonials";
 import FinalCTA from "@/components/final-cta";
@@ -18,10 +18,10 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <ValueProposition />
+        <ValuePropositionNew />
         <Customers />
         <Services />
-        <About />
+        <AboutNew />
         <QuoteCalculator />
         <Testimonials />
         <FinalCTA />

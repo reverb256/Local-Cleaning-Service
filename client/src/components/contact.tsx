@@ -107,8 +107,8 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-24 overflow-hidden">
-      <div className="absolute inset-0 glass-background"></div>
+    <section id="contact" className="relative py-16 overflow-hidden bg-gray-50">
+      <div className="absolute inset-0 bg-white bg-opacity-80"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
