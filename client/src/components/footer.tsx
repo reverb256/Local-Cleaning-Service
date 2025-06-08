@@ -20,9 +20,7 @@ const footerSections = [
       "Secure Quote",
       "Partnership Inquiry",
       "Strategic Contact",
-      "Industry Insights",
-      "Privacy Standards", 
-      "Professional Terms"
+      "Client Success"
     ]
   }
 ];
@@ -119,7 +117,8 @@ export default function Footer() {
                 const sectionMap: { [key: string]: string } = {
                   "Secure Quote": "quote",
                   "Partnership Inquiry": "about",
-                  "Strategic Contact": "contact"
+                  "Strategic Contact": "contact",
+                  "Client Success": "testimonials"
                 };
                 const sectionId = sectionMap[link];
                 
@@ -143,7 +142,7 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <Phone className="w-5 h-5 mr-3 text-workplace-green" />
-                <span className="text-base font-medium text-workplace-dark">(204) 334-2817</span>
+                <span className="text-base font-medium text-workplace-dark">(204) 415-2910</span>
               </div>
               <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <Mail className="w-5 h-5 mr-3 text-workplace-green" />
