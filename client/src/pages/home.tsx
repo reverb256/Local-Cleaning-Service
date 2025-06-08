@@ -18,6 +18,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <BusinessZones />
         <QuoteCalculator />
         <Customers />
         <Testimonials />
