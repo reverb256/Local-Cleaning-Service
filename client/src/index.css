@@ -469,6 +469,10 @@ select:focus,
   body {
     font-size: 16px;
     line-height: 1.7;
+    /* Ensure proper mobile rendering */
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
   
   .text-responsive-hero {
@@ -493,11 +497,27 @@ select:focus,
   
   .hero-section {
     padding: 1.5rem 0;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
   
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  
+  /* Mobile-specific fixes */
+  .glass-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.98);
+  }
+  
+  /* Ensure mobile content is visible */
+  main {
+    position: relative;
+    z-index: 1;
   }
 }
 
