@@ -82,13 +82,13 @@ export default function Footer() {
               uncompromising excellence with comprehensive insurance protection and professional accountability.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="https://facebook.com/workplacejanitorialservices" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="https://twitter.com/wpjanitorial" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="https://linkedin.com/company/workplace-janitorial-services" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
