@@ -148,7 +148,7 @@ export default function Footer() {
         {/* Minimal Website Credit */}
         <div className="text-center py-4 mt-8 border-t border-gray-200">
           <p className="text-xs text-gray-500">
-            vibecoded by <a href="https://reverb256.ca" target="_blank" rel="noopener noreferrer" className="relative text-workplace-blue hover:text-white transition-all duration-300 px-2 py-1 rounded border-2 border-transparent hover:border-workplace-cyan hover:bg-gradient-to-r hover:from-workplace-blue hover:to-workplace-teal inline-block hover:scale-105 hover:shadow-md group">
+            vibecoded by <a href="https://reverb256.ca" target="_blank" rel="noopener noreferrer" className="relative text-workplace-blue hover:text-white transition-all duration-300 px-3 py-1 rounded-md border-2 border-transparent hover:border-workplace-cyan hover:bg-workplace-blue inline-block hover:scale-105 hover:shadow-lg group">
               <span className="relative z-10 font-medium">Reverb Web Design</span>
               <span className="absolute -top-1 -right-1 text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-1 group-hover:translate-x-0">✨</span>
             </a>
