@@ -20,8 +20,11 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <span className="text-3xl font-bold text-workplace-blue">Workplace</span>
-              <span className="text-3xl font-bold text-workplace-green ml-1">Janitorial</span>
+              <img 
+                src="/logo.svg" 
+                alt="Workplace Janitorial Services - Professional Office Cleaning Winnipeg" 
+                className="h-12 w-auto"
+              />
             </div>
           </div>
           

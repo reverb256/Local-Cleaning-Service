@@ -321,18 +321,18 @@ export default function QuoteCalculator() {
               <Button 
                 type="submit"
                 disabled={submitQuoteMutation.isPending}
-                className="w-full btn-primary py-4 text-lg"
+                className="w-full bg-workplace-blue text-white hover:bg-workplace-blue-dark py-4 text-lg font-semibold flex items-center justify-center"
               >
                 {submitQuoteMutation.isPending ? (
-                  <>
+                  <div className="flex items-center">
                     <Calculator className="w-5 h-5 mr-2 animate-spin" />
-                    Submitting...
-                  </>
+                    <span>Submitting...</span>
+                  </div>
                 ) : (
-                  <>
+                  <div className="flex items-center">
                     <Send className="w-5 h-5 mr-2" />
-                    Request Detailed Quote
-                  </>
+                    <span>Request Detailed Quote</span>
+                  </div>
                 )}
               </Button>
           </form>

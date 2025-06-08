@@ -7,6 +7,7 @@ import About from "@/components/about";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import AIChat from "@/components/ai-chat";
+import InstallPWA from "@/components/install-pwa";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       </main>
       <Footer />
       <AIChat />
+      <InstallPWA />
     </div>
   );
 }

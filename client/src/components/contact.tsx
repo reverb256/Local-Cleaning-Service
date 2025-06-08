@@ -273,15 +273,31 @@ export default function Contact() {
             {/* Location */}
             <div className="glass-card p-10">
               <h4 className="font-bold text-workplace-dark text-2xl mb-6">Our Location</h4>
-              <div className="bg-workplace-blue bg-opacity-10 rounded-2xl p-8 text-center">
+              <div className="bg-workplace-blue bg-opacity-10 rounded-2xl p-6 mb-6">
                 <div className="diamond-shape mx-auto mb-4">
                   <div className="diamond-shape-content">
                     <MapPin className="w-6 h-6" />
                   </div>
                 </div>
-                <p className="text-workplace-dark text-lg font-medium">2-761 Marion Street</p>
-                <p className="text-workplace-dark text-lg font-medium">Winnipeg, MB R2J 0K6</p>
-                <p className="text-workplace-gray text-base mt-2">Serving Greater Winnipeg Area</p>
+                <div className="text-center">
+                  <p className="text-workplace-dark text-lg font-medium">2-761 Marion Street</p>
+                  <p className="text-workplace-dark text-lg font-medium">Winnipeg, MB R2J 0K6</p>
+                  <p className="text-workplace-gray text-base mt-2">Serving Greater Winnipeg Area</p>
+                </div>
+              </div>
+              
+              {/* Google Maps Embed */}
+              <div className="rounded-2xl overflow-hidden border-2 border-workplace-blue">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2569.8875!2d-97.089343!3d49.88262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea73c4c4b1b4b1%3A0xfb7b7b7b7b7b7b70!2s761%20Marion%20St%2C%20Winnipeg%2C%20MB%20R2J%200K6%2C%20Canada!5e0!3m2!1sen!2sca!4v1640995200000!5m2!1sen!2sca"
+                  width="100%" 
+                  height="300" 
+                  style={{border: 0}}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Workplace Janitorial Services Location - 2-761 Marion Street, Winnipeg"
+                ></iframe>
               </div>
             </div>
           </div>

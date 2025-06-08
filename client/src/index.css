@@ -588,6 +588,17 @@ select:focus,
   color: var(--workplace-green-dark);
 }
 
+/* Fix white-on-turquoise contrast issues */
+.text-on-turquoise {
+  color: var(--workplace-dark) !important;
+  text-shadow: none !important;
+}
+
+.text-high-contrast {
+  color: var(--workplace-text-primary) !important;
+  font-weight: 600 !important;
+}
+
 .bg-workplace-blue {
   background-color: var(--workplace-blue);
 }
