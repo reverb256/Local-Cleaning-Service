@@ -494,7 +494,61 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // AI Admin Panel Routes
+  app.post("/api/admin/ai-command", rateLimit(20, 60000), async (req, res) => {
+    try {
+      const { command, sessionId } = req.body;
+      
+      if (!command || !sessionId) {
+        return res.status(400).json({ error: "Command and session ID are required" });
+      }
 
+      const sanitizedCommand = sanitizeInput(command);
+      const adminId = req.headers['x-admin-id'] as string || 'admin';
+      
+      const result = await aiService.processAdminCommand(sessionId, adminId, sanitizedCommand);
+      
+      res.json({ 
+        success: true, 
+        result,
+        sessionId 
+      });
+      
+    } catch (error) {
+      console.error('AI Command Error:', error);
+      res.status(500).json({ error: "Failed to process AI command" });
+    }
+  });
+
+  // Get AI commands (admin endpoint)
+  app.get("/api/admin/ai-commands", async (req, res) => {
+    try {
+      const commands = await db.select()
+        .from(aiCommands)
+        .orderBy(desc(aiCommands.createdAt))
+        .limit(50);
+      
+      res.json(commands);
+    } catch (error) {
+      res.status(500).json({ error: "Unable to fetch AI commands" });
+    }
+  });
+
+  // Get site content versions (admin endpoint)
+  app.get("/api/admin/site-content", async (req, res) => {
+    try {
+      const content = await db.select()
+        .from(siteContent)
+        .orderBy(desc(siteContent.updatedAt));
+      
+      res.json(content);
+    } catch (error) {
+      res.status(500).json({ error: "Unable to fetch site content" });
+    }
+  });
+
+  // Initialize AI capabilities on server start
+  await aiService.initializeCapabilities();
 
   const httpServer = createServer(app);
   return httpServer;
