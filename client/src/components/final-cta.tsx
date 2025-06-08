@@ -53,9 +53,9 @@ export default function FinalCTA() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center bg-white bg-opacity-15 backdrop-blur-sm rounded-lg p-4">
-                  <CheckCircle className="w-5 h-5 text-green-300 mr-3 flex-shrink-0" />
-                  <span className="text-white text-sm font-medium">{benefit}</span>
+                <div key={index} className="flex items-center bg-white bg-opacity-90 backdrop-blur-sm rounded-lg p-4">
+                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
+                  <span className="text-gray-800 text-sm font-medium">{benefit}</span>
                 </div>
               ))}
             </div>
