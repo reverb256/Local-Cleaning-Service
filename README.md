@@ -146,11 +146,11 @@ The AI system includes comprehensive knowledge about:
 // Retrieval-Augmented Generation system
 export class RAGSystem {
   private vectorStore: Map<string, number[]> = new Map();
-  
+
   public retrieveRelevantKnowledge(query: string, limit: number = 3): KnowledgeItem[] {
     // Vector similarity search implementation
   }
-  
+
   public getAnswerWithContext(query: string): string {
     // Context-aware response generation
   }
