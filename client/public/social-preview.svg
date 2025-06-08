@@ -1,0 +1,94 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Professional social media preview for Workplace Janitorial Services -->
+  <defs>
+    <linearGradient id="socialBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0277BD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A4D65E;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offset"/>
+      <feComponentTransfer>
+        <feFuncA type="discrete" tableValues="0 .3"/>
+      </feComponentTransfer>
+      <feComposite operator="over" in="SourceGraphic"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#socialBg)"/>
+  
+  <!-- Main content container -->
+  <rect x="80" y="120" width="1040" height="390" rx="25" fill="rgba(255,255,255,0.95)" filter="url(#shadow)"/>
+  
+  <!-- Company name -->
+  <text x="600" y="200" text-anchor="middle" fill="#0277BD" font-family="Arial, sans-serif" font-size="54" font-weight="bold">
+    WORKPLACE JANITORIAL
+  </text>
+  
+  <!-- Services tagline -->
+  <text x="600" y="250" text-anchor="middle" fill="#333" font-family="Arial, sans-serif" font-size="32" font-weight="600">
+    Professional Office Cleaning Services
+  </text>
+  
+  <!-- Location -->
+  <text x="600" y="290" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="24">
+    Winnipeg, Manitoba
+  </text>
+  
+  <!-- Key selling points -->
+  <text x="600" y="340" text-anchor="middle" fill="#0277BD" font-family="Arial, sans-serif" font-size="20" font-weight="600">
+    30-Minute Guarantee • WCB Coverage • Criminal Background Checks
+  </text>
+  
+  <!-- Call to action button -->
+  <rect x="425" y="370" width="350" height="60" rx="30" fill="#A4D65E" filter="url(#glow)"/>
+  <text x="600" y="410" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="bold">
+    Get Your Free Quote Today
+  </text>
+  
+  <!-- Contact information -->
+  <text x="600" y="470" text-anchor="middle" fill="#0277BD" font-family="Arial, sans-serif" font-size="28" font-weight="bold">
+    (204) 415-2910
+  </text>
+  
+  <!-- Website -->
+  <text x="600" y="500" text-anchor="middle" fill="#666" font-family="Arial, sans-serif" font-size="18">
+    workplacejanitorial.ca
+  </text>
+  
+  <!-- Professional cleaning icons -->
+  <g transform="translate(200, 315)">
+    <circle r="30" fill="rgba(2,119,189,0.1)" filter="url(#glow)"/>
+    <!-- Office building icon -->
+    <rect x="-12" y="-12" width="24" height="20" fill="#0277BD" rx="2"/>
+    <rect x="-8" y="-8" width="4" height="4" fill="white"/>
+    <rect x="-2" y="-8" width="4" height="4" fill="white"/>
+    <rect x="4" y="-8" width="4" height="4" fill="white"/>
+    <rect x="-8" y="-2" width="4" height="4" fill="white"/>
+    <rect x="-2" y="-2" width="4" height="4" fill="white"/>
+    <rect x="4" y="-2" width="4" height="4" fill="white"/>
+  </g>
+  
+  <g transform="translate(1000, 315)">
+    <circle r="30" fill="rgba(164,214,94,0.1)" filter="url(#glow)"/>
+    <!-- Sparkle/clean icon -->
+    <path d="M0,-12 L3,-3 L12,0 L3,3 L0,12 L-3,3 L-12,0 L-3,-3 Z" fill="#A4D65E"/>
+    <circle cx="0" cy="0" r="2" fill="white"/>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="120" cy="150" r="8" fill="rgba(164,214,94,0.3)" filter="url(#glow)"/>
+  <circle cx="1080" cy="150" r="6" fill="rgba(2,119,189,0.3)" filter="url(#glow)"/>
+  <circle cx="120" cy="480" r="10" fill="rgba(2,119,189,0.3)" filter="url(#glow)"/>
+  <circle cx="1080" cy="480" r="8" fill="rgba(164,214,94,0.3)" filter="url(#glow)"/>
+</svg>
