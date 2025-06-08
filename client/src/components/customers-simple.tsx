@@ -67,17 +67,17 @@ export default function CustomersSimple() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
           {customers.map((customer, index) => (
             <div
               key={customer.name}
-              className="group relative bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100 transition-all duration-300 hover:border-workplace-blue hover:shadow-xl hover:-translate-y-2"
+              className="group relative bg-white rounded-2xl p-4 md:p-8 shadow-lg border-2 border-gray-100 transition-all duration-300 hover:border-workplace-blue hover:shadow-xl hover:-translate-y-2"
             >
-              <div className="h-20 flex items-center justify-center">
+              <div className="h-20 flex items-center justify-center bg-white p-2 rounded-lg">
                 <img
                   src={customer.logo}
                   alt={`${customer.name} logo`}
-                  className="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className="max-h-full max-w-full object-contain filter contrast-125 brightness-110 group-hover:filter-none transition-all duration-300"
                 />
               </div>
               

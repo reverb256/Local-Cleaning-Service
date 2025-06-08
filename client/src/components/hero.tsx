@@ -77,7 +77,7 @@ export default function Hero() {
             </div>
           </div>
           
-          <div className="relative animate-slide-in">
+          <div className="relative animate-slide-in hidden lg:block">
             <div className="glass-card overflow-hidden">
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
@@ -97,6 +97,14 @@ export default function Hero() {
             <div className="absolute -top-8 -right-8 glass-card p-4 text-center">
               <div className="text-workplace-blue font-bold text-lg">(204) 334-2817</div>
               <div className="text-workplace-dark text-sm">Call for Quote</div>
+            </div>
+          </div>
+          
+          {/* Mobile-only contact information */}
+          <div className="lg:hidden mt-8">
+            <div className="glass-card p-6 text-center bg-white/10 backdrop-blur-sm">
+              <div className="text-workplace-cyan font-bold text-xl mb-2">(204) 334-2817</div>
+              <div className="text-white text-sm">Call for Instant Quote</div>
             </div>
           </div>
         </div>
