@@ -246,9 +246,9 @@ export class MemStorage implements IStorage {
   }
 }
 
-import { users, quotes, contacts, bookings, chatSessions, apiLimits, type User, type InsertUser, type Quote, type InsertQuote, type Contact, type InsertContact, type Booking, type InsertBooking, type ChatSession, type InsertChatSession, type ApiLimit } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
+import { users, quotes, contacts, bookings, chatSessions, apiLimits } from "@shared/schema";
 
 // DatabaseStorage implementation
 export class DatabaseStorage implements IStorage {

@@ -14,55 +14,55 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="glass-header sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <span className="text-2xl font-bold text-primary">Workplace</span>
-              <span className="text-2xl font-bold text-cyan ml-1">Janitorial</span>
+              <span className="text-3xl font-bold text-workplace-blue">Workplace</span>
+              <span className="text-3xl font-bold text-workplace-green ml-1">Janitorial</span>
             </div>
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-2">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-gray-700 hover:text-primary transition-colors"
+              className="nav-link"
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-gray-700 hover:text-primary transition-colors"
+              className="nav-link"
             >
               Services
             </button>
             <button 
               onClick={() => scrollToSection('quote')}
-              className="text-gray-700 hover:text-primary transition-colors"
+              className="nav-link"
             >
               Get Quote
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-primary transition-colors"
+              className="nav-link"
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-primary transition-colors"
+              className="nav-link"
             >
               Contact
             </button>
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center text-sm text-gray-600">
-              <Phone className="w-4 h-4 mr-2" />
+          <div className="hidden lg:flex items-center space-x-6">
+            <div className="flex items-center text-sm text-workplace-dark font-medium">
+              <Phone className="w-4 h-4 mr-2 text-workplace-blue" />
               <span>(204) 415-2910</span>
             </div>
             <Button 
@@ -88,41 +88,41 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="lg:hidden glass-card mt-2 mx-4 mb-4">
+            <div className="px-4 pt-4 pb-6 space-y-2">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="block px-3 py-2 text-gray-700 hover:text-primary w-full text-left"
+                className="nav-link w-full text-left"
               >
                 Home
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="block px-3 py-2 text-gray-700 hover:text-primary w-full text-left"
+                className="nav-link w-full text-left"
               >
                 Services
               </button>
               <button 
                 onClick={() => scrollToSection('quote')}
-                className="block px-3 py-2 text-gray-700 hover:text-primary w-full text-left"
+                className="nav-link w-full text-left"
               >
                 Get Quote
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="block px-3 py-2 text-gray-700 hover:text-primary w-full text-left"
+                className="nav-link w-full text-left"
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block px-3 py-2 text-gray-700 hover:text-primary w-full text-left"
+                className="nav-link w-full text-left"
               >
                 Contact
               </button>
-              <div className="px-3 py-2">
-                <div className="flex items-center text-sm text-gray-600 mb-2">
-                  <Phone className="w-4 h-4 mr-2" />
+              <div className="pt-4 border-t border-white border-opacity-20">
+                <div className="flex items-center text-sm text-workplace-dark font-medium mb-4">
+                  <Phone className="w-4 h-4 mr-2 text-workplace-blue" />
                   <span>(204) 415-2910</span>
                 </div>
                 <Button 

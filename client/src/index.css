@@ -3,27 +3,34 @@
 @tailwind utilities;
 
 :root {
+  /* Workplace Janitorial Services Brand Colors */
   --background: hsl(0, 0%, 100%);
-  --foreground: hsl(222, 84%, 4.9%);
-  --muted: hsl(210, 40%, 98%);
-  --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+  --foreground: hsl(0, 0%, 18%);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: hsl(0, 0%, 45%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(222, 84%, 4.9%);
+  --popover-foreground: hsl(0, 0%, 18%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(222, 84%, 4.9%);
-  --border: hsl(214.3, 31.8%, 91.4%);
-  --input: hsl(214.3, 31.8%, 91.4%);
-  --primary: hsl(220, 14%, 30%);
-  --primary-foreground: hsl(355, 100%, 97%);
-  --secondary: hsl(210, 40%, 98%);
-  --secondary-foreground: hsl(222.2, 84%, 4.9%);
-  --accent: hsl(210, 40%, 98%);
-  --accent-foreground: hsl(222.2, 84%, 4.9%);
-  --destructive: hsl(0, 84.2%, 60.2%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(220, 14%, 30%);
-  --radius: 0.5rem;
-  --cyan: hsl(214, 31%, 65%);
+  --card-foreground: hsl(0, 0%, 18%);
+  --border: hsl(0, 0%, 90%);
+  --input: hsl(0, 0%, 90%);
+  --primary: hsl(196, 91%, 67%); /* Sky Blue #55C7F7 */
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(78, 57%, 67%); /* Lime Green #A4D65E */
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(196, 91%, 67%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(196, 91%, 67%);
+  --radius: 0.75rem;
+  
+  /* Brand-specific colors */
+  --workplace-blue: hsl(196, 91%, 67%);
+  --workplace-green: hsl(78, 57%, 67%);
+  --workplace-dark: hsl(0, 0%, 18%);
+  --workplace-gray: hsl(0, 0%, 45%);
+  --workplace-light-gray: hsl(0, 0%, 96%);
 }
 
 .dark {
@@ -59,47 +66,197 @@
   }
 }
 
+@layer utilities {
+  .bg-workplace-blue {
+    background-color: hsl(var(--workplace-blue));
+  }
+  .bg-workplace-green {
+    background-color: hsl(var(--workplace-green));
+  }
+  .bg-workplace-dark {
+    background-color: hsl(var(--workplace-dark));
+  }
+  .text-workplace-blue {
+    color: hsl(var(--workplace-blue));
+  }
+  .text-workplace-green {
+    color: hsl(var(--workplace-green));
+  }
+  .text-workplace-dark {
+    color: hsl(var(--workplace-dark));
+  }
+  .border-workplace-blue {
+    border-color: hsl(var(--workplace-blue));
+  }
+  .border-workplace-green {
+    border-color: hsl(var(--workplace-green));
+  }
+}
+
 @layer components {
+  /* Glassmorphism Background Gradients */
   .hero-gradient {
     background: linear-gradient(135deg, 
-      hsl(188, 95%, 50%) 0%, 
-      hsl(160, 84%, 39%) 100%);
+      var(--workplace-blue) 0%, 
+      var(--workplace-green) 100%);
+  }
+  
+  .glass-background {
+    background: linear-gradient(135deg, 
+      rgba(85, 199, 247, 0.1) 0%, 
+      rgba(164, 214, 94, 0.05) 100%);
+  }
+  
+  /* Glassmorphism Cards */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
   
   .service-card {
-    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100;
+    @apply glass-card p-8;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
   
-  .service-card:hover {
-    @apply transform -translate-y-1;
+  /* Diamond Shape Elements (Brand Signature) */
+  .diamond-shape {
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, var(--workplace-blue), var(--workplace-green));
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    border-radius: 12px;
   }
   
+  .diamond-shape-content {
+    transform: rotate(-45deg);
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  /* Glassmorphism Buttons */
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-colors;
+    background: linear-gradient(135deg, var(--workplace-blue), var(--workplace-green));
+    @apply text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300;
+    box-shadow: 0 4px 20px rgba(85, 199, 247, 0.3);
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(85, 199, 247, 0.4);
   }
   
   .btn-secondary {
-    @apply bg-white text-primary border-2 border-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(85, 199, 247, 0.3);
+    @apply text-workplace-dark px-8 py-4 rounded-2xl font-semibold transition-all duration-300;
   }
   
+  .btn-secondary:hover {
+    background: rgba(85, 199, 247, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  /* Glassmorphism Inputs */
   .input-field {
-    @apply w-full px-4 py-3 border border-input rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    @apply w-full px-6 py-4 rounded-2xl transition-all duration-300;
   }
   
+  .input-field:focus {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: var(--workplace-blue);
+    box-shadow: 0 0 20px rgba(85, 199, 247, 0.2);
+    outline: none;
+  }
+  
+  /* Chat Messages with Glassmorphism */
   .chat-message-user {
-    @apply bg-primary text-primary-foreground ml-auto max-w-xs rounded-lg px-3 py-2 text-sm;
+    background: linear-gradient(135deg, var(--workplace-blue), var(--workplace-green));
+    @apply text-white ml-auto max-w-xs rounded-2xl px-4 py-3 text-sm;
+    box-shadow: 0 4px 15px rgba(85, 199, 247, 0.3);
   }
   
   .chat-message-bot {
-    @apply bg-muted text-foreground mr-auto max-w-xs rounded-lg px-3 py-2 text-sm;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    @apply text-workplace-dark mr-auto max-w-xs rounded-2xl px-4 py-3 text-sm;
   }
   
+  /* Testimonial Cards */
   .testimonial-card {
-    @apply bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow;
+    @apply glass-card p-8 text-center;
+    background: rgba(255, 255, 255, 0.8);
   }
   
+  /* Feature Icons with Glassmorphism */
   .feature-icon {
-    @apply w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center text-primary text-2xl;
+    background: rgba(85, 199, 247, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(85, 199, 247, 0.2);
+    @apply w-16 h-16 rounded-2xl flex items-center justify-center text-2xl;
+    color: var(--workplace-blue);
+  }
+  
+  /* Header with Glassmorphism */
+  .glass-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Footer with Glassmorphism */
+  .glass-footer {
+    background: rgba(45, 45, 45, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+  /* Navigation Links */
+  .nav-link {
+    @apply transition-all duration-300 px-4 py-2 rounded-xl;
+    color: var(--workplace-dark);
+  }
+  
+  .nav-link:hover {
+    background: rgba(85, 199, 247, 0.1);
+    color: var(--workplace-blue);
+  }
+  
+  /* Quote Calculator Glassmorphism */
+  .quote-section {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 2rem;
   }
 }
 
