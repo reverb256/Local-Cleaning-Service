@@ -72,12 +72,15 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive cleaning solutions tailored to your office needs
+    <section id="services" className="relative py-24 overflow-hidden">
+      {/* Glassmorphism Background */}
+      <div className="absolute inset-0 glass-background"></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-bold text-workplace-dark mb-6">Office Cleaning Services</h2>
+          <p className="text-2xl text-workplace-gray max-w-4xl mx-auto leading-relaxed">
+            Customized, cost-effective, and superior cleaning solutions for your office and industrial spaces
           </p>
         </div>
 
@@ -87,25 +90,49 @@ export default function Services() {
             return (
               <div 
                 key={index} 
-                className={`service-card ${service.featured ? 'bg-gradient-to-br from-primary to-green-600 text-white' : ''}`}
+                className={`service-card group ${service.featured ? 'hero-gradient text-white' : ''}`}
               >
-                <div className={`${service.featured ? 'text-white' : 'text-primary'} text-4xl mb-4`}>
-                  <Icon className="w-10 h-10" />
+                <div className={`${service.featured ? 'text-white' : ''} mb-6`}>
+                  <div className={`diamond-shape ${service.featured ? 'bg-white bg-opacity-20' : ''}`}>
+                    <div className="diamond-shape-content">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                  </div>
                 </div>
-                <h3 className={`text-xl font-bold mb-4 ${service.featured ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className={`text-2xl font-bold mb-6 ${service.featured ? 'text-white' : 'text-workplace-dark'}`}>
                   {service.title}
                 </h3>
-                <p className={`mb-4 ${service.featured ? 'text-white/90' : 'text-gray-600'}`}>
+                <p className={`text-lg mb-6 leading-relaxed ${service.featured ? 'text-white opacity-95' : 'text-workplace-gray'}`}>
                   {service.description}
                 </p>
-                <ul className={`text-sm space-y-2 ${service.featured ? 'text-white/80' : 'text-gray-500'}`}>
+                <ul className={`text-base space-y-3 ${service.featured ? 'text-white opacity-90' : 'text-workplace-gray'}`}>
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex}>• {feature}</li>
+                    <li key={featureIndex} className="flex items-start">
+                      <span className={`w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0 ${service.featured ? 'bg-white' : 'bg-workplace-blue'}`}></span>
+                      {feature}
+                    </li>
                   ))}
                 </ul>
               </div>
             );
           })}
+        </div>
+        
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <div className="glass-card inline-block p-8">
+            <h3 className="text-2xl font-bold text-workplace-dark mb-4">Ready to Transform Your Workspace?</h3>
+            <p className="text-workplace-gray mb-6">Get a personalized quote for your cleaning needs</p>
+            <button 
+              onClick={() => {
+                const element = document.getElementById('quote');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="btn-primary text-lg"
+            >
+              Get Your Free Quote
+            </button>
+          </div>
         </div>
       </div>
     </section>
