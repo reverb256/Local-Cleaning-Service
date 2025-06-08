@@ -154,6 +154,21 @@ body {
   box-shadow: var(--glass-shadow);
 }
 
+/* Section backgrounds with subtle borders */
+.section-background {
+  position: relative;
+}
+
+.section-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(2, 119, 189, 0.2), transparent);
+}
+
 .glass-nav {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
@@ -709,10 +724,12 @@ select:focus,
 
 .design-container-accent {
   background: linear-gradient(135deg, rgba(0, 188, 212, 0.08) 0%, rgba(164, 214, 94, 0.08) 100%);
+  border: 1px solid rgba(0, 188, 212, 0.2);
   border-left: 4px solid #00BCD4;
   border-radius: 12px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.06);
 }
 
 .design-container-accent::after {
@@ -729,22 +746,23 @@ select:focus,
 .design-container-floating {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 188, 212, 0.2);
+  border: 1px solid rgba(0, 188, 212, 0.25);
   border-radius: 20px;
   box-shadow: 
-    0 10px 40px rgba(0, 188, 212, 0.1),
-    0 0 20px rgba(164, 214, 94, 0.05),
+    0 10px 40px rgba(0, 188, 212, 0.12),
+    0 0 20px rgba(164, 214, 94, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   animation: floating-gentle 6s ease-in-out infinite;
 }
 
 .design-container-elevated {
   background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%);
-  border: 2px solid rgba(0, 188, 212, 0.15);
+  border: 2px solid rgba(0, 188, 212, 0.2);
   border-radius: 16px;
   box-shadow: 
-    0 15px 35px rgba(0, 188, 212, 0.12),
-    0 5px 15px rgba(164, 214, 94, 0.08);
+    0 15px 35px rgba(0, 188, 212, 0.15),
+    0 5px 15px rgba(164, 214, 94, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   position: relative;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
