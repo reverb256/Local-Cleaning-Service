@@ -42,7 +42,7 @@ const customers = [
     name: "Phason",
     logo: phasonLogo,
     description: "Agricultural technology innovation",
-    bgColor: "bg-white"
+    bgColor: "bg-gray-900"
   },
   {
     name: "Crown Royal",
@@ -93,7 +93,8 @@ export default function CustomersSimple() {
                     customer.bgColor === 'bg-indigo-50' ? '#eef2ff' :
                     customer.bgColor === 'bg-amber-50' ? '#fffbeb' :
                     customer.bgColor === 'bg-teal-50' ? '#f0fdfa' :
-                    customer.bgColor === 'bg-white' ? '#ffffff' : undefined,
+                    customer.bgColor === 'bg-white' ? '#ffffff' :
+                    customer.bgColor === 'bg-gray-900' ? '#111827' : undefined,
                   border: `1px solid ${
                     customer.bgColor === 'bg-red-50' ? 'rgba(239, 68, 68, 0.1)' :
                     customer.bgColor === 'bg-blue-50' ? 'rgba(59, 130, 246, 0.1)' :
@@ -103,7 +104,8 @@ export default function CustomersSimple() {
                     customer.bgColor === 'bg-indigo-50' ? 'rgba(99, 102, 241, 0.1)' :
                     customer.bgColor === 'bg-amber-50' ? 'rgba(245, 158, 11, 0.1)' :
                     customer.bgColor === 'bg-teal-50' ? 'rgba(20, 184, 166, 0.1)' :
-                    customer.bgColor === 'bg-white' ? 'rgba(0, 0, 0, 0.1)' : 'transparent'
+                    customer.bgColor === 'bg-white' ? 'rgba(0, 0, 0, 0.1)' :
+                    customer.bgColor === 'bg-gray-900' ? 'rgba(75, 85, 99, 0.3)' : 'transparent'
                   }`
                 }}
               >
