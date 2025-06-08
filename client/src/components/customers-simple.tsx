@@ -3,7 +3,7 @@ import longMcQuadeLogo from "@assets/image_1749408723724.png";
 import grandeLogo from "@assets/image_1749408745351.png";
 import memoryExpressLogo from "@assets/image_1749408766227.png";
 import bensonLogo from "@assets/image_1749408781486.png";
-import phasonLogo from "@assets/image_1749408787386.png";
+import phasonLogo from "@assets/image_1749417977611.png";
 import crownRoyalLogo from "@assets/image_1749408861303.png";
 import gallagherLogo from "@assets/screenshot-1749408893954.png";
 
@@ -12,7 +12,7 @@ const customers = [
     name: "Marriott Bonvoy",
     logo: marriottLogo,
     description: "Premium hospitality services",
-    bgColor: "bg-red-50"
+    bgColor: "bg-white"
   },
   {
     name: "Long & McQuade",
@@ -42,7 +42,7 @@ const customers = [
     name: "Phason",
     logo: phasonLogo,
     description: "Agricultural technology innovation",
-    bgColor: "bg-indigo-50"
+    bgColor: "bg-white"
   },
   {
     name: "Crown Royal",
