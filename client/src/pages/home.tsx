@@ -6,6 +6,7 @@ import Services from "@/components/services";
 import About from "@/components/about";
 import QuoteCalculator from "@/components/quote-calculator";
 import Testimonials from "@/components/testimonials";
+import FinalCTA from "@/components/final-cta";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 // import AIChat from "@/components/ai-chat";
@@ -23,6 +24,7 @@ export default function Home() {
         <About />
         <QuoteCalculator />
         <Testimonials />
+        <FinalCTA />
         <Contact />
       </main>
       <Footer />

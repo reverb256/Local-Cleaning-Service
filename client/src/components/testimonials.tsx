@@ -56,10 +56,19 @@ export default function Testimonials() {
       <div className="absolute inset-0 glass-background"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-workplace-dark mb-6">What Our Clients Say</h2>
-          <p className="text-2xl text-workplace-gray">
-            Trusted by businesses across Winnipeg
+          <div className="inline-flex items-center bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Star className="w-4 h-4 mr-2" />
+            Real Stories from Real Clients
+          </div>
+          <h2 className="text-5xl font-bold text-workplace-dark mb-6">Your Future Success Stories</h2>
+          <p className="text-2xl text-workplace-gray mb-8">
+            See why 200+ Winnipeg businesses choose us as their trusted cleaning partner
           </p>
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-2xl mx-auto">
+            <p className="text-workplace-dark font-semibold">
+              Join our family of satisfied clients who experience the 30-minute guarantee difference every day
+            </p>
+          </div>
         </div>
 
         <div className="relative">
