@@ -1,6 +1,4 @@
 import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
-import { Link } from "wouter";
-import { useEffect, useRef } from "react";
 
 const footerSections = [
   {
@@ -28,35 +26,6 @@ const footerSections = [
 ];
 
 export default function Footer() {
-  const vibecodeRef = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    const link = vibecodeRef.current;
-    if (!link) return;
-
-    let fadeTimeout: NodeJS.Timeout;
-
-    const handleMouseEnter = () => {
-      clearTimeout(fadeTimeout);
-      link.classList.remove('fade-out');
-    };
-
-    const handleMouseLeave = () => {
-      fadeTimeout = setTimeout(() => {
-        link.classList.add('fade-out');
-      }, 100);
-    };
-
-    link.addEventListener('mouseenter', handleMouseEnter);
-    link.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      link.removeEventListener('mouseenter', handleMouseEnter);
-      link.removeEventListener('mouseleave', handleMouseLeave);
-      clearTimeout(fadeTimeout);
-    };
-  }, []);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -163,21 +132,15 @@ export default function Footer() {
               All rights reserved. Workplace Janitorial Services | Office Cleaning Winnipeg.
             </p>
             <div className="flex space-x-8 mt-6 md:mt-0">
-              <Link href="/privacy-policy">
-                <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
-                  Privacy Policy
-                </button>
-              </Link>
-              <Link href="/terms-of-service">
-                <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
-                  Terms of Service
-                </button>
-              </Link>
-              <Link href="/sitemap">
-                <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
-                  Sitemap
-                </button>
-              </Link>
+              <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
+                Privacy Policy
+              </button>
+              <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
+                Terms of Service
+              </button>
+              <button className="bg-white px-4 py-2 rounded-lg border-2 border-workplace-blue text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all font-medium">
+                Sitemap
+              </button>
             </div>
           </div>
         </div>
@@ -185,7 +148,7 @@ export default function Footer() {
         {/* Minimal Website Credit */}
         <div className="text-center py-4 mt-8 border-t border-gray-200">
           <p className="text-xs text-gray-500">
-            vibecoded by <a ref={vibecodeRef} href="https://reverb256.ca" target="_blank" rel="noopener noreferrer" className="relative inline-block px-3 py-1 rounded-md border-2 border-transparent text-blue-600 hover:text-white hover:bg-blue-600 hover:border-cyan-400 transition-all duration-300 hover:scale-105 hover:shadow-lg group vibecode-link">
+            vibecoded by <a href="https://reverb256.ca" target="_blank" rel="noopener noreferrer" className="relative text-workplace-blue hover:text-white transition-all duration-300 px-2 py-1 rounded border-2 border-transparent hover:border-workplace-cyan hover:bg-gradient-to-r hover:from-workplace-blue hover:to-workplace-teal inline-block hover:scale-105 hover:shadow-md group">
               <span className="relative z-10 font-medium">Reverb Web Design</span>
               <span className="absolute -top-1 -right-1 text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-1 group-hover:translate-x-0">✨</span>
             </a>

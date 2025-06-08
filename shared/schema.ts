@@ -106,11 +106,6 @@ export type ChatSession = typeof chatSessions.$inferSelect;
 
 export type ApiLimit = typeof apiLimits.$inferSelect;
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-});
-
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
@@ -151,3 +146,8 @@ export const chatSessionsRelations = relations(chatSessions, ({ one }) => ({
     references: [users.username],
   }),
 }));
+
+export const insertUserSchema = createInsertSchema(users).pick({
+  username: true,
+  password: true,
+});
