@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, timestamp, boolean, decimal } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, timestamp, boolean, decimal, json } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -113,6 +113,73 @@ export const insertUserSchema = createInsertSchema(users).pick({
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+
+// AI Orchestration Tables
+export const aiCommands = pgTable("ai_commands", {
+  id: serial("id").primaryKey(),
+  adminId: text("admin_id").notNull(),
+  command: text("command").notNull(),
+  target: text("target").notNull(),
+  action: text("action").notNull(),
+  parameters: json("parameters"),
+  status: text("status").notNull().default("pending"),
+  result: text("result"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  executedAt: timestamp("executed_at"),
+});
+
+export const siteContent = pgTable("site_content", {
+  id: serial("id").primaryKey(),
+  sectionId: text("section_id").notNull().unique(),
+  content: json("content").notNull(),
+  metadata: json("metadata"),
+  version: text("version").notNull().default("1.0"),
+  isActive: boolean("is_active").default(true).notNull(),
+  updatedBy: text("updated_by"),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const insertAiCommandSchema = createInsertSchema(aiCommands).omit({
+  id: true,
+  createdAt: true,
+  executedAt: true,
+});
+
+export const insertSiteContentSchema = createInsertSchema(siteContent).omit({
+  id: true,
+  updatedAt: true,
+});
+
+export type AiCommand = typeof aiCommands.$inferSelect;
+export type InsertAiCommand = z.infer<typeof insertAiCommandSchema>;
+export type SiteContent = typeof siteContent.$inferSelect;
+export type InsertSiteContent = z.infer<typeof insertSiteContentSchema>;
+
+// AI Constants
+export const AI_ACTIONS = {
+  UPDATE_TEXT: 'update_text',
+  UPDATE_COLORS: 'update_colors',
+  UPDATE_CONTACT: 'update_contact',
+  UPDATE_SERVICES: 'update_services',
+  UPDATE_PRICING: 'update_pricing',
+  ADD_SECTION: 'add_section',
+  REMOVE_SECTION: 'remove_section',
+} as const;
+
+export const AI_TARGETS = {
+  HERO: 'hero',
+  SERVICES: 'services',
+  BUSINESS_ZONES: 'business_zones',
+  SERVICE_GUARANTEE: 'service_guarantee',
+  QUOTE_CALCULATOR: 'quote_calculator',
+  CUSTOMERS: 'customers',
+  TESTIMONIALS: 'testimonials',
+  ABOUT: 'about',
+  CONTACT: 'contact',
+  FOOTER: 'footer',
+  HEADER: 'header',
+  GLOBAL: 'global',
+} as const;
 
 // Relations
 import { relations } from "drizzle-orm";

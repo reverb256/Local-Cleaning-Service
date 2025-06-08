@@ -1,8 +1,8 @@
 // Local AI orchestration service using free APIs and local models
 import { db } from "./db";
-import { aiCommands, aiSessions, siteContent, aiCapabilities, AI_ACTIONS, AI_TARGETS } from "@shared/ai-schema";
+import { aiCommands, siteContent, AI_ACTIONS, AI_TARGETS } from "@shared/schema";
 import { eq, and } from "drizzle-orm";
-import type { InsertAiCommand, InsertSiteContent } from "@shared/ai-schema";
+import type { InsertAiCommand, InsertSiteContent } from "@shared/schema";
 
 export class AIService {
   private static instance: AIService;
@@ -298,37 +298,10 @@ export class AIService {
   }
 
   async initializeCapabilities() {
-    const capabilities = [
-      {
-        capability: 'update_text',
-        description: 'Update text content in any section',
-        parameters: { element: 'string', content: 'string' }
-      },
-      {
-        capability: 'update_colors',
-        description: 'Modify color schemes and styling',
-        parameters: { colorScheme: 'object', elements: 'array' }
-      },
-      {
-        capability: 'update_contact',
-        description: 'Update contact information',
-        parameters: { field: 'string', value: 'string' }
-      },
-      {
-        capability: 'update_services',
-        description: 'Add, remove, or modify services',
-        parameters: { operation: 'string', service: 'object' }
-      },
-      {
-        capability: 'update_pricing',
-        description: 'Modify pricing information',
-        parameters: { priceChanges: 'object' }
-      }
-    ];
-
-    for (const cap of capabilities) {
-      await db.insert(aiCapabilities).values(cap).onConflictDoNothing();
-    }
+    // Initialize with basic logging since we're using local models
+    console.log('AI orchestration service initialized with local command parsing');
+    console.log('Available targets:', Object.values(AI_TARGETS).join(', '));
+    console.log('Available actions:', Object.values(AI_ACTIONS).join(', '));
   }
 }
 

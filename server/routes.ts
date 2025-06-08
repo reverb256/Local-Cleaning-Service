@@ -1,8 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage-clean";
-import { insertQuoteSchema, insertContactSchema, insertBookingSchema } from "@shared/schema";
-import { aiCommands, siteContent } from "@shared/ai-schema";
+import { insertQuoteSchema, insertContactSchema, insertBookingSchema, aiCommands, siteContent } from "@shared/schema";
 import { aiService } from "./ai-service";
 import { db } from "./db";
 import { desc, eq } from "drizzle-orm";
