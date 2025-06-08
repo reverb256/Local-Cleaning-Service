@@ -9,7 +9,7 @@ import Testimonials from "@/components/testimonials";
 import About from "@/components/about";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
-// import AdminAIPanel from "@/components/admin-ai-panel";
+import AdminAIPanel from "@/components/admin-ai-panel";
 import InstallPWA from "@/components/install-pwa";
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      {/* <AdminAIPanel /> */}
+      <AdminAIPanel />
       <InstallPWA />
     </div>
   );

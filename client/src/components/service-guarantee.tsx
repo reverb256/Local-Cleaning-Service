@@ -13,7 +13,7 @@ export default function ServiceGuarantee() {
           <h2 className="text-5xl font-bold text-white mb-6">
             The 30-Minute Guarantee
           </h2>
-          <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
             Unlike rushed "in & out" cleaning services, we guarantee your dedicated cleaner stays 
             <strong className="text-workplace-green"> 30 minutes longer</strong> than required for thorough, 
             quality cleaning you can depend on.
@@ -22,12 +22,12 @@ export default function ServiceGuarantee() {
 
         {/* Four Diamond Service Pillars */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          <div className="design-container-floating p-8 text-center bg-white/10 backdrop-blur-sm border border-white/20">
+          <div className="design-container-floating p-8 text-center bg-workplace-blue-deeper/80 backdrop-blur-sm border border-blue-300/30">
             <div className="w-16 h-16 bg-workplace-green rounded-full mx-auto mb-6 flex items-center justify-center">
               <Users className="w-8 h-8 text-white" />
             </div>
             <h4 className="text-xl font-bold text-white mb-4">Our People</h4>
-            <ul className="text-blue-100 text-sm space-y-2 text-left">
+            <ul className="text-white text-sm space-y-2 text-left">
               <li>• Selective hiring based on experience & attitude</li>
               <li>• Above industry average compensation</li>
               <li>• Guaranteed time on-site for quality work</li>
@@ -35,12 +35,12 @@ export default function ServiceGuarantee() {
             </ul>
           </div>
 
-          <div className="design-container-floating p-8 text-center bg-white/10 backdrop-blur-sm border border-white/20">
+          <div className="design-container-floating p-8 text-center bg-workplace-blue-deeper/80 backdrop-blur-sm border border-blue-300/30">
             <div className="w-16 h-16 bg-workplace-green rounded-full mx-auto mb-6 flex items-center justify-center">
               <CheckCircle className="w-8 h-8 text-white" />
             </div>
             <h4 className="text-xl font-bold text-white mb-4">We Recommend</h4>
-            <ul className="text-blue-100 text-sm space-y-2 text-left">
+            <ul className="text-white text-sm space-y-2 text-left">
               <li>• 20+ years of professional experience</li>
               <li>• Detailed worksite plan development</li>
               <li>• Thorough needs assessment</li>
@@ -48,12 +48,12 @@ export default function ServiceGuarantee() {
             </ul>
           </div>
 
-          <div className="design-container-floating p-8 text-center bg-white/10 backdrop-blur-sm border border-white/20">
+          <div className="design-container-floating p-8 text-center bg-workplace-blue-deeper/80 backdrop-blur-sm border border-blue-300/30">
             <div className="w-16 h-16 bg-workplace-green rounded-full mx-auto mb-6 flex items-center justify-center">
               <Shield className="w-8 h-8 text-white" />
             </div>
             <h4 className="text-xl font-bold text-white mb-4">Service Policies</h4>
-            <ul className="text-blue-100 text-sm space-y-2 text-left">
+            <ul className="text-white text-sm space-y-2 text-left">
               <li>• Live professional customer service</li>
               <li>• Guaranteed time on-site</li>
               <li>• Quality assurance guarantee</li>
@@ -61,12 +61,12 @@ export default function ServiceGuarantee() {
             </ul>
           </div>
 
-          <div className="design-container-floating p-8 text-center bg-white/10 backdrop-blur-sm border border-white/20">
+          <div className="design-container-floating p-8 text-center bg-workplace-blue-deeper/80 backdrop-blur-sm border border-blue-300/30">
             <div className="w-16 h-16 bg-workplace-green rounded-full mx-auto mb-6 flex items-center justify-center">
               <Clock className="w-8 h-8 text-white" />
             </div>
             <h4 className="text-xl font-bold text-white mb-4">Guaranteed Clean</h4>
-            <ul className="text-blue-100 text-sm space-y-2 text-left">
+            <ul className="text-white text-sm space-y-2 text-left">
               <li>• Minimum 30 minutes extra time</li>
               <li>• No rush, thorough cleaning</li>
               <li>• Pride in workmanship</li>
@@ -87,7 +87,7 @@ export default function ServiceGuarantee() {
                 <span className="text-white font-bold text-xl">1</span>
               </div>
               <h5 className="text-white font-semibold mb-2">Trial Period</h5>
-              <p className="text-blue-100 text-sm">Comprehensive assessment to identify your specific cleaning needs</p>
+              <p className="text-white text-sm">Comprehensive assessment to identify your specific cleaning needs</p>
             </div>
 
             <div className="text-center">
@@ -95,7 +95,7 @@ export default function ServiceGuarantee() {
                 <span className="text-white font-bold text-xl">2</span>
               </div>
               <h5 className="text-white font-semibold mb-2">Custom Plan</h5>
-              <p className="text-blue-100 text-sm">Design work-plan that fits your needs and budget exactly</p>
+              <p className="text-white text-sm">Design work-plan that fits your needs and budget exactly</p>
             </div>
 
             <div className="text-center">
@@ -103,7 +103,7 @@ export default function ServiceGuarantee() {
                 <span className="text-white font-bold text-xl">3</span>
               </div>
               <h5 className="text-white font-semibold mb-2">Time Guarantee</h5>
-              <p className="text-blue-100 text-sm">Designated time on-site plus 30 minutes for thorough cleaning</p>
+              <p className="text-white text-sm">Designated time on-site plus 30 minutes for thorough cleaning</p>
             </div>
 
             <div className="text-center">
@@ -111,7 +111,7 @@ export default function ServiceGuarantee() {
                 <span className="text-white font-bold text-xl">4</span>
               </div>
               <h5 className="text-white font-semibold mb-2">Quality Control</h5>
-              <p className="text-blue-100 text-sm">Thorough checks and balances to ensure service satisfaction</p>
+              <p className="text-white text-sm">Thorough checks and balances to ensure service satisfaction</p>
             </div>
 
             <div className="text-center">
@@ -119,7 +119,7 @@ export default function ServiceGuarantee() {
                 <span className="text-white font-bold text-xl">5</span>
               </div>
               <h5 className="text-white font-semibold mb-2">Ongoing Support</h5>
-              <p className="text-blue-100 text-sm">Flexible service with last-minute requests and daily work plans</p>
+              <p className="text-white text-sm">Flexible service with last-minute requests and daily work plans</p>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function ServiceGuarantee() {
             <h4 className="text-2xl font-bold text-white mb-4">
               Why The Extra 30 Minutes Matters
             </h4>
-            <p className="text-blue-100 text-lg max-w-3xl leading-relaxed">
+            <p className="text-white text-lg max-w-3xl leading-relaxed">
               The faster the service, the lower the quality. Our extra 30 minutes allows cleaners to slow down, 
               work thoroughly, and take pride in their work. Many clients have valuable furniture and office 
               buildings that deserve careful, unhurried attention.
