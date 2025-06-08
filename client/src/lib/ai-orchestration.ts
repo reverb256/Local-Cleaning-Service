@@ -174,22 +174,22 @@ export class AIOrchestrationSystem {
     const hasSquareFootage = context.messages.some(m => /\d+\s*(sq|square)/.test(m.content));
     
     if (hasSquareFootage) {
-      return "Based on the square footage you mentioned, I can see you're planning ahead! Our regular cleaning starts at $0.08 per square foot, with deep cleaning at $0.15 per square foot. The exact price depends on frequency and additional services. Would you like me to help you use our quote calculator above?";
+      return "Rates depend on the size of the building, frequency of service, and specific cleaning program offered. We can provide a ballpark rate with: 1) Size of building 2) Frequency of service desired 3) Specific cleaning program. Would you like to use our quote calculator for an estimate?";
     }
     
-    return "Our regular cleaning starts at $0.08 per square foot, deep cleaning at $0.15 per square foot. Pricing depends on your office size, cleaning frequency, and any additional services. Our quote calculator above can give you an instant estimate! What's your office size?";
+    return "Our rates depend on building size, service frequency, and cleaning program requirements. For monthly cleaning services, we bill at the beginning of each month with 30-day terms. We also accept credit cards. Use our quote calculator above for an estimate!";
   }
 
   private getServiceResponse(message: string): string {
     if (message.includes('regular') || message.includes('daily') || message.includes('weekly')) {
-      return "Our regular office cleaning includes desk sanitization, trash removal, restroom cleaning, and kitchen maintenance. We offer daily, weekly, or bi-weekly schedules. Would you like to know about pricing or schedule a consultation?";
+      return "Our 3-5 Day/Week Office Cleaning program provides staff at your work site performing tasks to achieve desired results. On site guaranteed for 30 minutes more than required to complete all tasks. We adhere to schedules where some duties occur more frequently than others.";
     }
     
-    if (message.includes('deep')) {
-      return "Our deep cleaning service includes complete disinfection, carpet cleaning, light fixture cleaning, and detailed baseboard work. Perfect for move-ins, seasonal maintenance, or special events. This runs about $0.15 per square foot.";
+    if (message.includes('supplemental') || message.includes('extra')) {
+      return "Our Supplemental Office Cleaning Team Program provides extra capacity for: 1) Special projects 2) Extra high seasonal demand 3) Evening work without overtime payments 4) Replacement of vacationing employees.";
     }
     
-    return "We offer regular office cleaning, deep cleaning, floor care, window cleaning, post-construction cleanup, and eco-friendly options. Each service can be customized to your needs. Which type of cleaning interests you most?";
+    return "We offer 3-5 Day/Week Office Cleaning, Customized Office Cleaning, Floor Care Cleaning, Bathroom Supplies, Supplemental Janitor Services, and our Biochem Environmental Partnership for odor control. Which service interests you most?";
   }
 
   private getSchedulingResponse(isBusinessHours: boolean): string {

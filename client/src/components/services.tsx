@@ -3,68 +3,68 @@ import { Briefcase, Sparkles, Hammer, Layers, Square, Leaf } from "lucide-react"
 const services = [
   {
     icon: Briefcase,
-    title: "Regular Office Cleaning",
-    description: "Daily, weekly, or bi-weekly cleaning to maintain a professional workspace",
+    title: "3-5 Day/Week Office Cleaning",
+    description: "Office cleaning staff at your work site performing tasks to achieve desired results",
     features: [
-      "Desk and surface sanitization",
-      "Trash removal and recycling", 
-      "Restroom cleaning and restocking",
-      "Kitchen and break room maintenance"
+      "On site guaranteed for 30 minutes more than required",
+      "Adhere to schedule with varying duty frequencies",
+      "Extra time provides immediate attention to spills/accidents",
+      "Professional staff with criminal background checks"
     ]
   },
   {
     icon: Sparkles,
-    title: "Deep Cleaning",
-    description: "Thorough cleaning for move-ins, seasonal maintenance, or special events",
+    title: "Customized Office Cleaning",
+    description: "Tailored cleaning programs designed to meet your specific business needs",
     features: [
-      "Complete disinfection service",
-      "Carpet and upholstery cleaning",
-      "Light fixture and ceiling fan cleaning", 
-      "Baseboards and window sill detailing"
+      "Custom cleaning schedules",
+      "Specialized industry requirements",
+      "Flexible service arrangements",
+      "Account manager walk-throughs"
     ]
   },
   {
     icon: Layers,
-    title: "Floor Care & Maintenance",
-    description: "Professional floor cleaning, waxing, and maintenance services",
+    title: "Floor Care Cleaning",
+    description: "Professional floor maintenance and care services",
     features: [
-      "Hardwood floor polishing",
-      "Tile and grout deep cleaning",
-      "Carpet shampooing and stain removal",
-      "Floor waxing and sealing"
-    ]
-  },
-  {
-    icon: Square,
-    title: "Window Cleaning", 
-    description: "Crystal clear windows for a brighter, more professional appearance",
-    features: [
-      "Interior and exterior window cleaning",
-      "Screen cleaning and maintenance",
-      "Window sill and frame cleaning",
-      "Streak-free professional results"
-    ]
-  },
-  {
-    icon: Hammer,
-    title: "Post-Construction Cleanup",
-    description: "Specialized cleaning after renovations or construction projects",
-    features: [
-      "Dust and debris removal",
-      "Paint and adhesive cleanup", 
-      "Construction material disposal",
-      "Final touch-up cleaning"
+      "Comprehensive floor maintenance",
+      "Professional cleaning equipment",
+      "Quality results guaranteed",
+      "Regular maintenance schedules"
     ]
   },
   {
     icon: Leaf,
-    title: "Eco-Friendly Cleaning",
-    description: "Green cleaning solutions that protect your team and the environment",
+    title: "Bathroom Supplies", 
+    description: "Full line of quality supplies to stock your washrooms and kitchenettes",
     features: [
-      "Non-toxic cleaning products",
-      "Biodegradable solutions",
-      "HEPA filtration vacuums",
-      "Sustainable cleaning practices"
+      "Paper towels and toilet paper",
+      "Hand soaps and sanitizers",
+      "Garbage bags and urinal screens",
+      "Vendor managed inventory program"
+    ]
+  },
+  {
+    icon: Hammer,
+    title: "Supplemental Janitor Services",
+    description: "Extra capacity for your existing office cleaning team",
+    features: [
+      "Special projects support",
+      "Extra high seasonal demand coverage",
+      "Evening work without overtime payments",
+      "Replacement of vacationing employees"
+    ]
+  },
+  {
+    icon: Leaf,
+    title: "Biochem Environmental Partnership",
+    description: "Natural products that are very effective in odor control",
+    features: [
+      "Touch-free feminine hygiene disposal units",
+      "Automatic sink taps and soap dispensers",
+      "Touch-free urinal flushing units",
+      "Hand sanitizer units kill 99% of bacteria"
     ],
     featured: true
   }

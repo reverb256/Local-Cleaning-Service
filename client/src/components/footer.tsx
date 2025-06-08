@@ -4,12 +4,12 @@ const footerSections = [
   {
     title: "Our Services",
     links: [
-      "Regular Office Cleaning",
-      "Deep Cleaning", 
-      "Floor Care",
-      "Window Cleaning",
-      "Post-Construction",
-      "Eco-Friendly Options"
+      "3-5 Day/Week Office Cleaning",
+      "Customized Office Cleaning", 
+      "Floor Care Cleaning",
+      "Bathroom Supplies",
+      "Supplemental Janitor Services",
+      "Biochem Environmental Partnership"
     ]
   },
   {
@@ -40,12 +40,12 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-white">Elite</span>
-              <span className="text-2xl font-bold text-cyan ml-1">Clean</span>
+              <span className="text-2xl font-bold text-white">Workplace</span>
+              <span className="text-2xl font-bold text-cyan ml-1">Janitorial</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Winnipeg's trusted commercial cleaning service. Professional, reliable, 
-              and eco-friendly solutions for your workspace.
+              Workplace Janitorial Services - Quality office cleaning with 
+              comprehensive liability insurance and WCB coverage for Winnipeg businesses.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -113,11 +113,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 mr-2 text-primary" />
-                <span>info@elitecleanwpg.ca</span>
+                <span>Contact via phone</span>
               </div>
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 mr-2 text-primary mt-1" />
-                <span>123 Main Street<br />Winnipeg, MB R3C 1A1</span>
+                <span>2-761 Marion Street<br />Winnipeg, MB R2J 0K6</span>
               </div>
             </div>
           </div>
