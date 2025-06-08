@@ -153,13 +153,18 @@ export class MemStorage implements IStorage {
   async createBooking(insertBooking: InsertBooking): Promise<Booking> {
     const id = this.currentId++;
     const booking: Booking = {
-      ...insertBooking,
       id,
+      contactName: insertBooking.contactName,
+      company: insertBooking.company ?? null,
+      email: insertBooking.email,
+      phone: insertBooking.phone,
+      address: insertBooking.address,
+      preferredDate: insertBooking.preferredDate ?? null,
+      frequency: insertBooking.frequency,
+      serviceType: insertBooking.serviceType,
+      specialRequirements: insertBooking.specialRequirements ?? null,
       status: "pending",
-      createdAt: new Date(),
-      company: insertBooking.company || null,
-      preferredDate: insertBooking.preferredDate || null,
-      specialRequirements: insertBooking.specialRequirements || null
+      createdAt: new Date()
     };
     this.bookings.set(id, booking);
     return booking;
@@ -185,11 +190,11 @@ export class MemStorage implements IStorage {
   async createChatSession(insertSession: InsertChatSession): Promise<ChatSession> {
     const id = this.currentId++;
     const session: ChatSession = {
-      ...insertSession,
       id,
+      sessionId: insertSession.sessionId,
+      messages: insertSession.messages ?? null,
       status: "active",
-      createdAt: new Date(),
-      messages: insertSession.messages || null
+      createdAt: new Date()
     };
     this.chatSessions.set(insertSession.sessionId, session);
     return session;
