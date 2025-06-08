@@ -63,7 +63,7 @@ export default function Hero() {
                   </div>
                 </div>
                 <h3 className="font-bold text-xl mb-3 text-white">ADVANCED SOLUTIONS</h3>
-                <p className="text-base opacity-90 text-white">Strategic inventory management & premium Biochem partnerships</p>
+                <p className="text-base opacity-90 text-white">Strategic inventory management & sanitary solutions</p>
               </div>
               <div className="text-center">
                 <div className="diamond-shape mx-auto mb-4">

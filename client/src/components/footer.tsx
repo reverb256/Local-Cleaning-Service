@@ -10,7 +10,7 @@ const footerSections = [
       "Advanced Floor Mastery",
       "Executive Supply Solutions",
       "Strategic Support Services",
-      "Biochem Environmental Excellence"
+      "Sanitary & Sanitizer Services"
     ]
   },
   {

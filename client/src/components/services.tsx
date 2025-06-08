@@ -58,13 +58,13 @@ const services = [
   },
   {
     icon: Leaf,
-    title: "Biochem Environmental Excellence",
-    description: "Advanced eco-solutions delivering superior odor elimination and hygiene control",
+    title: "Sanitary & Sanitizer Solutions",
+    description: "Professional hygiene management and sanitization services for complete workplace wellness",
     features: [
-      "Touch-free feminine hygiene management systems",
-      "Automated dispensing and sensor technology",
-      "Hands-free urinal maintenance systems",
-      "Professional-grade sanitization eliminating 99% of pathogens"
+      "Sanitary bin management and maintenance",
+      "Hand sanitizer dispensing systems",
+      "Professional odor control solutions",
+      "Complete washroom hygiene programs"
     ],
     featured: true
   }
