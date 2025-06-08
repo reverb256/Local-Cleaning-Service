@@ -548,6 +548,24 @@ select:focus,
   .group:hover img {
     filter: contrast(110%) brightness(100%) saturate(100%) !important;
   }
+  
+  /* Fix dropdown visibility on mobile */
+  [data-radix-select-content] {
+    background: white !important;
+    border: 1px solid #e5e5e5 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  [data-radix-select-item] {
+    color: #374151 !important;
+    background: transparent !important;
+  }
+  
+  [data-radix-select-item]:hover,
+  [data-radix-select-item][data-highlighted] {
+    background: #f3f4f6 !important;
+    color: #111827 !important;
+  }
 }
 
 /* Very small screens (280px-319px) */
@@ -651,6 +669,21 @@ select:focus,
 .success-border {
   border-color: #006600;
   border-width: 2px;
+}
+
+/* Global dropdown and select visibility fixes */
+select,
+[role="combobox"],
+[data-radix-select-trigger],
+[data-radix-select-content] {
+  background: white !important;
+  color: #374151 !important;
+  border: 1px solid #d1d5db !important;
+}
+
+[data-radix-select-content] {
+  z-index: 9999 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
 
 /* Custom Tailwind utilities for WCAG compliance */
