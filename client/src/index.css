@@ -3,15 +3,20 @@
 @tailwind utilities;
 
 :root {
-  /* Diamond Logo-Inspired Brand Colors - Professional Geometric Design */
-  --workplace-cyan: #00BCD4;     /* Primary cyan from logo */
-  --workplace-teal: #009688;     /* Deeper teal variant */
-  --workplace-blue: #0277BD;    /* Professional blue */
-  --workplace-green: #A4D65E;   /* Accent green */
+  /* Enhanced Brand Colors - Optimized for Contrast */
+  --workplace-cyan: #006064;     /* Darker cyan for better contrast */
+  --workplace-teal: #004D40;     /* Deep teal variant */
+  --workplace-blue: #0D47A1;    /* Deep professional blue */
+  --workplace-green: #388E3C;   /* Strong green for visibility */
   --workplace-dark: #1A1A1A;    /* 21:1 contrast ratio */
-  --workplace-gray: #2D2D2D;    /* 15:1 contrast ratio */
-  --workplace-light: #F7FAFC;
+  --workplace-gray: #424242;    /* Enhanced gray for readability */
+  --workplace-light: #F5F5F5;
   --workplace-white: #FFFFFF;
+  
+  /* Additional contrast variants */
+  --workplace-blue-light: #1976D2;
+  --workplace-green-light: #4CAF50;
+  --workplace-accent: #FF6F00;
   
   /* Circular Logo-Inspired Design System */
   --logo-cyan: #00BCD4;
