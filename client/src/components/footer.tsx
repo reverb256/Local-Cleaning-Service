@@ -2,25 +2,25 @@ import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
 
 const footerSections = [
   {
-    title: "Our Services",
+    title: "Elite Solutions",
     links: [
-      "3-5 Day/Week Office Cleaning",
-      "Customized Office Cleaning", 
-      "Floor Care Cleaning",
-      "Bathroom Supplies",
-      "Supplemental Janitor Services",
-      "Biochem Environmental Partnership"
+      "Premium Daily Operations",
+      "Tailored Excellence Programs", 
+      "Advanced Floor Mastery",
+      "Executive Supply Solutions",
+      "Strategic Support Services",
+      "Biochem Environmental Excellence"
     ]
   },
   {
-    title: "Quick Links",
+    title: "Executive Access",
     links: [
-      "Get Quote",
-      "About Us",
-      "Contact",
-      "Blog",
-      "Privacy Policy", 
-      "Terms of Service"
+      "Secure Quote",
+      "Partnership Inquiry",
+      "Strategic Contact",
+      "Industry Insights",
+      "Privacy Standards", 
+      "Professional Terms"
     ]
   }
 ];
@@ -47,8 +47,8 @@ export default function Footer() {
               />
             </div>
             <p className="text-workplace-dark mb-6 leading-relaxed font-medium">
-              Workplace Janitorial Services - Quality office cleaning with 
-              comprehensive liability insurance and WCB coverage for Winnipeg businesses.
+              Workplace Janitorial Services - Winnipeg's premier commercial cleaning authority delivering 
+              uncompromising excellence with comprehensive insurance protection and professional accountability.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
@@ -116,7 +116,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <Mail className="w-5 h-5 mr-3 text-workplace-green" />
-                <span className="text-base text-workplace-dark">Contact via phone</span>
+                <span className="text-base text-workplace-dark">Executive consultation</span>
               </div>
               <div className="flex items-start bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <MapPin className="w-5 h-5 mr-3 text-workplace-green mt-1" />

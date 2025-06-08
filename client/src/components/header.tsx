@@ -42,25 +42,25 @@ export default function Header() {
               onClick={() => scrollToSection('services')}
               className="nav-link"
             >
-              Services
+              Solutions
             </button>
             <button 
               onClick={() => scrollToSection('quote')}
               className="nav-link"
             >
-              Get Quote
+              Executive Quote
             </button>
             <button 
               onClick={() => scrollToSection('about')}
               className="nav-link"
             >
-              About
+              Excellence
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="nav-link"
             >
-              Contact
+              Partnership
             </button>
           </div>
 
@@ -74,7 +74,7 @@ export default function Header() {
               onClick={() => scrollToSection('contact')}
               className="btn-primary"
             >
-              Book Now
+              Engage Excellence
             </Button>
           </div>
 

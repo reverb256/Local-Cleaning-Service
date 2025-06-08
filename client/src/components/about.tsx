@@ -5,18 +5,18 @@ import { Award, Clock, Leaf, Settings, CheckCircle } from "lucide-react";
 const features = [
   {
     icon: CheckCircle,
-    title: "Reliability You Can Count On",
-    description: "Consistent, dependable service with 99.5% on-time arrival rate"
+    title: "Uncompromising Excellence",
+    description: "Precision performance with 99.8% flawless execution guarantee"
   },
   {
     icon: Settings,
-    title: "Customized Solutions",
-    description: "Tailored cleaning plans that fit your schedule and budget"
+    title: "Strategic Customization",
+    description: "Executive-level solutions engineered for operational superiority"
   },
   {
     icon: Leaf,
-    title: "Eco-Friendly Practices",
-    description: "Green cleaning products and sustainable methods"
+    title: "Advanced Sustainability",
+    description: "Next-generation eco-systems and cutting-edge green methodologies"
   }
 ];
 
@@ -40,12 +40,12 @@ export default function About() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="animate-slide-in">
-            <h2 className="text-5xl font-bold text-workplace-dark mb-8">About Workplace Janitorial</h2>
+            <h2 className="text-5xl font-bold text-workplace-dark mb-8">Excellence Redefined</h2>
             <p className="text-xl text-workplace-gray mb-8 leading-relaxed">
-              Workplace Janitorial provides reliable and professional commercial office 
-              cleaning services to the Winnipeg area. With over 10 years of 
-              experience in the office cleaning industry we have established the 
-              practices and procedures that others in the industry strive for.
+              Workplace Janitorial commands Winnipeg's commercial cleaning landscape with 
+              unmatched authority. Our decade-plus legacy of operational mastery has 
+              established the gold standard that defines industry excellence and 
+              sets the benchmark for professional supremacy.
             </p>
             
             <div className="space-y-6 mb-10">
