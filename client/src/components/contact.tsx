@@ -1,0 +1,292 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card, CardContent } from "@/components/ui/card";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+
+interface ContactData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+}
+
+export default function Contact() {
+  const [formData, setFormData] = useState<ContactData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+
+  const { toast } = useToast();
+
+  const submitContactMutation = useMutation({
+    mutationFn: async (data: ContactData) => {
+      const response = await apiRequest('POST', '/api/contacts', data);
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Message Sent!",
+        description: "We'll respond within 2 hours during business hours.",
+      });
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Sending Failed",
+        description: "Unable to send message. Please try again or call (204) 415-2910.",
+        variant: "destructive",
+      });
+    }
+  });
+
+  const handleInputChange = (field: keyof ContactData, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    submitContactMutation.mutate(formData);
+  };
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: "Phone",
+      content: "(204) 415-2910",
+      subtitle: "Mon-Fri: 8AM-6PM, Sat: 9AM-4PM"
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      content: "info@elitecleanwpg.ca",
+      subtitle: "We respond within 2 hours"
+    },
+    {
+      icon: MapPin,
+      title: "Address",
+      content: "123 Main Street\nWinnipeg, MB R3C 1A1",
+      subtitle: "Visit our office"
+    },
+    {
+      icon: Clock,
+      title: "Business Hours",
+      content: "Mon-Fri: 8 AM - 6 PM\nSat: 9 AM - 4 PM",
+      subtitle: "Sunday: By appointment"
+    }
+  ];
+
+  return (
+    <section id="contact" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+          <p className="text-xl text-gray-600">
+            Ready to transform your workspace? Contact us today!
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <Card className="bg-white shadow-xl">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="firstName" className="text-sm font-medium text-gray-700 mb-2 block">
+                      First Name *
+                    </Label>
+                    <Input
+                      id="firstName"
+                      type="text"
+                      placeholder="John"
+                      value={formData.firstName}
+                      onChange={(e) => handleInputChange('firstName', e.target.value)}
+                      className="input-field"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="lastName" className="text-sm font-medium text-gray-700 mb-2 block">
+                      Last Name *
+                    </Label>
+                    <Input
+                      id="lastName"
+                      type="text"
+                      placeholder="Doe"
+                      value={formData.lastName}
+                      onChange={(e) => handleInputChange('lastName', e.target.value)}
+                      className="input-field"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-2 block">
+                    Email Address *
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="john@company.com"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    className="input-field"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <Label htmlFor="phone" className="text-sm font-medium text-gray-700 mb-2 block">
+                    Phone Number
+                  </Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="(204) 555-0123"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
+                    className="input-field"
+                  />
+                </div>
+                
+                <div>
+                  <Label className="text-sm font-medium text-gray-700 mb-2 block">
+                    Subject *
+                  </Label>
+                  <Select value={formData.subject} onValueChange={(value) => handleInputChange('subject', value)}>
+                    <SelectTrigger className="input-field">
+                      <SelectValue placeholder="Select a subject" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="quote">Request Quote</SelectItem>
+                      <SelectItem value="booking">Schedule Service</SelectItem>
+                      <SelectItem value="question">General Question</SelectItem>
+                      <SelectItem value="complaint">Service Issue</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div>
+                  <Label htmlFor="message" className="text-sm font-medium text-gray-700 mb-2 block">
+                    Message *
+                  </Label>
+                  <Textarea
+                    id="message"
+                    placeholder="Tell us about your cleaning needs..."
+                    rows={5}
+                    value={formData.message}
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    className="input-field resize-vertical"
+                    required
+                  />
+                </div>
+
+                {/* CAPTCHA Placeholder */}
+                <div className="bg-gray-100 border border-gray-300 rounded-lg p-4 text-center text-gray-600">
+                  <div className="flex items-center justify-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span className="text-sm">I'm not a robot</span>
+                    <div className="ml-auto text-xs text-gray-400">reCAPTCHA</div>
+                  </div>
+                </div>
+
+                <Button 
+                  type="submit"
+                  disabled={submitContactMutation.isPending}
+                  className="w-full btn-primary py-4 text-lg"
+                >
+                  {submitContactMutation.isPending ? (
+                    <>
+                      <Send className="w-5 h-5 mr-2 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5 mr-2" />
+                      Send Message
+                    </>
+                  )}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+
+          {/* Contact Information */}
+          <div className="space-y-8">
+            <Card className="bg-white shadow-xl">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                
+                <div className="space-y-6">
+                  {contactInfo.map((info, index) => {
+                    const Icon = info.icon;
+                    return (
+                      <div key={index} className="flex items-start">
+                        <div className="feature-icon mr-4">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900">{info.title}</h4>
+                          <p className="text-gray-600 whitespace-pre-line">{info.content}</p>
+                          <p className="text-sm text-gray-500">{info.subtitle}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Map Placeholder */}
+            <Card className="bg-white shadow-xl">
+              <CardContent className="p-8">
+                <h4 className="font-semibold text-gray-900 mb-4">Our Location</h4>
+                <div className="bg-gray-200 rounded-lg h-48 flex items-center justify-center">
+                  <img 
+                    src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" 
+                    alt="Map view of Winnipeg downtown area" 
+                    className="rounded-lg w-full h-full object-cover"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

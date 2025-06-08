@@ -1,0 +1,27 @@
+import Header from "@/components/header";
+import Hero from "@/components/hero";
+import Services from "@/components/services";
+import QuoteCalculator from "@/components/quote-calculator";
+import Testimonials from "@/components/testimonials";
+import About from "@/components/about";
+import Contact from "@/components/contact";
+import Footer from "@/components/footer";
+import AIChat from "@/components/ai-chat";
+
+export default function Home() {
+  return (
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <Hero />
+        <Services />
+        <QuoteCalculator />
+        <Testimonials />
+        <About />
+        <Contact />
+      </main>
+      <Footer />
+      <AIChat />
+    </div>
+  );
+}
