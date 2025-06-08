@@ -75,7 +75,7 @@
   }
   
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors;
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-colors;
   }
   
   .btn-secondary {
@@ -99,7 +99,7 @@
   }
   
   .feature-icon {
-    @apply w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary text-2xl;
+    @apply w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center text-primary text-2xl;
   }
 }
 

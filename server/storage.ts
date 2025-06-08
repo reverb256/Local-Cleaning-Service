@@ -82,10 +82,18 @@ export class MemStorage implements IStorage {
   async createQuote(insertQuote: InsertQuote): Promise<Quote> {
     const id = this.currentId++;
     const quote: Quote = {
-      ...insertQuote,
       id,
+      name: insertQuote.name,
+      email: insertQuote.email,
+      phone: insertQuote.phone ?? null,
+      address: insertQuote.address ?? null,
+      squareFootage: insertQuote.squareFootage,
+      frequency: insertQuote.frequency,
+      serviceType: insertQuote.serviceType,
+      additionalServices: insertQuote.additionalServices ?? null,
+      estimatedPrice: insertQuote.estimatedPrice,
       status: "pending",
-      createdAt: new Date(),
+      createdAt: new Date()
     };
     this.quotes.set(id, quote);
     return quote;
@@ -111,10 +119,15 @@ export class MemStorage implements IStorage {
   async createContact(insertContact: InsertContact): Promise<Contact> {
     const id = this.currentId++;
     const contact: Contact = {
-      ...insertContact,
       id,
+      firstName: insertContact.firstName,
+      lastName: insertContact.lastName,
+      email: insertContact.email,
+      phone: insertContact.phone ?? null,
+      subject: insertContact.subject ?? null,
+      message: insertContact.message,
       status: "new",
-      createdAt: new Date(),
+      createdAt: new Date()
     };
     this.contacts.set(id, contact);
     return contact;
@@ -144,6 +157,9 @@ export class MemStorage implements IStorage {
       id,
       status: "pending",
       createdAt: new Date(),
+      company: insertBooking.company || null,
+      preferredDate: insertBooking.preferredDate || null,
+      specialRequirements: insertBooking.specialRequirements || null
     };
     this.bookings.set(id, booking);
     return booking;
@@ -173,6 +189,7 @@ export class MemStorage implements IStorage {
       id,
       status: "active",
       createdAt: new Date(),
+      messages: insertSession.messages || null
     };
     this.chatSessions.set(insertSession.sessionId, session);
     return session;
