@@ -89,13 +89,13 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      content: "info@officecleaningwinnipeg.com",
+      content: "info@elitecleanwpg.ca",
       subtitle: "We respond within 2 hours"
     },
     {
       icon: MapPin,
       title: "Address",
-      content: "2-761 Marion Street\nWinnipeg, MB R2J 0K6",
+      content: "123 Main Street\nWinnipeg, MB R3C 1A1",
       subtitle: "Visit our office"
     },
     {

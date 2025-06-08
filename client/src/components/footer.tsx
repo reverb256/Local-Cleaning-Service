@@ -20,7 +20,9 @@ const footerSections = [
       "Secure Quote",
       "Partnership Inquiry",
       "Strategic Contact",
-      "Client Success"
+      "Industry Insights",
+      "Privacy Standards", 
+      "Professional Terms"
     ]
   }
 ];
@@ -80,13 +82,13 @@ export default function Footer() {
               uncompromising excellence with comprehensive insurance protection and professional accountability.
             </p>
             <div className="flex space-x-4">
-              <a href="https://facebook.com/workplacejanitorialservices" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://twitter.com/wpjanitorial" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/company/workplace-janitorial-services" target="_blank" rel="noopener noreferrer" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
+              <a href="#" className="bg-workplace-blue text-white p-3 rounded-lg hover:bg-workplace-green transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -117,8 +119,7 @@ export default function Footer() {
                 const sectionMap: { [key: string]: string } = {
                   "Secure Quote": "quote",
                   "Partnership Inquiry": "about",
-                  "Strategic Contact": "contact",
-                  "Client Success": "testimonials"
+                  "Strategic Contact": "contact"
                 };
                 const sectionId = sectionMap[link];
                 
@@ -142,7 +143,7 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <Phone className="w-5 h-5 mr-3 text-workplace-green" />
-                <span className="text-base font-medium text-workplace-dark">(204) 415-2910</span>
+                <span className="text-base font-medium text-workplace-dark">(204) 334-2817</span>
               </div>
               <div className="flex items-center bg-white p-4 rounded-lg border-2 border-workplace-blue">
                 <Mail className="w-5 h-5 mr-3 text-workplace-green" />
