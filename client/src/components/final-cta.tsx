@@ -74,29 +74,29 @@ export default function FinalCTA() {
           {/* Action Column */}
           <div className="space-y-6">
             <div className="bg-white rounded-2xl p-8 shadow-2xl">
-              <h4 className="text-2xl font-bold text-workplace-dark mb-6 text-center">
+              <h4 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 Get Started in 3 Easy Steps
               </h4>
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 bg-workplace-blue text-white rounded-full flex items-center justify-center font-bold mr-4">1</div>
-                  <span className="text-workplace-gray">Get your free quote in 60 seconds</span>
+                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">1</div>
+                  <span className="text-gray-700">Get your free quote in 60 seconds</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-8 h-8 bg-workplace-blue text-white rounded-full flex items-center justify-center font-bold mr-4">2</div>
-                  <span className="text-workplace-gray">Schedule your free consultation</span>
+                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">2</div>
+                  <span className="text-gray-700">Schedule your free consultation</span>
                 </div>
                 <div className="flex items-center">
-                  <div className="w-8 h-8 bg-workplace-blue text-white rounded-full flex items-center justify-center font-bold mr-4">3</div>
-                  <span className="text-workplace-gray">Experience the difference</span>
+                  <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold mr-4">3</div>
+                  <span className="text-gray-700">Experience the difference</span>
                 </div>
               </div>
               
               <div className="space-y-4">
                 <button 
                   onClick={() => scrollToSection('quote')}
-                  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-workplace-dark hover:from-yellow-500 hover:to-yellow-600 py-4 px-6 rounded-lg font-bold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center"
+                  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 hover:from-yellow-500 hover:to-yellow-600 py-4 px-6 rounded-lg font-bold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center"
                 >
                   <Calculator className="w-5 h-5 mr-2" />
                   Get Your FREE Quote Now
@@ -104,7 +104,7 @@ export default function FinalCTA() {
                 
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="w-full bg-workplace-blue text-white hover:bg-workplace-green py-4 px-6 rounded-lg font-medium text-lg transition-all duration-200 flex items-center justify-center"
+                  className="w-full bg-blue-600 text-white hover:bg-green-600 py-4 px-6 rounded-lg font-medium text-lg transition-all duration-200 flex items-center justify-center"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Call (204) 415-2910
@@ -112,14 +112,14 @@ export default function FinalCTA() {
                 
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="w-full border-2 border-workplace-blue text-workplace-blue hover:bg-workplace-blue hover:text-white py-4 px-6 rounded-lg font-medium transition-all duration-200 flex items-center justify-center"
+                  className="w-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-4 px-6 rounded-lg font-medium transition-all duration-200 flex items-center justify-center"
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Schedule Free Consultation
                 </button>
               </div>
               
-              <p className="text-xs text-workplace-gray text-center mt-4">
+              <p className="text-xs text-gray-700 text-center mt-4">
                 No obligation • Response within 2 hours • Free consultation valued at $150
               </p>
             </div>

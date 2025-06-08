@@ -38,14 +38,14 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Button 
                 onClick={() => scrollToSection('quote')}
-                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-workplace-dark hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200 px-10 py-5 text-xl font-bold flex items-center justify-center shadow-xl transform hover:scale-105"
+                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200 px-10 py-5 text-xl font-bold flex items-center justify-center shadow-xl transform hover:scale-105"
               >
                 <Calculator className="w-6 h-6 mr-3" />
                 <span>Get FREE Quote Now</span>
               </Button>
               <Button 
                 onClick={() => scrollToSection('services')}
-                className="bg-white bg-opacity-20 backdrop-blur-sm text-white hover:bg-white hover:text-workplace-dark transition-all duration-200 px-8 py-5 text-lg flex items-center justify-center border border-white border-opacity-30"
+                className="bg-white bg-opacity-20 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900 transition-all duration-200 px-8 py-5 text-lg flex items-center justify-center border border-white border-opacity-30"
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 <span>View Services</span>

@@ -52,13 +52,13 @@ export default function Header() {
             </button>
             <button 
               onClick={() => scrollToSection('quote')}
-              className="bg-yellow-400 text-workplace-dark hover:bg-yellow-500 px-6 py-3 rounded-lg font-bold transition-all duration-200 transform hover:scale-105 shadow-md"
+              className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 px-6 py-3 rounded-lg font-bold transition-all duration-200 transform hover:scale-105 shadow-md"
             >
               Get FREE Quote
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="bg-workplace-blue text-white hover:bg-workplace-green px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center"
+              className="bg-blue-600 text-white hover:bg-green-600 px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center"
             >
               <Phone className="w-4 h-4 mr-2" />
               Call Now
