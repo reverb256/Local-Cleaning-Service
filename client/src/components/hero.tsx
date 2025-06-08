@@ -87,8 +87,8 @@ export default function Hero() {
             </div>
             
             {/* Floating Guarantee Badge */}
-            <div className="absolute -bottom-8 -left-8 glass-card p-6 text-center">
-              <div className="text-3xl font-bold text-workplace-blue mb-2">SATISFACTION</div>
+            <div className="absolute bottom-4 right-4 glass-card p-6 text-center">
+              <div className="text-2xl font-bold text-workplace-blue mb-2">SATISFACTION</div>
               <div className="text-lg font-semibold text-workplace-green">GUARANTEED</div>
               <div className="text-sm text-workplace-dark mt-1">OR IT'S FREE!</div>
             </div>
