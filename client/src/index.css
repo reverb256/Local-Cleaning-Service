@@ -699,27 +699,26 @@ select:focus,
 /* Advanced Design System - Harmonized Containers */
 .design-container-primary {
   background: linear-gradient(135deg, rgba(0, 188, 212, 0.05) 0%, rgba(164, 214, 94, 0.05) 100%);
-  border: 1px solid rgba(2, 119, 189, 0.15);
+  border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 
-    0 2px 8px rgba(2, 119, 189, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  filter: drop-shadow(0 0 12px rgba(0, 188, 212, 0.2));
 }
 
 .design-container-primary::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, #00BCD4 0%, #A4D65E 100%);
-  z-index: -1;
-  margin: -2px;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #0277BD, #00BCD4, #A4D65E, #0277BD);
+  background-size: 400% 400%;
   border-radius: inherit;
+  z-index: -1;
+  animation: rotating-edge 4s linear infinite;
 }
 
 .design-container-accent {
