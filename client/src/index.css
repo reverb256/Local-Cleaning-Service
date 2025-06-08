@@ -31,6 +31,12 @@
   --glass-border: rgba(255, 255, 255, 0.18);
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   
+  /* Underglow Animation Properties */
+  --underglow-blue: rgba(2, 119, 189, 0.4);
+  --underglow-green: rgba(164, 214, 94, 0.4);
+  --underglow-cyan: rgba(0, 188, 212, 0.4);
+  --edge-light-intensity: 0.3;
+  
   /* Accessibility Focus Colors */
   --focus-ring: #0066CC;
   --focus-ring-offset: #FFFFFF;
@@ -612,6 +618,120 @@ select:focus,
     background-color: #4b5563 !important;
     border: 1px solid rgba(107, 114, 128, 0.3) !important;
   }
+}
+
+/* Underglow and Edge Lighting Animations */
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px var(--underglow-blue), 0 0 40px rgba(2, 119, 189, 0.1);
+  }
+  50% { 
+    box-shadow: 0 0 30px var(--underglow-blue), 0 0 60px rgba(2, 119, 189, 0.2);
+  }
+}
+
+@keyframes edge-sweep {
+  0% { 
+    background-position: -200% 0;
+    box-shadow: 0 0 15px var(--underglow-cyan);
+  }
+  50% {
+    box-shadow: 0 0 25px var(--underglow-green);
+  }
+  100% { 
+    background-position: 200% 0;
+    box-shadow: 0 0 15px var(--underglow-cyan);
+  }
+}
+
+@keyframes underglow-breathe {
+  0%, 100% { 
+    filter: drop-shadow(0 0 10px var(--underglow-green));
+  }
+  50% { 
+    filter: drop-shadow(0 0 25px rgba(164, 214, 94, 0.7));
+  }
+}
+
+@keyframes border-glow {
+  0%, 100% { 
+    border-color: rgba(2, 119, 189, 0.5);
+    box-shadow: 
+      0 0 15px var(--underglow-blue), 
+      inset 0 0 15px rgba(2, 119, 189, 0.1),
+      0 4px 20px rgba(2, 119, 189, 0.2);
+  }
+  50% { 
+    border-color: rgba(164, 214, 94, 0.5);
+    box-shadow: 
+      0 0 25px var(--underglow-green), 
+      inset 0 0 25px rgba(164, 214, 94, 0.1),
+      0 4px 30px rgba(164, 214, 94, 0.3);
+  }
+}
+
+@keyframes floating-glow {
+  0%, 100% {
+    transform: translateY(0px);
+    box-shadow: 0 5px 20px var(--underglow-cyan);
+  }
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px var(--underglow-blue);
+  }
+}
+
+/* Underglow Utility Classes */
+.glow-pulse {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.glow-edge-sweep {
+  position: relative;
+  background: linear-gradient(90deg, transparent, rgba(2, 119, 189, 0.1), rgba(164, 214, 94, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: edge-sweep 4s linear infinite;
+}
+
+.glow-underglow {
+  animation: underglow-breathe 2.5s ease-in-out infinite;
+}
+
+.glow-border {
+  border: 2px solid rgba(2, 119, 189, 0.3);
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+.glow-floating {
+  animation: floating-glow 4s ease-in-out infinite;
+}
+
+.glow-hover {
+  transition: all 0.3s ease;
+}
+
+.glow-hover:hover {
+  box-shadow: 
+    0 0 20px var(--underglow-blue),
+    0 0 40px rgba(2, 119, 189, 0.2),
+    0 8px 32px rgba(2, 119, 189, 0.3);
+  transform: translateY(-2px);
+}
+
+.glow-card {
+  border: 1px solid rgba(2, 119, 189, 0.2);
+  box-shadow: 
+    0 4px 20px rgba(2, 119, 189, 0.1),
+    0 0 15px var(--underglow-cyan);
+  transition: all 0.3s ease;
+}
+
+.glow-card:hover {
+  border-color: rgba(164, 214, 94, 0.4);
+  box-shadow: 
+    0 8px 40px rgba(164, 214, 94, 0.2),
+    0 0 25px var(--underglow-green);
+  transform: translateY(-4px);
 }
 
 /* Very small screens (280px-319px) */

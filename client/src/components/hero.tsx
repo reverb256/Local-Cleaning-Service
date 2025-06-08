@@ -38,14 +38,14 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Button 
                 onClick={() => scrollToSection('quote')}
-                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-workplace-dark hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200 px-10 py-5 text-xl font-bold flex items-center justify-center shadow-xl transform hover:scale-105"
+                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-workplace-dark hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200 px-10 py-5 text-xl font-bold flex items-center justify-center shadow-xl transform hover:scale-105 glow-pulse"
               >
                 <Calculator className="w-6 h-6 mr-3" />
                 <span>Get FREE Quote Now</span>
               </Button>
               <Button 
                 onClick={() => scrollToSection('services')}
-                className="bg-white bg-opacity-20 backdrop-blur-sm text-white hover:bg-white hover:text-workplace-dark transition-all duration-200 px-8 py-5 text-lg flex items-center justify-center border border-white border-opacity-30"
+                className="bg-white bg-opacity-20 backdrop-blur-sm text-white hover:bg-white hover:text-workplace-dark transition-all duration-200 px-8 py-5 text-lg flex items-center justify-center border border-white border-opacity-30 glow-hover"
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 <span>View Services</span>
@@ -54,8 +54,8 @@ export default function Hero() {
 
             {/* Diamond Trust Indicators - Brand Signature */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="diamond-shape mx-auto mb-4">
+              <div className="text-center glow-floating" style={{animationDelay: '0s'}}>
+                <div className="diamond-shape mx-auto mb-4 glow-underglow">
                   <div className="diamond-shape-content">
                     <Leaf className="w-6 h-6" />
                   </div>
@@ -63,8 +63,8 @@ export default function Hero() {
                 <h3 className="font-bold text-xl mb-3 text-white">ELITE PROFESSIONALS</h3>
                 <p className="text-base opacity-90 text-white">Rigorously vetted staff with comprehensive insurance protection</p>
               </div>
-              <div className="text-center">
-                <div className="diamond-shape mx-auto mb-4">
+              <div className="text-center glow-floating" style={{animationDelay: '1.3s'}}>
+                <div className="diamond-shape mx-auto mb-4 glow-underglow">
                   <div className="diamond-shape-content">
                     <Shield className="w-6 h-6" />
                   </div>
@@ -72,8 +72,8 @@ export default function Hero() {
                 <h3 className="font-bold text-xl mb-3 text-white">ADVANCED SOLUTIONS</h3>
                 <p className="text-base opacity-90 text-white">Strategic inventory management & sanitary solutions</p>
               </div>
-              <div className="text-center">
-                <div className="diamond-shape mx-auto mb-4">
+              <div className="text-center glow-floating" style={{animationDelay: '2.6s'}}>
+                <div className="diamond-shape mx-auto mb-4 glow-underglow">
                   <div className="diamond-shape-content">
                     <Clock className="w-6 h-6" />
                   </div>
