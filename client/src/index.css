@@ -856,7 +856,120 @@ select:focus,
 
 .glow-border {
   border: 2px solid rgba(0, 188, 212, 0.3);
-  animation: border-glow 3s ease-in-out infinite;
+}
+
+/* Comprehensive Hover Animations */
+.hover-glow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-glow:hover {
+  filter: drop-shadow(0 0 20px rgba(0, 188, 212, 0.4));
+  transform: translateY(-2px);
+}
+
+.hover-edge-light {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hover-edge-light::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(0, 188, 212, 0.2), 
+    rgba(164, 214, 94, 0.2), 
+    transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+.hover-edge-light:hover::before {
+  left: 100%;
+}
+
+.hover-rotating-border {
+  position: relative;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.hover-rotating-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #0277BD, #00BCD4, #A4D65E, #0277BD);
+  background-size: 400% 400%;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hover-rotating-border:hover::before {
+  opacity: 1;
+  animation: rotating-edge 2s linear infinite;
+}
+
+.hover-floating {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-floating:hover {
+  transform: translateY(-8px);
+  filter: drop-shadow(0 12px 25px rgba(0, 188, 212, 0.25));
+}
+
+.hover-scale-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-scale-glow:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 30px rgba(164, 214, 94, 0.3));
+}
+
+.hover-gradient-shift {
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(164, 214, 94, 0.1));
+  background-size: 200% 200%;
+  transition: all 0.4s ease;
+}
+
+.hover-gradient-shift:hover {
+  background-position: 100% 100%;
+  filter: drop-shadow(0 0 15px rgba(0, 188, 212, 0.2));
+}
+
+.hover-pulse-border {
+  border: 2px solid rgba(0, 188, 212, 0.3);
+  transition: all 0.3s ease;
+}
+
+.hover-pulse-border:hover {
+  border-color: rgba(164, 214, 94, 0.6);
+  box-shadow: 
+    0 0 20px rgba(164, 214, 94, 0.3),
+    inset 0 0 20px rgba(0, 188, 212, 0.1);
+}
+
+.hover-underglow-intense {
+  transition: all 0.3s ease;
+}
+
+.hover-underglow-intense:hover {
+  filter: drop-shadow(0 0 25px rgba(0, 188, 212, 0.5)) 
+          drop-shadow(0 0 35px rgba(164, 214, 94, 0.3));
+  transform: translateY(-3px);
 }
 
 .glow-floating {

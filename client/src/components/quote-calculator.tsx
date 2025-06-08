@@ -138,7 +138,7 @@ export default function QuoteCalculator() {
           </p>
         </div>
 
-        <div className="design-container-primary p-8">
+        <div className="design-container-primary hover-gradient-shift p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
               {/* Office Size */}
               <div>

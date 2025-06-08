@@ -119,7 +119,7 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="design-container-elevated p-10">
+          <div className="design-container-elevated hover-floating p-10">
             <h3 className="text-3xl font-bold text-workplace-blue mb-8 border-b-2 border-workplace-green pb-3">Send us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">

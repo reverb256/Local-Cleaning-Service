@@ -48,8 +48,8 @@ export default function BusinessZones() {
 
         {/* Service Zone Breakdown */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          <div className="design-container-accent p-6 text-center">
-            <div className="w-12 h-12 bg-workplace-blue rounded-lg mx-auto mb-4 flex items-center justify-center">
+          <div className="design-container-accent hover-floating hover-pulse-border p-6 text-center">
+            <div className="w-12 h-12 bg-workplace-blue rounded-lg mx-auto mb-4 flex items-center justify-center hover-underglow-intense">
               <span className="text-white font-bold text-xl">A</span>
             </div>
             <h4 className="text-lg font-semibold text-workplace-dark mb-2">Zone A - Tidy</h4>
