@@ -10,21 +10,21 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden hero-section">
       {/* Glassmorphism Background */}
       <div className="absolute inset-0 hero-gradient"></div>
       <div className="absolute inset-0 glass-background"></div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="animate-fade-in-up text-white">
-            <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
+      <div className="relative z-10 container-responsive max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center hero-grid">
+          <div className="animate-fade-in-up text-white hero-content">
+            <h1 className="text-responsive-hero font-bold mb-6 lg:mb-8 leading-tight">
               Exceptional Cleaning You Can 
               <span className="block bg-gradient-to-r from-white to-green-200 bg-clip-text text-transparent">
                 Depend On
               </span>
             </h1>
-            <p className="text-xl lg:text-2xl mb-10 opacity-95 leading-relaxed">
+            <p className="text-responsive-large mb-8 lg:mb-10 opacity-95 leading-relaxed">
               Customized, cost-effective, and superior cleaning solutions for your office and industrial spaces by our trustworthy professionals.
             </p>
             
