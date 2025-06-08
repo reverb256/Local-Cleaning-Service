@@ -1,0 +1,117 @@
+Objective: Rapid-prototype a modern, secure, and user-friendly website for a Winnipeg-based office cleaning service, improving upon https://officecleaningwinnipeg.com/. The website should be visually appealing, mobile-responsive, secure (aligned with OWASP principles), and compliant with ISO 27001 data protection standards. It should include features like online booking, instant quote tools, and eco-friendly messaging to compete with industry leaders.
+
+Tech Stack:
+
+Frontend: HTML, CSS (use Tailwind CSS for rapid styling), JavaScript (React.js for interactive components).
+Backend: Node.js with Express.js for handling form submissions and API endpoints.
+Database: SQLite for storing booking requests and quotes (lightweight for prototyping).
+Security: Implement HTTPS (via Replit’s hosting or a local SSL setup), input sanitization, and secure form handling.
+Tools: Use Replit’s built-in editor, npm for package management, and Git for version control.
+Requirements:
+
+Homepage:
+Clean, modern design with a hero section featuring a high-quality image of a clean office and a bold headline (e.g., “Spotless Workspaces in Winnipeg – Book Your Free Quote Today!”).
+Call-to-action buttons for “Get a Free Quote” and “Book Now.”
+Highlight key services (e.g., daily cleaning, floor maintenance, post-construction cleanup) with icons and brief descriptions.
+Include a testimonial slider with 3–5 fake reviews for prototyping (e.g., “Workplace Janitorial transformed our office!”).
+Use Tailwind CSS for responsive design (mobile-first).
+Services Page:
+List core services: regular cleaning, deep cleaning, floor care, window cleaning, and post-construction cleanup.
+Use collapsible sections or tabs for detailed descriptions to improve UX.
+Add a section emphasizing eco-friendly cleaning products and practices.
+Quote and Booking Page:
+Create an interactive form for instant quotes based on office size (sq ft), cleaning frequency (daily, weekly, bi-weekly), and service type.
+Use JavaScript to calculate and display an estimated price (e.g., $0.10/sq ft for regular cleaning).
+Include a booking form with fields for name, email, phone, office address, and preferred cleaning schedule.
+Sanitize inputs using a library like sanitize-html to prevent XSS attacks (OWASP A3).
+Store form submissions in SQLite with encrypted email fields (ISO 27001 data protection).
+About Page:
+Describe the company’s mission, emphasizing reliability, customization, and eco-friendly practices.
+Include a section on the onboarding process and the “30-minute extra time” guarantee.
+Add a team photo placeholder and certifications (e.g., “Bonded and Insured”).
+Contact Page:
+Include a secure contact form with CAPTCHA (e.g., ReCAPTCHA) to prevent spam (OWASP A5).
+Display contact info: phone (204-415-2910), email, and a Winnipeg address.
+Embed a Google Maps placeholder for the office location.
+Security and Compliance:
+Use HTTPS for all connections (configure in Replit’s hosting settings).
+Implement input validation and sanitization for all forms (OWASP A1, A3).
+Add a privacy policy page outlining data handling practices (ISO 27001 A.8.2.1).
+Use secure headers (e.g., Content-Security-Policy) in Express.js to mitigate XSS and clickjacking (OWASP A6).
+SEO and Accessibility:
+Add meta tags (title, description, keywords like “office cleaning Winnipeg”) for SEO.
+Use semantic HTML and ARIA landmarks for accessibility (WCAG 2.1 compliance).
+Optimize images with lazy loading and alt text.
+Additional Features:
+Add a live chat widget (e.g., using a simple JavaScript library like Tawk.to for prototyping).
+Include a blog section with one sample post (e.g., “Why Eco-Friendly Cleaning Matters”) to boost SEO.
+Add social media icons linking to placeholder profiles (e.g., Facebook, LinkedIn).
+Steps to Prototype on Replit:
+
+Create a new Replit project (Node.js template).
+Install dependencies: npm install express sqlite3 sanitize-html tailwindcss react react-dom.
+Set up a basic Express.js server with routes for / (homepage), /services, /quote, /about, /contact, and /privacy.
+Create a React frontend in the /client folder, using Tailwind CSS for styling.
+Initialize SQLite for storing form submissions (create a bookings.db with tables for quotes and bookings).
+Implement form handling with input sanitization and secure headers.
+Use Tailwind’s responsive classes (e.g., sm:, md:) to ensure mobile-friendliness.
+Test the site locally on Replit and deploy using Replit’s hosting feature.
+Deliverables:
+
+A fully functional prototype with all pages and features listed above.
+A README.md file documenting the setup, security measures, and how to run the project.
+Basic unit tests for form validation and API endpoints using Jest.
+Constraints:
+
+Budget: $0 (use free tools and Replit’s free tier).
+Time: Aim for a 2–3 day sprint to complete the prototype.
+Focus on clean, idempotent code (e.g., single-purpose functions, reusable components).
+Example File Structure:
+
+text
+
+Collapse
+
+Wrap
+
+Copy
+├── /client
+│   ├── /src
+│   │   ├── /components (React components: Header, Footer, QuoteForm, etc.)
+│   │   ├── /pages (Home, Services, Quote, About, Contact, Privacy)
+│   │   ├── App.js
+│   │   ├── index.js
+│   ├── /public (static assets: images, favicon)
+├── /server
+│   ├── /routes (API endpoints: /api/quote, /api/booking)
+│   ├── /db (SQLite setup: bookings.db)
+│   ├── server.js
+├── package.json
+├── README.md
+Security Checklist (OWASP and ISO 27001):
+
+Validate and sanitize all user inputs (OWASP A1).
+Use HTTPS and secure headers (OWASP A6).
+Implement CAPTCHA on forms (OWASP A5).
+Store sensitive data (e.g., emails) encrypted in SQLite (ISO 27001 A.8.2.3).
+Document data handling in the privacy policy (ISO 27001 A.18.1.4).
+Success Criteria:
+
+The website loads in under 3 seconds on a standard connection.
+All forms are secure and functional, with data stored in SQLite.
+The design is responsive across mobile, tablet, and desktop.
+The site includes at least one blog post and achieves basic SEO optimization.
+User feedback (e.g., form submissions) triggers a confirmation message.
+Notes:
+
+Use placeholder images from Unsplash for office cleaning visuals.
+Simulate eco-friendly certifications with placeholder badges.
+Test the prototype with at least two browsers (e.g., Chrome, Firefox) on Replit’s preview.
+Execution Instructions:
+
+Copy this prompt into a Replit README or text file for reference.
+Start a new Node.js project on Replit and follow the tech stack setup.
+Break down development into sprints: Day 1 (frontend structure and styling), Day 2 (backend and database), Day 3 (security and testing).
+Share the Replit project link with collaborators (if any) for feedback.
+Deploy the prototype using Replit’s hosting and test all features.
+This prompt is designed to help you build a competitive, secure, and user-friendly website that addresses the shortcomings of https://officecleaningwinnipeg.com/ while incorporating modern best practices. Let me know if you need help setting up the Replit project or specific code snippets!
