@@ -2,6 +2,10 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage-clean";
 import { insertQuoteSchema, insertContactSchema, insertBookingSchema } from "@shared/schema";
+import { aiCommands, siteContent } from "@shared/ai-schema";
+import { aiService } from "./ai-service";
+import { db } from "./db";
+import { desc, eq } from "drizzle-orm";
 import { z } from "zod";
 
 // Enhanced input sanitization (OWASP Top 10 - A03:2021 Injection)
@@ -490,6 +494,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ error: "Unable to fetch bookings" });
     }
   });
+
+
 
   const httpServer = createServer(app);
   return httpServer;

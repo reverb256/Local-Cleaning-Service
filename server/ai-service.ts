@@ -1,13 +1,8 @@
-import OpenAI from "openai";
+// Local AI orchestration service using free APIs and local models
 import { db } from "./db";
 import { aiCommands, aiSessions, siteContent, aiCapabilities, AI_ACTIONS, AI_TARGETS } from "@shared/ai-schema";
 import { eq, and } from "drizzle-orm";
 import type { InsertAiCommand, InsertSiteContent } from "@shared/ai-schema";
-
-// the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ 
-  apiKey: process.env.OPENAI_API_KEY 
-});
 
 export class AIService {
   private static instance: AIService;
@@ -54,37 +49,71 @@ export class AIService {
   }
 
   private async parseCommand(command: string) {
-    const systemPrompt = `You are an AI assistant for a commercial cleaning website admin panel. Parse admin commands and return structured data.
-
-Available targets: ${Object.values(AI_TARGETS).join(', ')}
-Available actions: ${Object.values(AI_ACTIONS).join(', ')}
-
-Parse this command and respond with JSON in this exact format:
-{
-  "target": "section_name",
-  "action": "action_type", 
-  "parameters": {
-    "specific": "parameters"
-  },
-  "confidence": 0.9
-}
-
-Examples:
-"Update the hero section title to say Professional Excellence" -> {"target": "hero", "action": "update_text", "parameters": {"element": "title", "content": "Professional Excellence"}}
-"Change the contact phone number to 204-555-0123" -> {"target": "contact", "action": "update_contact", "parameters": {"field": "phone", "value": "204-555-0123"}}
-"Add a new service called Deep Sanitization" -> {"target": "services", "action": "update_services", "parameters": {"operation": "add", "service": {"name": "Deep Sanitization", "description": "Healthcare-grade sanitization"}}}`;
-
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o",
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: command }
-      ],
-      response_format: { type: "json_object" },
-      temperature: 0.1
-    });
-
-    return JSON.parse(response.choices[0].message.content || '{}');
+    // Local command parsing using pattern matching instead of paid AI
+    const commandLower = command.toLowerCase();
+    
+    // Target detection
+    let target = 'global';
+    if (commandLower.includes('hero') || commandLower.includes('main banner')) target = 'hero';
+    else if (commandLower.includes('service') && !commandLower.includes('guarantee')) target = 'services';
+    else if (commandLower.includes('contact') || commandLower.includes('phone') || commandLower.includes('email')) target = 'contact';
+    else if (commandLower.includes('about') || commandLower.includes('company')) target = 'about';
+    else if (commandLower.includes('guarantee') || commandLower.includes('30 minute')) target = 'service_guarantee';
+    else if (commandLower.includes('zone') || commandLower.includes('floor plan')) target = 'business_zones';
+    else if (commandLower.includes('testimonial') || commandLower.includes('review')) target = 'testimonials';
+    else if (commandLower.includes('quote') || commandLower.includes('calculator') || commandLower.includes('pricing')) target = 'quote_calculator';
+    
+    // Action detection
+    let action = 'update_text';
+    if (commandLower.includes('add') || commandLower.includes('create') || commandLower.includes('new')) action = 'add_section';
+    else if (commandLower.includes('remove') || commandLower.includes('delete')) action = 'remove_section';
+    else if (commandLower.includes('color') || commandLower.includes('style') || commandLower.includes('design')) action = 'update_colors';
+    else if (commandLower.includes('contact') || commandLower.includes('phone') || commandLower.includes('email') || commandLower.includes('address')) action = 'update_contact';
+    else if (commandLower.includes('service') && (commandLower.includes('add') || commandLower.includes('update') || commandLower.includes('modify'))) action = 'update_services';
+    else if (commandLower.includes('price') || commandLower.includes('cost') || commandLower.includes('rate')) action = 'update_pricing';
+    
+    // Parameter extraction
+    const parameters: any = {};
+    
+    if (action === 'update_text') {
+      if (commandLower.includes('title') || commandLower.includes('heading')) parameters.element = 'title';
+      else if (commandLower.includes('description') || commandLower.includes('subtitle')) parameters.element = 'description';
+      else parameters.element = 'content';
+      
+      // Extract quoted content or content after "to say" or "to"
+      const quotedMatch = command.match(/"([^"]+)"/);
+      const toSayMatch = command.match(/to say (.+?)(?:\.|$)/i);
+      const toMatch = command.match(/to (.+?)(?:\.|$)/i);
+      
+      if (quotedMatch) parameters.content = quotedMatch[1];
+      else if (toSayMatch) parameters.content = toSayMatch[1].trim();
+      else if (toMatch) parameters.content = toMatch[1].trim();
+    }
+    
+    if (action === 'update_contact') {
+      if (commandLower.includes('phone')) parameters.field = 'phone';
+      else if (commandLower.includes('email')) parameters.field = 'email';
+      else if (commandLower.includes('address')) parameters.field = 'address';
+      else if (commandLower.includes('hours')) parameters.field = 'hours';
+      
+      // Extract the new value
+      const phoneMatch = command.match(/(\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4})/);
+      const emailMatch = command.match(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/);
+      
+      if (phoneMatch) parameters.value = phoneMatch[1];
+      else if (emailMatch) parameters.value = emailMatch[1];
+      else {
+        const toMatch = command.match(/to (.+?)(?:\.|$)/i);
+        if (toMatch) parameters.value = toMatch[1].trim();
+      }
+    }
+    
+    return {
+      target,
+      action,
+      parameters,
+      confidence: 0.8
+    };
   }
 
   private async executeCommand(commandId: number, parsedCommand: any) {

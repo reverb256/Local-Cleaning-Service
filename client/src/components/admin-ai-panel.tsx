@@ -36,13 +36,13 @@ export default function AdminAIPanel() {
   const queryClient = useQueryClient();
 
   // Fetch recent AI commands
-  const { data: commands = [], isLoading: commandsLoading } = useQuery({
+  const { data: commands = [], isLoading: commandsLoading } = useQuery<AICommand[]>({
     queryKey: ['/api/admin/ai-commands'],
     enabled: isExpanded
   });
 
   // Fetch site content versions
-  const { data: siteContent = [], isLoading: contentLoading } = useQuery({
+  const { data: siteContent = [], isLoading: contentLoading } = useQuery<SiteContent[]>({
     queryKey: ['/api/admin/site-content'],
     enabled: isExpanded
   });
