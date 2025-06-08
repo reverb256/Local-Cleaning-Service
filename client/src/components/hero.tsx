@@ -31,17 +31,17 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-6 mb-16">
               <Button 
                 onClick={() => scrollToSection('quote')}
-                className="bg-white text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all duration-200 px-8 py-4 text-lg font-bold"
+                className="bg-white text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all duration-200 px-8 py-4 text-lg font-bold flex items-center justify-center"
               >
                 <Calculator className="w-5 h-5 mr-2" />
-                Get Free Quote
+                <span>Get Free Quote</span>
               </Button>
               <Button 
                 onClick={() => scrollToSection('services')}
-                className="bg-workplace-blue text-white hover:bg-workplace-green transition-all duration-200 px-8 py-4 text-lg"
+                className="bg-workplace-blue text-white hover:bg-workplace-green transition-all duration-200 px-8 py-4 text-lg flex items-center justify-center"
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                View Services
+                <span>View Services</span>
               </Button>
             </div>
 
