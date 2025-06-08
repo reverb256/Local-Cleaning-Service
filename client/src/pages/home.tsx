@@ -1,10 +1,11 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
-import Services from "@/components/services";
-import QuoteCalculator from "@/components/quote-calculator";
+import ValueProposition from "@/components/value-proposition";
 import Customers from "@/components/customers-simple";
-import Testimonials from "@/components/testimonials";
+import Services from "@/components/services";
 import About from "@/components/about";
+import QuoteCalculator from "@/components/quote-calculator";
+import Testimonials from "@/components/testimonials";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 // import AIChat from "@/components/ai-chat";
@@ -16,11 +17,12 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Services />
-        <QuoteCalculator />
+        <ValueProposition />
         <Customers />
-        <Testimonials />
+        <Services />
         <About />
+        <QuoteCalculator />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />

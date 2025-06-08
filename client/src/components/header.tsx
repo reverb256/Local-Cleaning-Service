@@ -83,54 +83,49 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="lg:hidden glass-card mt-2 mx-4 mb-4">
-            <div className="px-4 pt-4 pb-6 space-y-2">
-              <button 
-                onClick={() => scrollToSection('home')}
-                className="nav-link w-full text-left"
-              >
-                Home
-              </button>
+            <div className="px-4 pt-4 pb-6 space-y-3">
+              {/* Priority Actions First */}
+              <div className="space-y-2 pb-4 border-b border-gray-200">
+                <button 
+                  onClick={() => scrollToSection('quote')}
+                  className="w-full bg-yellow-400 text-workplace-dark hover:bg-yellow-500 py-3 px-4 rounded-lg font-bold text-center transition-all"
+                >
+                  Get FREE Quote Now
+                </button>
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full bg-workplace-blue text-white hover:bg-workplace-green py-3 px-4 rounded-lg font-medium text-center transition-all flex items-center justify-center"
+                >
+                  <Phone className="w-4 h-4 mr-2" />
+                  Call (204) 415-2910
+                </button>
+              </div>
+              
+              {/* Value-Focused Navigation */}
               <button 
                 onClick={() => scrollToSection('services')}
-                className="nav-link w-full text-left"
+                className="nav-link w-full text-left py-2"
               >
-                Services
-              </button>
-              <button 
-                onClick={() => scrollToSection('quote')}
-                className="nav-link w-full text-left"
-              >
-                Get Quote
+                Our Solutions
               </button>
               <button 
                 onClick={() => scrollToSection('customers')}
-                className="nav-link w-full text-left"
+                className="nav-link w-full text-left py-2"
               >
-                Clients
+                Trusted By 200+ Businesses
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="nav-link w-full text-left"
+                className="nav-link w-full text-left py-2"
               >
-                About
+                Why Choose Us
               </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="nav-link w-full text-left"
-              >
-                Contact
-              </button>
-              <div className="pt-4 border-t border-white border-opacity-20">
-                <div className="flex items-center text-sm text-workplace-dark font-medium mb-4">
-                  <Phone className="w-4 h-4 mr-2 text-workplace-blue" />
-                  <span>(204) 415-2910</span>
-                </div>
-                <Button 
-                  onClick={() => scrollToSection('contact')}
-                  className="w-full btn-primary"
-                >
-                  Book Now
-                </Button>
+              
+              {/* Trust Indicators */}
+              <div className="pt-3 border-t border-gray-200">
+                <p className="text-xs text-workplace-gray text-center">
+                  30-Minute Guarantee • Free Consultation • Same-Day Response
+                </p>
               </div>
             </div>
           </div>

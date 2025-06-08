@@ -65,14 +65,21 @@ export default function CustomersSimple() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-20">
+          <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+            Active Partnerships Across Winnipeg
+          </div>
           <h2 className="text-5xl font-bold text-workplace-dark mb-6">
-            Trusted by Industry Leaders
+            Trusted by 200+ Leading Businesses
           </h2>
-          <p className="text-2xl text-workplace-gray max-w-4xl mx-auto leading-relaxed">
-            From Fortune 500 corporations to prestigious local establishments, 
-            our elite cleaning services maintain the highest standards for 
-            Canada's most discerning organizations.
+          <p className="text-2xl text-workplace-gray max-w-4xl mx-auto leading-relaxed mb-8">
+            From Fortune 500 companies to local enterprises, businesses choose us for our commitment to excellence
           </p>
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 max-w-2xl mx-auto">
+            <p className="text-workplace-dark font-semibold">
+              Join the growing network of satisfied clients who've experienced our 30-minute guarantee firsthand
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
