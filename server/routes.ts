@@ -67,11 +67,15 @@ const CLEANUP_INTERVAL = 5 * 60 * 1000; // 5 minutes
 // Cleanup expired entries to prevent memory leaks
 setInterval(() => {
   const now = Date.now();
-  for (const [key, value] of rateLimitMap.entries()) {
+  const keysToDelete: string[] = [];
+  
+  rateLimitMap.forEach((value, key) => {
     if (now > value.resetTime) {
-      rateLimitMap.delete(key);
+      keysToDelete.push(key);
     }
-  }
+  });
+  
+  keysToDelete.forEach(key => rateLimitMap.delete(key));
 }, CLEANUP_INTERVAL);
 
 function rateLimit(maxRequests: number = 5, windowMs: number = 60000) {
@@ -82,8 +86,10 @@ function rateLimit(maxRequests: number = 5, windowMs: number = 60000) {
     
     // Limit map size to prevent memory exhaustion
     if (rateLimitMap.size > 1000) {
-      const oldestKey = rateLimitMap.keys().next().value;
-      rateLimitMap.delete(oldestKey);
+      const firstEntry = rateLimitMap.entries().next();
+      if (!firstEntry.done) {
+        rateLimitMap.delete(firstEntry.value[0]);
+      }
     }
     
     const current = rateLimitMap.get(key);
