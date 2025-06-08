@@ -1,118 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0, minimum-scale=0.5" />
-    <title>Workplace Janitorial Services | Professional Office Cleaning Winnipeg</title>
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json" />
-    
-    <!-- Apple PWA Meta Tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Workplace Janitorial" />
-    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-    
-    <!-- Microsoft PWA Meta Tags -->
-    <meta name="msapplication-TileColor" content="#55C7F7" />
-    <meta name="msapplication-TileImage" content="/icons/icon-192x192.png" />
-    <meta name="description" content="Professional office cleaning services in Winnipeg. 30-minute guarantee, WCB coverage, criminal background checks. Free quotes for commercial cleaning." />
-    <meta name="keywords" content="office cleaning winnipeg, commercial cleaning, janitorial services, workplace cleaning, professional cleaning winnipeg" />
-    <meta name="author" content="Workplace Janitorial Services" />
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Workplace Janitorial Services | Professional Office Cleaning Winnipeg" />
-    <meta property="og:description" content="Professional office cleaning services in Winnipeg. 30-minute guarantee, WCB coverage, criminal background checks. Free quotes for commercial cleaning." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://workplacejanitorial.ca" />
-    <meta property="og:site_name" content="Workplace Janitorial Services" />
-    
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Workplace Janitorial Services | Professional Office Cleaning Winnipeg" />
-    <meta name="twitter:description" content="Professional office cleaning services in Winnipeg. 30-minute guarantee, WCB coverage, criminal background checks." />
-    
-    <!-- Accessibility & Performance -->
-    <meta name="theme-color" content="#55C7F7" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Workplace Janitorial Services",
-      "description": "Professional office cleaning services in Winnipeg",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2-761 Marion Street",
-        "addressLocality": "Winnipeg",
-        "addressRegion": "MB",
-        "postalCode": "R2J 0K6",
-        "addressCountry": "CA"
-      },
-      "telephone": "(204) 334-2817",
-      "email": "info@workplacejanitorial.ca",
-      "url": "https://workplacejanitorial.ca",
-      "serviceArea": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 49.8951,
-          "longitude": -97.1384
-        },
-        "geoRadius": "50000"
-      },
-      "priceRange": "$$",
-      "openingHours": "Mo-Fr 08:00-17:00"
-    }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- PWA Service Worker Registration -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workplace Janitorial Services - Professional Office Cleaning Winnipeg</title>
+    <meta name="description" content="Professional office cleaning services in Winnipeg. Trusted by 50+ enterprise clients including Marriott, Long & McQuade, and Crown Royal. 99.8% retention rate.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            height: 48px;
+            width: auto;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #2563eb;
+        }
+        
+        .cta-button {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero .highlight {
+            color: #2563eb;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+        
+        .btn-secondary {
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #eff6ff;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        .card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .customers {
+            background: #f9fafb;
+        }
+        
+        .trust-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .metric {
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2563eb;
+        }
+        
+        .metric-label {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .client-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .client-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .client-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .client-logo {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+            margin-bottom: 1rem;
+        }
+        
+        .client-card:hover .client-logo {
+            filter: grayscale(0%);
+        }
+        
+        .client-info {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .client-card:hover .client-info {
+            opacity: 1;
+        }
+        
+        .client-name {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .client-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .contact {
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            background: #f9fafb;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-value {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .contact-value:hover {
+            text-decoration: underline;
+        }
+        
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .emergency {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #d1d5db;
+            font-size: 0.875rem;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer p, .footer li {
+            color: #d1d5db;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #d1d5db;
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .trust-metrics {
+                gap: 1.5rem;
+            }
+            
+            .client-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="/attached_assets/wjs-logo-windows.png" alt="Workplace Janitorial Services" class="logo">
+                <nav class="nav">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#customers">Clients</a>
+                    <a href="#contact">Contact</a>
+                    <a href="tel:+12044152910" class="cta-button">(204) 415-2910</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Professional Office Cleaning<br><span class="highlight">Solutions in Winnipeg</span></h1>
+            <p>Transform your workplace with our comprehensive commercial cleaning services. Trusted by 50+ enterprise clients with 99.8% retention rate.</p>
+            <div class="hero-buttons">
+                <a href="tel:+12044152910" class="btn-primary">Get Free Quote</a>
+                <a href="#services" class="btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprehensive Cleaning Solutions</h2>
+                <p>Professional commercial cleaning services tailored to your business needs</p>
+            </div>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3>Office Cleaning</h3>
+                    <p>Daily, weekly, or monthly office cleaning services to maintain a pristine workspace</p>
+                </div>
+                <div class="card">
+                    <h3>Floor Care</h3>
+                    <p>Professional floor cleaning, waxing, and maintenance for all surface types</p>
+                </div>
+                <div class="card">
+                    <h3>Window Cleaning</h3>
+                    <p>Interior and exterior window cleaning services for crystal-clear visibility</p>
+                </div>
+                <div class="card">
+                    <h3>Carpet Cleaning</h3>
+                    <p>Deep carpet cleaning and stain removal using advanced equipment</p>
+                </div>
+                <div class="card">
+                    <h3>Restroom Sanitization</h3>
+                    <p>Complete restroom cleaning and sanitization with hospital-grade products</p>
+                </div>
+                <div class="card">
+                    <h3>Emergency Services</h3>
+                    <p>24/7 emergency cleaning services for unexpected situations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="customers" class="section customers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trusted by Leading Organizations</h2>
+                <p>We proudly serve some of Winnipeg's most prestigious businesses and organizations</p>
+            </div>
+            
+            <div class="trust-metrics">
+                <div class="metric">
+                    <div class="metric-number">50+</div>
+                    <div class="metric-label">Enterprise Clients</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">99.8%</div>
+                    <div class="metric-label">Client Retention</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">24/7</div>
+                    <div class="metric-label">Support Available</div>
+                </div>
+            </div>
+
+            <div class="client-grid">
+                <div class="client-card">
+                    <img src="/attached_assets/image_1749407686357.png" alt="Marriott Bonvoy" class="client-logo">
+                    <div class="client-info">
+                        <div class="client-name">Marriott Bonvoy</div>
+                        <div class="client-description">Premium hospitality services</div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <img src="/attached_assets/image_1749408680607.png" alt="Long & McQuade" class="client-logo">
+                    <div class="client-info">
+                        <div class="client-name">Long & McQuade</div>
+                        <div class="client-description">Canada's music store</div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <img src="/attached_assets/image_1749408711752.png" alt="Memory Express" class="client-logo">
+                    <div class="client-info">
+                        <div class="client-name">Memory Express</div>
+                        <div class="client-description">Computer technology retailer</div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <img src="/attached_assets/image_1749408723724.png" alt="Crown Royal" class="client-logo">
+                    <div class="client-info">
+                        <div class="client-name">Crown Royal</div>
+                        <div class="client-description">Premium Canadian whisky</div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <img src="/attached_assets/image_1749408745351.png" alt="Gallagher" class="client-logo">
+                    <div class="client-info">
+                        <div class="client-name">Gallagher</div>
+                        <div class="client-description">Global insurance brokerage</div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <img src="/attached_assets/image_1749408766227.png" alt="IGA" class="client-logo">
+                    <div class="client-info">
+                        <div class="client-name">IGA</div>
+                        <div class="client-description">Independent grocers alliance</div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <img src="/attached_assets/image_1749408781486.png" alt="Staples" class="client-logo">
+                    <div class="client-info">
+                        <div class="client-name">Staples</div>
+                        <div class="client-description">Office supplies and services</div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <img src="/attached_assets/image_1749408787386.png" alt="Sobeys" class="client-logo">
+                    <div class="client-info">
+                        <div class="client-name">Sobeys</div>
+                        <div class="client-description">Canadian grocery chain</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <p style="font-size: 1.125rem; color: #6b7280; margin-bottom: 1.5rem;">Join these industry leaders who trust us with their cleaning needs</p>
+                <a href="tel:+12044152910" class="btn-primary">Become Our Next Success Story</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to Get Started?</h2>
+                <p>Contact us today for a free consultation and quote</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:+12044152910" class="contact-value">(204) 415-2910</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:info@officecleaningwinnipeg.com" class="contact-value">info@officecleaningwinnipeg.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Service Area</span>
+                        <span style="color: #6b7280;">Winnipeg and surrounding areas</span>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Business Hours</h3>
+                    <div class="hours-row">
+                        <span style="color: #6b7280;">Monday - Friday</span>
+                        <span>8:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span style="color: #6b7280;">Saturday</span>
+                        <span>9:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span style="color: #6b7280;">Sunday</span>
+                        <span>Closed</span>
+                    </div>
+                    <div class="emergency">24/7 Emergency Services Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Workplace Janitorial Services</h3>
+                    <p>Professional office cleaning solutions in Winnipeg</p>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p>Phone: (204) 415-2910</p>
+                    <p>Email: info@officecleaningwinnipeg.com</p>
+                </div>
+                <div>
+                    <h3>Services</h3>
+                    <ul>
+                        <li>Office Cleaning</li>
+                        <li>Floor Care</li>
+                        <li>Window Cleaning</li>
+                        <li>Emergency Services</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Workplace Janitorial Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then((registration) => {
-              console.log('SW registered: ', registration);
-            })
-            .catch((registrationError) => {
-              console.log('SW registration failed: ', registrationError);
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
-      }
-
-      // PWA Install Prompt
-      let deferredPrompt;
-      window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        
-        // Show install button/banner
-        const installBtn = document.getElementById('install-pwa');
-        if (installBtn) {
-          installBtn.style.display = 'block';
-          installBtn.addEventListener('click', () => {
-            installBtn.style.display = 'none';
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-              if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-              }
-              deferredPrompt = null;
-            });
-          });
-        }
-      });
     </script>
-    
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
-  </body>
+</body>
 </html>
