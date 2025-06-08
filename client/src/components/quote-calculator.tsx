@@ -129,17 +129,17 @@ export default function QuoteCalculator() {
   };
 
   return (
-    <section id="quote" className="py-20 bg-white">
+    <section id="quote" className="py-20" style={{background: 'linear-gradient(135deg, #F0F9FF 0%, #ECFDF5 100%)'}}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Executive Quote Generator</h2>
-          <p className="text-xl text-gray-600">
+          <h2 className="text-4xl font-bold mb-4" style={{color: '#0277BD'}}>Executive Quote Generator</h2>
+          <p className="text-xl" style={{color: '#2D2D2D'}}>
             Precision pricing for professional excellence
           </p>
         </div>
 
-        <div className="quote-section">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="quote-section glow-card">
+          <form onSubmit={handleSubmit} className="space-y-6 glow-edge-sweep">
               {/* Office Size */}
               <div>
                 <Label htmlFor="squareFootage" className="text-base font-medium text-gray-900 mb-2 block">

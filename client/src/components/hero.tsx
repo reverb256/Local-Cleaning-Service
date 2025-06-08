@@ -38,7 +38,10 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Button 
                 onClick={() => scrollToSection('quote')}
-                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-workplace-dark hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200 px-10 py-5 text-xl font-bold flex items-center justify-center shadow-xl transform hover:scale-105 glow-pulse"
+                className="text-xl font-bold flex items-center justify-center shadow-xl transform hover:scale-105 glow-pulse transition-all duration-200 px-10 py-5"
+                style={{background: 'linear-gradient(to right, #A4D65E, #00BCD4)', color: '#1A1A1A'}}
+                onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #90C545, #0099B3)'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #A4D65E, #00BCD4)'}
               >
                 <Calculator className="w-6 h-6 mr-3" />
                 <span>Get FREE Quote Now</span>

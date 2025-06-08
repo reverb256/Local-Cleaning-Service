@@ -120,7 +120,7 @@ export default function Services() {
         
         {/* Enhanced Call to Action */}
         <div className="text-center mt-20">
-          <div className="bg-gradient-to-r from-workplace-blue to-workplace-green rounded-2xl p-12 shadow-2xl">
+          <div className="rounded-2xl p-12 shadow-2xl" style={{background: 'linear-gradient(to right, #0277BD, #A4D65E)'}}>
             <h3 className="text-4xl font-bold text-white mb-6">Ready to Experience Excellence?</h3>
             <p className="text-white text-xl mb-4 opacity-95">Join 200+ Winnipeg businesses who trust us with their spaces</p>
             <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 mb-8 inline-block">
@@ -134,7 +134,10 @@ export default function Services() {
                   const element = document.getElementById('quote');
                   if (element) element.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-workplace-dark hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200 px-10 py-4 text-xl font-bold rounded-lg shadow-xl transform hover:scale-105"
+                className="text-xl font-bold rounded-lg shadow-xl transform hover:scale-105 transition-all duration-200 px-10 py-4"
+                style={{background: 'linear-gradient(to right, #A4D65E, #00BCD4)', color: '#1A1A1A'}}
+                onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #90C545, #0099B3)'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #A4D65E, #00BCD4)'}
               >
                 Get FREE Quote Now
               </button>
