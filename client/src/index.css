@@ -739,58 +739,58 @@ select,
 
 /* Custom Tailwind utilities for WCAG compliance */
 .text-workplace-dark {
-  color: var(--workplace-dark);
+  color: #1f2937;
 }
 
 .text-workplace-gray {
-  color: var(--workplace-gray);
+  color: #374151;
 }
 
 .text-workplace-blue {
-  color: var(--workplace-blue-dark);
+  color: #1e40af;
 }
 
 .text-workplace-green {
-  color: var(--workplace-green-dark);
+  color: #059669;
 }
 
 /* Fix white-on-turquoise contrast issues */
 .text-on-turquoise {
-  color: var(--workplace-dark) !important;
+  color: #1f2937 !important;
   text-shadow: none !important;
 }
 
 .text-high-contrast {
-  color: var(--workplace-text-primary) !important;
+  color: #000000 !important;
   font-weight: 600 !important;
 }
 
 .bg-workplace-blue {
-  background-color: var(--workplace-blue);
+  background-color: #2563eb;
 }
 
 .bg-workplace-green {
-  background-color: var(--workplace-green);
+  background-color: #059669;
 }
 
 .bg-workplace-dark {
-  background-color: var(--workplace-dark);
+  background-color: #1f2937;
 }
 
 .bg-workplace-light {
-  background-color: var(--workplace-light);
+  background-color: #f8fafc;
 }
 
 .border-workplace-blue {
-  border-color: var(--workplace-blue);
+  border-color: #2563eb;
 }
 
 .border-workplace-green {
-  border-color: var(--workplace-green);
+  border-color: #059669;
 }
 
 .border-workplace-dark {
-  border-color: var(--workplace-dark);
+  border-color: #1f2937;
 }
 
 /* Hero Section Styling */
