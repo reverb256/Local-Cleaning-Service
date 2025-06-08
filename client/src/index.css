@@ -417,3 +417,47 @@ select:focus,
 .border-workplace-dark {
   border-color: var(--workplace-dark);
 }
+
+/* Hero Section Styling */
+.hero-gradient {
+  background: linear-gradient(135deg, 
+    rgba(85, 199, 247, 0.9) 0%, 
+    rgba(164, 214, 94, 0.8) 100%);
+}
+
+.glass-background {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Animation classes */
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
