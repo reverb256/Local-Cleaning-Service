@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 
+import wjs_logo_windows from "@assets/wjs-logo-windows.png";
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -21,7 +23,7 @@ export default function Header() {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <img 
-                src="/logo.svg" 
+                src={wjs_logo_windows} 
                 alt="Workplace Janitorial Services - Professional Office Cleaning Winnipeg" 
                 className="h-12 w-auto"
               />
