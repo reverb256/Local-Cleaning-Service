@@ -124,19 +124,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8">
+        <div className="border-t border-white border-opacity-20 mt-16 pt-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © 2024 Elite Clean Winnipeg. All rights reserved.
+            <p className="text-gray-300 text-lg">
+              © 2025 Reverb Web Design. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <button className="text-gray-400 hover:text-white text-sm transition-colors">
+            <div className="flex space-x-8 mt-6 md:mt-0">
+              <button className="glass-card px-4 py-2 text-gray-300 hover:text-workplace-green transition-all">
                 Privacy Policy
               </button>
-              <button className="text-gray-400 hover:text-white text-sm transition-colors">
+              <button className="glass-card px-4 py-2 text-gray-300 hover:text-workplace-green transition-all">
                 Terms of Service
               </button>
-              <button className="text-gray-400 hover:text-white text-sm transition-colors">
+              <button className="glass-card px-4 py-2 text-gray-300 hover:text-workplace-green transition-all">
                 Sitemap
               </button>
             </div>
