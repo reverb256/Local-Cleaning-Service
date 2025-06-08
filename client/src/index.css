@@ -13,11 +13,12 @@
   --workplace-light: #F7FAFC;
   --workplace-white: #FFFFFF;
   
-  /* Diamond Geometric System */
-  --diamond-angle: 45deg;
-  --diamond-shadow: 0 20px 40px rgba(0, 188, 212, 0.15);
-  --diamond-glow: 0 0 30px rgba(0, 188, 212, 0.2);
-  --angular-border: 12px;
+  /* Circular Logo-Inspired Design System */
+  --logo-cyan: #00BCD4;
+  --logo-shadow: 0 10px 30px rgba(0, 188, 212, 0.2);
+  --logo-glow: 0 0 20px rgba(0, 188, 212, 0.3);
+  --circular-border: 50px;
+  --professional-radius: 12px;
   
   /* High Contrast Variants for AAA Compliance */
   --workplace-blue-dark: #0F4A5C;    /* 10:1 contrast on white */
