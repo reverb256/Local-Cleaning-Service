@@ -30,59 +30,42 @@ export default function Header() {
             </div>
           </div>
           
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-2">
-            <button 
-              onClick={() => scrollToSection('home')}
-              className="nav-link"
-            >
-              Home
-            </button>
+          {/* Desktop Navigation - Value-Focused Flow */}
+          <div className="hidden lg:flex items-center space-x-1">
             <button 
               onClick={() => scrollToSection('services')}
-              className="nav-link"
+              className="nav-link px-4 py-2 text-workplace-dark hover:text-workplace-blue transition-colors"
             >
-              Solutions
-            </button>
-            <button 
-              onClick={() => scrollToSection('quote')}
-              className="nav-link"
-            >
-              Executive Quote
+              Our Solutions
             </button>
             <button 
               onClick={() => scrollToSection('customers')}
-              className="nav-link"
+              className="nav-link px-4 py-2 text-workplace-dark hover:text-workplace-blue transition-colors"
             >
-              Clients
+              Trusted By 200+
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="nav-link"
+              className="nav-link px-4 py-2 text-workplace-dark hover:text-workplace-blue transition-colors"
             >
-              Excellence
+              Why Choose Us
+            </button>
+            <button 
+              onClick={() => scrollToSection('quote')}
+              className="bg-yellow-400 text-workplace-dark hover:bg-yellow-500 px-6 py-3 rounded-lg font-bold transition-all duration-200 transform hover:scale-105 shadow-md"
+            >
+              Get FREE Quote
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="nav-link"
+              className="bg-workplace-blue text-white hover:bg-workplace-green px-6 py-3 rounded-lg font-medium transition-all duration-200 flex items-center"
             >
-              Partnership
+              <Phone className="w-4 h-4 mr-2" />
+              Call Now
             </button>
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center space-x-6">
-            <div className="flex items-center text-sm text-workplace-dark font-medium">
-              <Phone className="w-4 h-4 mr-2 text-workplace-blue" />
-              <span>(204) 415-2910</span>
-            </div>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="btn-primary"
-            >
-              Engage Excellence
-            </Button>
-          </div>
+
 
           {/* Mobile menu button */}
           <div className="lg:hidden">

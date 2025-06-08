@@ -111,10 +111,19 @@ export default function Contact() {
       <div className="absolute inset-0 glass-background"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-workplace-dark mb-6">Contact Us</h2>
-          <p className="text-2xl text-workplace-gray">
-            Ready to transform your workspace? Contact us today!
+          <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Clock className="w-4 h-4 mr-2" />
+            Available 6 Days a Week • Emergency Services Available
+          </div>
+          <h2 className="text-5xl font-bold text-workplace-dark mb-6">Get Started Today</h2>
+          <p className="text-2xl text-workplace-gray mb-4">
+            Join 200+ Winnipeg businesses who trust our expertise
           </p>
+          <div className="bg-gradient-to-r from-workplace-blue to-workplace-green text-white rounded-lg p-4 max-w-2xl mx-auto">
+            <p className="font-semibold">
+              Free consultation • Same-day response • 30-minute guarantee on all services
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">

@@ -89,26 +89,39 @@ export default function About() {
               className="rounded-2xl shadow-lg w-full mb-8"
             />
             
-            {/* Service Excellence Promise */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-workplace-blue">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-workplace-blue rounded-full flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-white" />
+            {/* 30-Minute Guarantee - Enhanced */}
+            <div className="relative overflow-hidden bg-gradient-to-br from-workplace-blue via-workplace-blue to-workplace-green rounded-2xl shadow-2xl">
+              <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+              <div className="relative p-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-6">
+                    <Clock className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-bold text-white mb-1">30-Minute Guarantee</h3>
+                    <p className="text-white text-opacity-90 text-lg">Excellence Beyond Expectations</p>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-workplace-dark mb-4">
-                    Quality Beyond Time Commitment
-                  </h3>
-                  <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                    We don't just complete tasks—we perfect them. Every service includes thorough 
-                    attention to detail that ensures your space meets our rigorous standards.
+                
+                <div className="bg-white bg-opacity-15 backdrop-blur-sm rounded-xl p-6 mb-6">
+                  <p className="text-white text-lg leading-relaxed mb-4">
+                    When we finish early, we invest an additional 30 minutes in detail work at no extra cost. 
+                    Your complete satisfaction drives our commitment to perfection.
                   </p>
-                  <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-workplace-dark font-semibold text-sm">
-                      Our team takes pride in delivering exceptional results, every single time.
-                    </p>
+                  <div className="flex items-center text-white text-opacity-90">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
+                    <span className="font-medium">Applies to all regular cleaning services</span>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h4 className="text-white font-bold mb-2">What This Means</h4>
+                    <p className="text-white text-opacity-90 text-sm">Extra attention to high-touch surfaces, thorough final inspection, and additional detail cleaning</p>
+                  </div>
+                  <div className="bg-white bg-opacity-10 rounded-lg p-4">
+                    <h4 className="text-white font-bold mb-2">Your Benefit</h4>
+                    <p className="text-white text-opacity-90 text-sm">Consistently superior results that exceed industry standards, guaranteed</p>
                   </div>
                 </div>
               </div>

@@ -6,7 +6,7 @@ const services = [
     title: "Premium Daily Operations",
     description: "Elite cleaning professionals delivering consistent excellence at your workspace",
     features: [
-      "Performance guarantee with 30-minute rapid response commitment",
+      "30-minute guarantee: extra detail work when we finish early",
       "Precision scheduling with adaptive duty optimization",
       "Immediate spill response and emergency cleaning protocols",
       "Thoroughly vetted staff with comprehensive background verification"
@@ -118,20 +118,40 @@ export default function Services() {
           })}
         </div>
         
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="glass-card inline-block p-8">
-            <h3 className="text-2xl font-bold text-workplace-dark mb-4">Ready to Transform Your Workspace?</h3>
-            <p className="text-workplace-gray mb-6">Get a personalized quote for your cleaning needs</p>
-            <button 
-              onClick={() => {
-                const element = document.getElementById('quote');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="btn-primary text-lg"
-            >
-              Get Your Free Quote
-            </button>
+        {/* Enhanced Call to Action */}
+        <div className="text-center mt-20">
+          <div className="bg-gradient-to-r from-workplace-blue to-workplace-green rounded-2xl p-10 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+            <div className="relative z-10">
+              <h3 className="text-4xl font-bold mb-4">Ready for Excellence?</h3>
+              <p className="text-xl mb-2 opacity-95">Join 200+ Winnipeg businesses who trust us</p>
+              <p className="text-lg mb-8 opacity-90">Free consultation • 30-minute guarantee • 24/7 support</p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('quote');
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="bg-yellow-400 text-workplace-dark hover:bg-yellow-500 transition-all duration-200 px-8 py-4 text-xl font-bold rounded-lg shadow-xl transform hover:scale-105"
+                >
+                  Get FREE Quote in 60 Seconds
+                </button>
+                <button 
+                  onClick={() => {
+                    const element = document.getElementById('contact');
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="bg-white bg-opacity-20 backdrop-blur-sm text-white hover:bg-white hover:text-workplace-dark transition-all duration-200 px-8 py-4 text-lg rounded-lg border border-white border-opacity-30"
+                >
+                  Schedule Consultation
+                </button>
+              </div>
+              
+              <div className="mt-6 text-sm opacity-80">
+                Most quotes delivered within 2 hours • No obligation
+              </div>
+            </div>
           </div>
         </div>
       </div>

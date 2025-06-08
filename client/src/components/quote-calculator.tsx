@@ -132,10 +132,19 @@ export default function QuoteCalculator() {
     <section id="quote" className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Executive Quote Generator</h2>
-          <p className="text-xl text-gray-600">
-            Precision pricing for professional excellence
+          <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <Calculator className="w-4 h-4 mr-2" />
+            Free Quote • No Obligation • Response in 2 Hours
+          </div>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get Your Instant Quote</h2>
+          <p className="text-xl text-gray-600 mb-4">
+            Professional cleaning solutions tailored to your business needs
           </p>
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 max-w-2xl mx-auto">
+            <p className="text-yellow-800 font-medium">
+              🎯 30-Minute Guarantee included with all services • Join 200+ satisfied Winnipeg businesses
+            </p>
+          </div>
         </div>
 
         <div className="quote-section">
