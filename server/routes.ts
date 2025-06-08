@@ -60,14 +60,31 @@ function validateContent(content: string): boolean {
   return !forbiddenPatterns.some(pattern => pattern.test(content));
 }
 
-// Rate limiting middleware
+// Memory-efficient rate limiting with automatic cleanup
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const CLEANUP_INTERVAL = 5 * 60 * 1000; // 5 minutes
 
-function rateLimit(maxRequests: number = 10, windowMs: number = 60000) {
+// Cleanup expired entries to prevent memory leaks
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, value] of rateLimitMap.entries()) {
+    if (now > value.resetTime) {
+      rateLimitMap.delete(key);
+    }
+  }
+}, CLEANUP_INTERVAL);
+
+function rateLimit(maxRequests: number = 5, windowMs: number = 60000) {
   return (req: any, res: any, next: any) => {
-    const ip = req.ip || req.connection.remoteAddress;
+    const ip = req.ip || req.connection.remoteAddress || 'unknown';
     const key = `${req.path}:${ip}`;
     const now = Date.now();
+    
+    // Limit map size to prevent memory exhaustion
+    if (rateLimitMap.size > 1000) {
+      const oldestKey = rateLimitMap.keys().next().value;
+      rateLimitMap.delete(oldestKey);
+    }
     
     const current = rateLimitMap.get(key);
     

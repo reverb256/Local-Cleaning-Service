@@ -2,12 +2,22 @@ import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
+import { useEffect, Component, ReactNode, lazy, Suspense } from "react";
 
-import Home from "@/pages/home";
-import PrivacyPolicy from "@/pages/privacy-policy";
-import TermsOfService from "@/pages/terms-of-service";
-import Sitemap from "@/pages/sitemap";
-import { useEffect, Component, ReactNode } from "react";
+// Lazy load pages for better performance
+const Home = lazy(() => import("@/pages/home"));
+const PrivacyPolicy = lazy(() => import("@/pages/privacy-policy"));
+const TermsOfService = lazy(() => import("@/pages/terms-of-service"));
+const Sitemap = lazy(() => import("@/pages/sitemap"));
+
+// Lightweight loading component
+const PageLoader = () => (
+  <div className="min-h-screen bg-workplace-light flex items-center justify-center">
+    <div className="design-container-floating p-8">
+      <div className="animate-pulse text-workplace-blue font-medium">Loading...</div>
+    </div>
+  </div>
+);
 
 // Error Boundary for catching React errors
 class ErrorBoundary extends Component<{children: ReactNode}, {hasError: boolean}> {
@@ -48,15 +58,17 @@ class ErrorBoundary extends Component<{children: ReactNode}, {hasError: boolean}
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/home" component={Home} />
-      <Route path="/privacy-policy" component={PrivacyPolicy} />
-      <Route path="/terms-of-service" component={TermsOfService} />
-      <Route path="/sitemap" component={Sitemap} />
-      {/* Fallback to home for unknown routes */}
-      <Route component={Home} />
-    </Switch>
+    <Suspense fallback={<PageLoader />}>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/home" component={Home} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/terms-of-service" component={TermsOfService} />
+        <Route path="/sitemap" component={Sitemap} />
+        {/* Fallback to home for unknown routes */}
+        <Route component={Home} />
+      </Switch>
+    </Suspense>
   );
 }
 

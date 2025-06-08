@@ -33,9 +33,9 @@ app.use(helmet({
   referrerPolicy: { policy: "strict-origin-when-cross-origin" }
 }));
 
-// Request size limits (OWASP - A04:2021 Insecure Design)
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: false, limit: '10mb' }));
+// Optimized request size limits for low-memory environment
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: false, limit: '1mb' }));
 
 // Security headers middleware
 app.use((req: Request, res: Response, next: NextFunction) => {
