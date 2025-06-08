@@ -1,4 +1,4 @@
-import marriottLogo from "@assets/image_1749417644086.png";
+import marriottLogo from "@assets/marriott-international-marriott-bonvoy-logo-vector-text-alphabet-word-label-transparent-png-1499814_1749417785085.png";
 import longMcQuadeLogo from "@assets/image_1749408723724.png";
 import grandeLogo from "@assets/image_1749408745351.png";
 import memoryExpressLogo from "@assets/image_1749408766227.png";
@@ -81,7 +81,32 @@ export default function CustomersSimple() {
               key={customer.name}
               className="group relative bg-white rounded-2xl p-4 md:p-8 shadow-lg border-2 border-gray-100 transition-all duration-300 hover:border-workplace-blue hover:shadow-xl hover:-translate-y-2"
             >
-              <div className={`h-20 flex items-center justify-center p-2 rounded-lg ${customer.bgColor}`}>
+              <div 
+                className={`h-20 flex items-center justify-center p-2 rounded-lg ${customer.bgColor}`}
+                style={{
+                  backgroundColor: 
+                    customer.bgColor === 'bg-red-50' ? '#fef2f2' :
+                    customer.bgColor === 'bg-blue-50' ? '#eff6ff' :
+                    customer.bgColor === 'bg-green-50' ? '#f0fdf4' :
+                    customer.bgColor === 'bg-purple-50' ? '#faf5ff' :
+                    customer.bgColor === 'bg-yellow-50' ? '#fefce8' :
+                    customer.bgColor === 'bg-indigo-50' ? '#eef2ff' :
+                    customer.bgColor === 'bg-amber-50' ? '#fffbeb' :
+                    customer.bgColor === 'bg-teal-50' ? '#f0fdfa' :
+                    customer.bgColor === 'bg-white' ? '#ffffff' : undefined,
+                  border: `1px solid ${
+                    customer.bgColor === 'bg-red-50' ? 'rgba(239, 68, 68, 0.1)' :
+                    customer.bgColor === 'bg-blue-50' ? 'rgba(59, 130, 246, 0.1)' :
+                    customer.bgColor === 'bg-green-50' ? 'rgba(34, 197, 94, 0.1)' :
+                    customer.bgColor === 'bg-purple-50' ? 'rgba(168, 85, 247, 0.2)' :
+                    customer.bgColor === 'bg-yellow-50' ? 'rgba(234, 179, 8, 0.1)' :
+                    customer.bgColor === 'bg-indigo-50' ? 'rgba(99, 102, 241, 0.1)' :
+                    customer.bgColor === 'bg-amber-50' ? 'rgba(245, 158, 11, 0.1)' :
+                    customer.bgColor === 'bg-teal-50' ? 'rgba(20, 184, 166, 0.1)' :
+                    customer.bgColor === 'bg-white' ? 'rgba(0, 0, 0, 0.1)' : 'transparent'
+                  }`
+                }}
+              >
                 <img
                   src={customer.logo}
                   alt={`${customer.name} logo`}
