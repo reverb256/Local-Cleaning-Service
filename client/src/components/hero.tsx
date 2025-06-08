@@ -24,24 +24,31 @@ export default function Hero() {
                 Guaranteed Results.
               </span>
             </h1>
-            <p className="text-responsive-large mb-8 lg:mb-10 opacity-95 leading-relaxed">
+            <p className="text-responsive-large mb-6 opacity-95 leading-relaxed">
               Transform your workspace with our premium cleaning solutions. Winnipeg's most trusted commercial cleaning specialists deliver uncompromising quality, every time.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 mb-16">
+            {/* Urgency and Social Proof */}
+            <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 mb-8">
+              <p className="text-white text-sm font-medium">
+                ✓ Serving 200+ Winnipeg businesses  •  ✓ 24/7 emergency response  •  ✓ Free consultation
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-16">
               <Button 
                 onClick={() => scrollToSection('quote')}
-                className="bg-white text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all duration-200 px-8 py-4 text-lg font-bold flex items-center justify-center"
+                className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-workplace-dark hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200 px-10 py-5 text-xl font-bold flex items-center justify-center shadow-xl transform hover:scale-105"
               >
-                <Calculator className="w-5 h-5 mr-2" />
-                <span>Get Instant Quote</span>
+                <Calculator className="w-6 h-6 mr-3" />
+                <span>Get FREE Quote Now</span>
               </Button>
               <Button 
                 onClick={() => scrollToSection('services')}
-                className="bg-workplace-blue text-white hover:bg-workplace-green transition-all duration-200 px-8 py-4 text-lg flex items-center justify-center"
+                className="bg-white bg-opacity-20 backdrop-blur-sm text-white hover:bg-white hover:text-workplace-dark transition-all duration-200 px-8 py-5 text-lg flex items-center justify-center border border-white border-opacity-30"
               >
                 <Calendar className="w-5 h-5 mr-2" />
-                <span>Explore Solutions</span>
+                <span>View Services</span>
               </Button>
             </div>
 
