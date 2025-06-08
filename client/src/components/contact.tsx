@@ -119,7 +119,7 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <div className="glass-card p-10">
+          <div className="design-container-premium p-10 glow-hover">
             <h3 className="text-3xl font-bold text-workplace-dark mb-8">Send us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -246,17 +246,20 @@ export default function Contact() {
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="glass-card p-10">
+            <div className="design-container-elevated p-10">
               <h3 className="text-3xl font-bold text-workplace-dark mb-8">Contact Information</h3>
                 
               <div className="space-y-8">
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
                   return (
-                    <div key={index} className="flex items-start glass-card p-6">
-                      <div className="diamond-shape mr-6">
+                    <div key={index} className="flex items-start design-container-accent p-6">
+                      <div className="diamond-shape mr-6" style={{
+                        background: `linear-gradient(45deg, ${index % 2 === 0 ? '#00BCD4' : '#A4D65E'}, ${index % 2 === 0 ? '#A4D65E' : '#00BCD4'})`,
+                        boxShadow: `0 0 15px ${index % 2 === 0 ? 'rgba(0, 188, 212, 0.3)' : 'rgba(164, 214, 94, 0.3)'}`
+                      }}>
                         <div className="diamond-shape-content">
-                          <Icon className="w-6 h-6" />
+                          <Icon className="w-6 h-6 text-white" />
                         </div>
                       </div>
                       <div>

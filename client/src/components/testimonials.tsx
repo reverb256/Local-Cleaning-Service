@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
@@ -71,8 +71,8 @@ export default function Testimonials() {
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="w-full flex-shrink-0">
                   <div className="max-w-4xl mx-auto">
-                    <Card className="testimonial-card">
-                      <CardContent className="p-8 md:p-12">
+                    <div className="design-container-premium glow-hover">
+                      <div className="p-8 md:p-12">
                         <div className="flex items-center mb-8">
                           <div className="flex text-workplace-green text-2xl mr-4">
                             {[...Array(testimonial.rating)].map((_, i) => (
@@ -95,8 +95,8 @@ export default function Testimonials() {
                             <div className="text-workplace-blue text-lg font-medium">{testimonial.title}</div>
                           </div>
                         </div>
-                      </CardContent>
-                    </Card>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}

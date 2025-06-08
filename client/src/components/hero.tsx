@@ -74,19 +74,35 @@ export default function Hero() {
                 <h3 className="font-bold text-xl mb-3 text-white">ELITE PROFESSIONALS</h3>
                 <p className="text-base opacity-90 text-white">Rigorously vetted staff with comprehensive insurance protection</p>
               </div>
-              <div className="text-center glow-floating" style={{animationDelay: '1.3s'}}>
-                <div className="diamond-shape mx-auto mb-4 glow-underglow">
+              <div className="text-center design-container-floating p-6" style={{
+                animationDelay: '1.3s',
+                background: 'rgba(164, 214, 94, 0.15)',
+                backdropFilter: 'blur(15px)',
+                border: '1px solid rgba(0, 188, 212, 0.3)'
+              }}>
+                <div className="diamond-shape mx-auto mb-4 glow-underglow" style={{
+                  background: 'linear-gradient(45deg, #A4D65E, #00BCD4)',
+                  boxShadow: '0 0 20px rgba(164, 214, 94, 0.4)'
+                }}>
                   <div className="diamond-shape-content">
-                    <Shield className="w-6 h-6" />
+                    <Shield className="w-6 h-6 text-white" />
                   </div>
                 </div>
                 <h3 className="font-bold text-xl mb-3 text-white">ADVANCED SOLUTIONS</h3>
                 <p className="text-base opacity-90 text-white">Strategic inventory management & sanitary solutions</p>
               </div>
-              <div className="text-center glow-floating" style={{animationDelay: '2.6s'}}>
-                <div className="diamond-shape mx-auto mb-4 glow-underglow">
+              <div className="text-center design-container-floating p-6" style={{
+                animationDelay: '2.6s',
+                background: 'rgba(0, 188, 212, 0.15)',
+                backdropFilter: 'blur(15px)',
+                border: '1px solid rgba(164, 214, 94, 0.3)'
+              }}>
+                <div className="diamond-shape mx-auto mb-4 glow-underglow" style={{
+                  background: 'linear-gradient(45deg, #00BCD4, #A4D65E)',
+                  boxShadow: '0 0 20px rgba(0, 188, 212, 0.4)'
+                }}>
                   <div className="diamond-shape-content">
-                    <Clock className="w-6 h-6" />
+                    <Clock className="w-6 h-6 text-white" />
                   </div>
                 </div>
                 <h3 className="font-bold text-xl mb-3 text-white">PERFORMANCE PROMISE</h3>
