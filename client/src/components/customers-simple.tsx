@@ -30,7 +30,7 @@ const customers = [
     name: "Memory Express",
     logo: memoryExpressLogo,
     description: "Technology retail solutions",
-    bgColor: "bg-purple-50"
+    bgColor: "bg-white"
   },
   {
     name: "Benson Financial",
@@ -48,7 +48,7 @@ const customers = [
     name: "Crown Royal",
     logo: crownRoyalLogo,
     description: "Premium spirits excellence",
-    bgColor: "bg-amber-50"
+    bgColor: "bg-purple-50"
   },
   {
     name: "Gallagher",
