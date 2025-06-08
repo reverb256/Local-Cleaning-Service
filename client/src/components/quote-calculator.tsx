@@ -138,8 +138,8 @@ export default function QuoteCalculator() {
           </p>
         </div>
 
-        <div className="quote-section glow-card">
-          <form onSubmit={handleSubmit} className="space-y-6 glow-edge-sweep">
+        <div className="design-container-primary p-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
               {/* Office Size */}
               <div>
                 <Label htmlFor="squareFootage" className="text-base font-medium text-gray-900 mb-2 block">

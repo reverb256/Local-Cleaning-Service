@@ -57,10 +57,18 @@ export default function Hero() {
 
             {/* Diamond Trust Indicators - Brand Signature */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center glow-floating" style={{animationDelay: '0s'}}>
-                <div className="diamond-shape mx-auto mb-4 glow-underglow">
+              <div className="text-center design-container-floating p-6" style={{
+                animationDelay: '0s',
+                background: 'rgba(0, 188, 212, 0.15)',
+                backdropFilter: 'blur(15px)',
+                border: '1px solid rgba(164, 214, 94, 0.3)'
+              }}>
+                <div className="diamond-shape mx-auto mb-4 glow-underglow" style={{
+                  background: 'linear-gradient(45deg, #00BCD4, #A4D65E)',
+                  boxShadow: '0 0 20px rgba(0, 188, 212, 0.4)'
+                }}>
                   <div className="diamond-shape-content">
-                    <Leaf className="w-6 h-6" />
+                    <Leaf className="w-6 h-6 text-white" />
                   </div>
                 </div>
                 <h3 className="font-bold text-xl mb-3 text-white">ELITE PROFESSIONALS</h3>

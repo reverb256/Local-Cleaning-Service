@@ -90,10 +90,10 @@ export default function About() {
             />
             
             {/* Service Excellence Promise */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4" style={{borderColor: '#0277BD'}}>
+            <div className="design-container-accent p-8 glow-underglow">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{backgroundColor: '#0277BD'}}>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center design-container-floating" style={{backgroundColor: '#00BCD4', border: '2px solid #A4D65E'}}>
                     <Clock className="w-6 h-6 text-white" />
                   </div>
                 </div>

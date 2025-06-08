@@ -90,7 +90,11 @@ export default function Services() {
             return (
               <div 
                 key={index} 
-                className={`service-card group glow-card ${service.featured ? 'hero-gradient text-white glow-edge-sweep' : ''}`}
+                className={`service-card group design-container-elevated ${service.featured ? 'design-container-premium text-white glow-edge-sweep' : ''}`}
+                style={service.featured ? {
+                  background: 'linear-gradient(135deg, #0277BD 0%, #A4D65E 100%)',
+                  color: 'white'
+                } : {}}
               >
                 <div className={`${service.featured ? 'text-white' : ''} mb-6`}>
                   <div className={`diamond-shape ${service.featured ? 'bg-white bg-opacity-20' : ''}`}>

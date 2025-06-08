@@ -79,7 +79,10 @@ export default function CustomersSimple() {
           {customers.map((customer, index) => (
             <div
               key={customer.name}
-              className="group relative bg-white rounded-2xl p-4 md:p-8 shadow-lg border-2 border-gray-100 transition-all duration-300 hover:border-workplace-blue hover:shadow-xl hover:-translate-y-2 glow-hover"
+              className="group relative design-container-floating glow-hover p-4 md:p-8"
+              style={{
+                animationDelay: `${index * 0.2}s`
+              }}
             >
               <div 
                 className={`h-20 flex items-center justify-center p-2 rounded-lg ${customer.bgColor}`}
