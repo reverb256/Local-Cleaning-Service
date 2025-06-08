@@ -25,7 +25,7 @@ export default function AIChat() {
   ]);
   const [inputMessage, setInputMessage] = useState('');
   const [sessionId] = useState(() => `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
-  // const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const chatMutation = useMutation({
     mutationFn: async (message: string) => {
@@ -56,8 +56,7 @@ export default function AIChat() {
   });
 
   const scrollToBottom = () => {
-    // Auto-scroll disabled to prevent hook errors
-    // messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -140,7 +139,7 @@ export default function AIChat() {
                   </div>
                 </div>
               )}
-              <div />
+              <div ref={messagesEndRef} />
             </div>
 
             {/* Input */}

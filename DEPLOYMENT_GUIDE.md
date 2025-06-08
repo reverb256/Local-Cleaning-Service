@@ -1,65 +1,23 @@
-# Production Deployment Guide
-## Workplace Janitorial Services - Enterprise Web Platform
+# Autonomous SEO Optimization Deployment Guide
+## Workplace Janitorial Services - 1vCPU/.5GB Cloudflare-First Architecture
 
 ### System Overview
-Comprehensive deployment guide for the complete web platform featuring AI orchestration, autonomous SEO, WCAG AAA accessibility, and enterprise security compliance.
+This deployment leverages Cloudflare's free tier for heavy lifting while maintaining a minimal server footprint optimized for 1vCPU/.5GB constraints.
 
-## Pre-Deployment Verification
+## Architecture Components
 
-### Route Validation Status ✅
-All application routes verified and functional:
+### Core Infrastructure
+- **Main Server**: 1vCPU/.5GB (384MB allocated, 256MB reserved)
+- **PostgreSQL**: Lightweight configuration (128MB limit)
+- **Redis**: Session storage only (64MB limit)
+- **CloudFlare Workers**: AI/SEO processing (edge compute)
 
-#### Frontend Routes (Wouter)
-- `/` - Home page with complete navigation system
-- `/privacy-policy` - Legal compliance documentation
-- `/terms-of-service` - Service terms and conditions
-- `/sitemap` - SEO sitemap generation
-
-#### API Endpoints (Express)
-- `GET /api/quotes` - Quote retrieval system
-- `POST /api/quotes` - Quote submission with Zod validation
-- `GET /api/contacts` - Contact form submissions
-- `POST /api/contacts` - Contact processing system
-- `POST /api/chat` - AI chat integration
-- `GET /api/bookings` - Service booking management
-- `POST /api/bookings` - Booking creation system
-
-#### Navigation Anchors
-- `#hero` - Landing section
-- `#services` - Service portfolio
-- `#quote` - Interactive calculator
-- `#customers` - Client showcase (8 enterprise logos)
-- `#testimonials` - Success stories
-- `#about` - Company information
-- `#contact` - Contact system
-
-### Database Schema ✅
-All tables configured and relationships established:
-```sql
-users (id, username, email, created_at)
-quotes (id, name, email, phone, service_type, square_footage, frequency, additional_services, address, status, created_at)
-contacts (id, name, email, phone, subject, message, priority, status, created_at)
-bookings (id, service_type, date, time, duration, location, special_instructions, status, created_at)
-chat_sessions (id, session_id, messages, context, created_at)
-api_limits (id, endpoint, request_count, window_start, created_at)
-```
-
-### Asset Integration ✅
-Client logos properly integrated:
-- Marriott Bonvoy
-- Long & McQuade Musical Instruments
-- The Grande by Lakeview
-- Memory Express
-- Benson Financial
-- Phason Agricultural Technology
-- Crown Royal
-- Gallagher Insurance
-
-### Contact Information Consistency ✅
-Verified across all components:
-- Phone: (204) 415-2910
-- Email: info@officecleaningwinnipeg.com
-- Address: 2-761 Marion Street, Winnipeg, MB R2J 0K6
+### CloudFlare Edge Services (Free Tier)
+- **100,000 Worker requests/day**: SEO analysis, competitor research
+- **10GB R2 Storage**: SEO reports, performance data
+- **100,000 KV reads/day**: Search result caching
+- **1,000 KV writes/day**: Fresh data updates
+- **10,000 AI model requests/day**: Content optimization
 
 ## Deployment Steps
 

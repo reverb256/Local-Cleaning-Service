@@ -1,11 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
-import path from "path";
-import { fileURLToPath } from "url";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(express.json());
@@ -52,18 +47,18 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // Serve static assets
-  app.use('/attached_assets', express.static(path.resolve(__dirname, '../attached_assets')));
-  
-  // Serve static files from public directory
-  app.use(express.static(path.resolve(__dirname, '../public')));
-
-  // Serve the customers page
-  app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../public/index.html'));
-  });
+  // importantly only setup vite in development and after
+  // setting up all the other routes so the catch-all route
+  // doesn't interfere with the other routes
+  if (app.get("env") === "development") {
+    await setupVite(app, server);
+  } else {
+    serveStatic(app);
+  }
 
   // ALWAYS serve the app on port 5000
+  // this serves both the API and the client.
+  // It is the only port that is not firewalled.
   const port = 5000;
   server.listen({
     port,
