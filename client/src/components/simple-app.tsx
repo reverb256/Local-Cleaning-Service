@@ -4,10 +4,11 @@ import Services from "@/components/services";
 import QuoteCalculator from "@/components/quote-calculator";
 import CustomersSimple from "@/components/customers-simple";
 import Testimonials from "@/components/testimonials";
-import BlogSection from "@/components/blog-section";
 import About from "@/components/about";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
+import AIChat from "@/components/ai-chat";
+import InstallPWA from "@/components/install-pwa";
 
 export default function SimpleApp() {
   return (
@@ -19,11 +20,12 @@ export default function SimpleApp() {
         <QuoteCalculator />
         <CustomersSimple />
         <Testimonials />
-        <BlogSection />
         <About />
         <Contact />
       </main>
       <Footer />
+      <AIChat />
+      <InstallPWA />
     </div>
   );
 }

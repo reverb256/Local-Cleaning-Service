@@ -69,6 +69,7 @@ function App() {
             <Router />
           </main>
         </div>
+        <Toaster />
     </QueryClientProvider>
   );
 }

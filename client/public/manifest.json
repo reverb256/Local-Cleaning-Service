@@ -1,14 +1,16 @@
 {
-  "name": "Workplace Janitorial Services",
-  "short_name": "Workplace Janitorial",
-  "description": "Professional office cleaning services in Winnipeg with 30-minute guarantee",
+  "name": "Workplace Janitorial Services - Professional Office Cleaning Winnipeg",
+  "short_name": "WJS Cleaning",
+  "description": "Premier office cleaning and janitorial services for Winnipeg businesses. Book cleaning services, get instant quotes, and manage your facility maintenance needs.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#55C7F7",
-  "theme_color": "#55C7F7",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "en-CA",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "utilities"],
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
@@ -23,5 +25,18 @@
       "purpose": "maskable any"
     }
   ],
-  "categories": ["business", "productivity", "utilities"]
+  "shortcuts": [
+    {
+      "name": "Get Quote",
+      "short_name": "Quote",
+      "description": "Get an instant cleaning service quote",
+      "url": "/#quote"
+    },
+    {
+      "name": "Schedule Service",
+      "short_name": "Schedule",
+      "description": "Book your cleaning service",
+      "url": "/#contact"
+    }
+  ]
 }
