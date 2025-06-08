@@ -70,9 +70,9 @@ export default function ValueProposition() {
                 }`}
               >
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${
-                  point.highlight ? 'bg-white bg-opacity-20' : 'bg-workplace-blue bg-opacity-10'
+                  point.highlight ? 'bg-white bg-opacity-20' : 'bg-blue-50'
                 }`}>
-                  <Icon className={`w-6 h-6 ${point.highlight ? 'text-white' : 'text-workplace-blue'}`} />
+                  <Icon className={`w-6 h-6 ${point.highlight ? 'text-white' : 'text-blue-600'}`} />
                 </div>
                 <h3 className={`text-lg font-bold mb-2 ${
                   point.highlight ? 'text-white' : 'text-workplace-dark'
