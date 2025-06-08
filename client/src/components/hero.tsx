@@ -12,8 +12,7 @@ export default function Hero() {
   return (
     <section id="home" className="relative flex items-center overflow-hidden hero-section">
       {/* Glassmorphism Background */}
-      <div className="absolute inset-0 hero-gradient"></div>
-      <div className="absolute inset-0 glass-background"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-green-600"></div>
       
       <div className="relative z-10 container-responsive max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center hero-grid">

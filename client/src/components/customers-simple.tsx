@@ -69,14 +69,14 @@ export default function CustomersSimple() {
             <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
             Active Partnerships Across Winnipeg
           </div>
-          <h2 className="text-5xl font-bold text-workplace-dark mb-6">
+          <h2 className="text-5xl font-bold text-gray-900 mb-6">
             Trusted by 200+ Leading Businesses
           </h2>
-          <p className="text-2xl text-workplace-gray max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8">
             From Fortune 500 companies to local enterprises, businesses choose us for our commitment to excellence
           </p>
           <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6 max-w-2xl mx-auto">
-            <p className="text-workplace-dark font-semibold">
+            <p className="text-gray-900 font-semibold">
               Join the growing network of satisfied clients who've experienced our 30-minute guarantee firsthand
             </p>
           </div>
@@ -86,7 +86,7 @@ export default function CustomersSimple() {
           {customers.map((customer, index) => (
             <div
               key={customer.name}
-              className="group relative bg-white rounded-2xl p-4 md:p-8 shadow-lg border-2 border-gray-100 transition-all duration-300 hover:border-workplace-blue hover:shadow-xl hover:-translate-y-2"
+              className="group relative bg-white rounded-2xl p-4 md:p-8 shadow-lg border-2 border-gray-100 transition-all duration-300 hover:border-blue-600 hover:shadow-xl hover:-translate-y-2"
             >
               <div 
                 className={`h-20 flex items-center justify-center p-2 rounded-lg ${customer.bgColor}`}

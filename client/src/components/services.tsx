@@ -72,14 +72,12 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-24 overflow-hidden">
-      {/* Glassmorphism Background */}
-      <div className="absolute inset-0 glass-background"></div>
+    <section id="services" className="relative py-16 overflow-hidden bg-white">
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-workplace-dark mb-6">Elite Commercial Solutions</h2>
-          <p className="text-2xl text-workplace-gray max-w-4xl mx-auto leading-relaxed">
+          <h2 className="text-5xl font-bold text-gray-900 mb-6">Elite Commercial Solutions</h2>
+          <p className="text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
             Transformative cleaning excellence engineered for discerning businesses who demand perfection
           </p>
         </div>
