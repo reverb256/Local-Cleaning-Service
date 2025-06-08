@@ -52,11 +52,12 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/5 to-cyan/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-          <p className="text-xl text-gray-600">
+    <section className="relative py-24 overflow-hidden">
+      <div className="absolute inset-0 glass-background"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-bold text-workplace-dark mb-6">What Our Clients Say</h2>
+          <p className="text-2xl text-workplace-gray">
             Trusted by businesses across Winnipeg
           </p>
         </div>
@@ -72,26 +73,26 @@ export default function Testimonials() {
                   <div className="max-w-4xl mx-auto">
                     <Card className="testimonial-card">
                       <CardContent className="p-8 md:p-12">
-                        <div className="flex items-center mb-6">
-                          <div className="flex text-yellow-400 text-2xl mr-2">
+                        <div className="flex items-center mb-8">
+                          <div className="flex text-workplace-green text-2xl mr-4">
                             {[...Array(testimonial.rating)].map((_, i) => (
                               <Star key={i} className="w-6 h-6 fill-current" />
                             ))}
                           </div>
-                          <span className="text-gray-600">{testimonial.rating}.0/5.0</span>
+                          <span className="text-workplace-gray text-lg font-medium">{testimonial.rating}.0/5.0</span>
                         </div>
-                        <blockquote className="text-xl md:text-2xl text-gray-700 mb-8 italic leading-relaxed">
+                        <blockquote className="text-xl md:text-2xl text-workplace-dark mb-10 italic leading-relaxed font-medium">
                           "{testimonial.content}"
                         </blockquote>
                         <div className="flex items-center">
                           <img 
                             src={testimonial.image} 
                             alt={testimonial.name}
-                            className="w-16 h-16 rounded-full object-cover mr-4"
+                            className="w-20 h-20 rounded-full object-cover mr-6"
                           />
                           <div>
-                            <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                            <div className="text-gray-600">{testimonial.title}</div>
+                            <div className="font-bold text-workplace-dark text-xl">{testimonial.name}</div>
+                            <div className="text-workplace-blue text-lg font-medium">{testimonial.title}</div>
                           </div>
                         </div>
                       </CardContent>
@@ -107,27 +108,27 @@ export default function Testimonials() {
             variant="outline"
             size="icon"
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-lg hover:shadow-xl"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 glass-card rounded-full hover:bg-workplace-blue hover:bg-opacity-20"
           >
-            <ChevronLeft className="w-6 h-6 text-primary" />
+            <ChevronLeft className="w-6 h-6 text-workplace-blue" />
           </Button>
           <Button
             variant="outline"
             size="icon"
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-full shadow-lg hover:shadow-xl"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 glass-card rounded-full hover:bg-workplace-blue hover:bg-opacity-20"
           >
-            <ChevronRight className="w-6 h-6 text-primary" />
+            <ChevronRight className="w-6 h-6 text-workplace-blue" />
           </Button>
 
           {/* Indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-12 space-x-3">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentSlide ? 'bg-primary' : 'bg-gray-300'
+                className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                  index === currentSlide ? 'bg-workplace-blue scale-125' : 'bg-workplace-gray hover:bg-workplace-green'
                 }`}
               />
             ))}

@@ -35,28 +35,32 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="about" className="relative py-24 overflow-hidden">
+      <div className="absolute inset-0 glass-background"></div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="animate-slide-in">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">About Elite Clean</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Founded in Winnipeg, we've been providing exceptional commercial cleaning services 
-              for over a decade. Our mission is to create healthier, more productive workspaces 
-              through reliable, customized, and environmentally responsible cleaning solutions.
+            <h2 className="text-5xl font-bold text-workplace-dark mb-8">About Workplace Janitorial</h2>
+            <p className="text-xl text-workplace-gray mb-8 leading-relaxed">
+              Workplace Janitorial provides reliable and professional commercial office 
+              cleaning services to the Winnipeg area. With over 10 years of 
+              experience in the office cleaning industry we have established the 
+              practices and procedures that others in the industry strive for.
             </p>
             
-            <div className="space-y-4 mb-8">
+            <div className="space-y-6 mb-10">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <div key={index} className="flex items-start">
-                    <div className="text-primary text-xl mr-3 mt-1">
-                      <Icon className="w-6 h-6" />
+                  <div key={index} className="flex items-start glass-card p-6">
+                    <div className="diamond-shape mr-6">
+                      <div className="diamond-shape-content">
+                        <Icon className="w-6 h-6" />
+                      </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-2">{feature.title}</h4>
-                      <p className="text-gray-600">{feature.description}</p>
+                      <h4 className="font-bold text-workplace-dark text-xl mb-3">{feature.title}</h4>
+                      <p className="text-workplace-gray text-lg">{feature.description}</p>
                     </div>
                   </div>
                 );
@@ -64,12 +68,12 @@ export default function About() {
             </div>
 
             {/* Certifications */}
-            <div className="border-t pt-8">
-              <h4 className="font-semibold text-gray-900 mb-4">Our Certifications</h4>
+            <div className="glass-card p-8">
+              <h4 className="font-bold text-workplace-dark text-xl mb-6">Our Certifications</h4>
               <div className="flex flex-wrap gap-4">
                 {certifications.map((cert, index) => (
-                  <div key={index} className="bg-gray-50 px-4 py-2 rounded-lg">
-                    <span className="text-sm font-medium">
+                  <div key={index} className="bg-workplace-blue bg-opacity-10 px-6 py-3 rounded-2xl border border-workplace-blue border-opacity-20">
+                    <span className="text-base font-semibold text-workplace-dark">
                       {cert.icon} {cert.text}
                     </span>
                   </div>
@@ -86,24 +90,25 @@ export default function About() {
             />
             
             {/* 30-Minute Guarantee */}
-            <Card className="bg-gradient-to-r from-cyan to-primary text-white">
-              <CardContent className="p-8">
-                <div className="flex items-center mb-4">
-                  <Clock className="w-8 h-8 mr-3" />
-                  <h3 className="text-2xl font-bold">Our 30-Minute Guarantee</h3>
-                </div>
-                <p className="mb-4 text-white/90">
-                  If we finish early, we'll spend an extra 30 minutes on detail work at no additional cost. 
-                  Your satisfaction is our priority.
-                </p>
-                <div className="flex items-center">
-                  <div className="text-3xl mr-3">⏰</div>
-                  <div className="text-sm text-white/80">
-                    This guarantee applies to all regular cleaning services
+            <div className="glass-card p-8 bg-gradient-to-r from-workplace-blue to-workplace-green">
+              <div className="flex items-center mb-6">
+                <div className="diamond-shape bg-white bg-opacity-20 mr-6">
+                  <div className="diamond-shape-content">
+                    <Clock className="w-6 h-6 text-white" />
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+                <h3 className="text-3xl font-bold text-white">Our 30-Minute Guarantee</h3>
+              </div>
+              <p className="mb-6 text-white text-lg leading-relaxed">
+                If we finish early, we'll spend an extra 30 minutes on detail work at no additional cost. 
+                Your satisfaction is our priority.
+              </p>
+              <div className="glass-card p-4 bg-white bg-opacity-10">
+                <div className="text-white text-base font-medium">
+                  This guarantee applies to all regular cleaning services
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
