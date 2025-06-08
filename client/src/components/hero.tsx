@@ -31,14 +31,14 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-6 mb-16">
               <Button 
                 onClick={() => scrollToSection('quote')}
-                className="btn-secondary text-lg font-bold"
+                className="bg-white text-workplace-dark hover:bg-workplace-blue hover:text-white transition-all duration-200 px-8 py-4 text-lg font-bold"
               >
                 <Calculator className="w-5 h-5 mr-2" />
                 Get Free Quote
               </Button>
               <Button 
                 onClick={() => scrollToSection('services')}
-                className="btn-primary text-lg"
+                className="bg-workplace-blue text-white hover:bg-workplace-green transition-all duration-200 px-8 py-4 text-lg"
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 View Services
@@ -48,31 +48,31 @@ export default function Hero() {
             {/* Diamond Trust Indicators - Brand Signature */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="diamond-shape">
+                <div className="diamond-shape mx-auto mb-4">
                   <div className="diamond-shape-content">
                     <Leaf className="w-6 h-6" />
                   </div>
                 </div>
-                <h3 className="font-bold text-xl mb-3">OUR PEOPLE</h3>
-                <p className="text-base opacity-90">Criminal background checks & WCB coverage</p>
+                <h3 className="font-bold text-xl mb-3 text-white">OUR PEOPLE</h3>
+                <p className="text-base opacity-90 text-white">Criminal background checks & WCB coverage</p>
               </div>
               <div className="text-center">
-                <div className="diamond-shape">
+                <div className="diamond-shape mx-auto mb-4">
                   <div className="diamond-shape-content">
                     <Shield className="w-6 h-6" />
                   </div>
                 </div>
-                <h3 className="font-bold text-xl mb-3">WE RECOMMEND</h3>
-                <p className="text-base opacity-90">Vendor managed inventory & Biochem Environmental</p>
+                <h3 className="font-bold text-xl mb-3 text-white">WE RECOMMEND</h3>
+                <p className="text-base opacity-90 text-white">Vendor managed inventory & Biochem Environmental</p>
               </div>
               <div className="text-center">
-                <div className="diamond-shape">
+                <div className="diamond-shape mx-auto mb-4">
                   <div className="diamond-shape-content">
                     <Clock className="w-6 h-6" />
                   </div>
                 </div>
-                <h3 className="font-bold text-xl mb-3">GUARANTEED CLEAN</h3>
-                <p className="text-base opacity-90">30-minute guarantee on additional cleaning</p>
+                <h3 className="font-bold text-xl mb-3 text-white">GUARANTEED CLEAN</h3>
+                <p className="text-base opacity-90 text-white">30-minute guarantee on additional cleaning</p>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function Hero() {
             
             {/* Contact CTA */}
             <div className="absolute -top-8 -right-8 glass-card p-4 text-center">
-              <div className="text-workplace-blue font-bold text-lg">(204) 415-2910</div>
+              <div className="text-workplace-blue font-bold text-lg">(204) 334-2817</div>
               <div className="text-workplace-dark text-sm">Call for Quote</div>
             </div>
           </div>
