@@ -1,0 +1,25 @@
+{
+  "name": "autonomous-browser-service",
+  "version": "1.0.0",
+  "description": "Headless browser service for autonomous SEO optimization",
+  "main": "src/browser-server.js",
+  "scripts": {
+    "start": "node src/browser-server.js",
+    "dev": "nodemon src/browser-server.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.7.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "rate-limiter-flexible": "^3.0.8",
+    "zod": "^3.22.4",
+    "winston": "^3.11.0",
+    "node-cron": "^3.0.3",
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

@@ -1,0 +1,30 @@
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production && npm cache clean --force
+
+FROM node:18-alpine AS runtime
+
+# Security hardening
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nextjs -u 1001 && \
+    apk add --no-cache dumb-init
+
+WORKDIR /app
+
+# Copy production dependencies
+COPY --from=builder /app/node_modules ./node_modules
+COPY --chown=nextjs:nodejs . .
+
+# Remove unnecessary files to reduce image size
+RUN rm -rf docker cloudflare config scripts .git *.md && \
+    find . -name "*.test.*" -delete && \
+    find . -name "*.spec.*" -delete
+
+USER nextjs
+
+EXPOSE 5000
+
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["node", "server/index.js"]

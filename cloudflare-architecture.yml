@@ -1,0 +1,85 @@
+# Cloudflare-First Architecture for 1vCPU/.5GB Deployment
+# Offloads heavy processing to Cloudflare Free Tier
+
+architecture:
+  edge_tier:
+    # Cloudflare Workers (Free: 100,000 requests/day)
+    - seo_analyzer_worker:
+        description: "Lighthouse performance analysis via Cloudflare's browser API"
+        resources: "Edge compute - no server resources used"
+        features:
+          - Page speed analysis
+          - Core Web Vitals monitoring
+          - Accessibility scanning
+          - SEO metadata extraction
+    
+    - search_aggregator_worker:
+        description: "Search result aggregation using multiple free APIs"
+        resources: "Edge compute - no server resources used"
+        features:
+          - Google Custom Search (100 requests/day free)
+          - Bing Web Search (1000 requests/month free)
+          - DuckDuckGo Instant Answer API (unlimited)
+          - Serper.dev (2500 free searches/month)
+    
+    - content_optimizer_worker:
+        description: "AI-powered content optimization"
+        resources: "Edge compute with Cloudflare AI models"
+        features:
+          - Text summarization (@cf/facebook/bart-large-cnn)
+          - Sentiment analysis (@cf/huggingface/distilbert-sst-2)
+          - Translation (@cf/meta/m2m100-1.2b)
+          - Keyword extraction (custom logic)
+
+  # Cloudflare R2 Storage (Free: 10GB storage, 1M Class A operations/month)
+  storage_tier:
+    - seo_reports: "Store historical SEO analysis data"
+    - performance_metrics: "Core Web Vitals tracking"
+    - competitor_snapshots: "Periodic competitor analysis"
+    - optimization_suggestions: "AI-generated recommendations"
+
+  # Cloudflare KV (Free: 100,000 reads/day, 1,000 writes/day)
+  cache_tier:
+    - search_results_cache: "30-day TTL for search queries"
+    - seo_scores_cache: "24-hour TTL for performance metrics"
+    - competitor_rankings: "Weekly competitor position tracking"
+
+  # Cloudflare D1 (Free: 100,000 rows read/day, 100,000 rows written/day)
+  database_tier:
+    - seo_monitoring_log: "Lightweight tracking of SEO changes"
+    - search_query_analytics: "Query performance and trends"
+    - alert_configurations: "User-defined monitoring rules"
+
+server_tier:
+  # Main application (1vCPU/.5GB)
+  lightweight_orchestrator:
+    memory_usage: "256MB"
+    cpu_usage: "0.5 vCPU"
+    responsibilities:
+      - Coordinate Cloudflare Workers
+      - Handle user authentication
+      - Serve static website
+      - Manage PostgreSQL for business data only
+    
+  optimizations:
+    - "Use Cloudflare Workers for all heavy computation"
+    - "Cache everything possible in Cloudflare KV/R2"
+    - "Minimize server-side processing"
+    - "Leverage edge computing for AI operations"
+
+cost_efficiency:
+  cloudflare_free_limits:
+    workers: "100,000 requests/day"
+    r2_storage: "10GB free"
+    r2_operations: "1M Class A operations/month"
+    kv_reads: "100,000/day"
+    kv_writes: "1,000/day"
+    d1_reads: "100,000 rows/day"
+    d1_writes: "100,000 rows/day"
+    ai_models: "10,000 requests/day per model"
+  
+  estimated_usage:
+    daily_seo_checks: "~500 worker requests"
+    search_queries: "~200 search API calls"
+    ai_processing: "~100 content optimizations"
+    storage_growth: "~10MB/day"
