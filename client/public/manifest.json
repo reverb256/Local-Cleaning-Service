@@ -1,27 +1,60 @@
 {
-  "name": "Workplace Janitorial Services",
+  "name": "Workplace Janitorial Services - Commercial Cleaning Winnipeg",
   "short_name": "Workplace Janitorial",
-  "description": "Professional office cleaning services in Winnipeg with 30-minute guarantee",
+  "description": "Professional commercial office cleaning and industrial cleaning services in Winnipeg, Manitoba. Eco-friendly janitorial solutions and green cleaning products.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#55C7F7",
-  "theme_color": "#55C7F7",
+  "background_color": "#00BCD4",
+  "theme_color": "#00BCD4",
   "orientation": "portrait-primary",
-  "scope": "/",
+  "categories": ["business", "cleaning", "services"],
   "lang": "en-CA",
+  "scope": "/",
   "icons": [
     {
-      "src": "/icons/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     },
     {
-      "src": "/icons/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable any"
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
     }
   ],
-  "categories": ["business", "productivity", "utilities"]
+  "screenshots": [
+    {
+      "src": "/og-image.svg",
+      "sizes": "1200x630",
+      "type": "image/svg+xml",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Get Free Quote",
+      "short_name": "Quote",
+      "description": "Request a free cleaning service quote",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "any"
+        }
+      ]
+    },
+    {
+      "name": "Our Services",
+      "short_name": "Services",
+      "description": "View commercial cleaning services",
+      "url": "/#services",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "any"
+        }
+      ]
+    }
+  ]
 }

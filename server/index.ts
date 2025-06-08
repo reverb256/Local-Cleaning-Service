@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import AutonomousSEOOrchestrator from "./seo-orchestrator";
+import AdvancedSEOAnalytics from "./seo-analytics";
 
 const app = express();
 app.use(express.json());
@@ -38,9 +39,12 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  // Initialize SEO Orchestrator
+  // Initialize SEO Orchestrator and Advanced Analytics
   const seoOrchestrator = new AutonomousSEOOrchestrator();
+  const seoAnalytics = new AdvancedSEOAnalytics();
+  
   seoOrchestrator.registerRoutes(app);
+  seoAnalytics.registerRoutes(app);
 
   // Dynamic XML Sitemap Generation
   app.get('/sitemap.xml', (req, res) => {

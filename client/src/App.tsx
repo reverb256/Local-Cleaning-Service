@@ -24,7 +24,7 @@ function SimpleHome() {
             Professional Commercial Cleaning
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Workplace Janitorial Services offers commercial office cleaning and industrial cleaning services to Winnipeg businesses. Featuring eco-friendly janitorial solutions and eco-friendly cleaning products.
+            Workplace Janitorial Services offers premier commercial office cleaning and industrial cleaning services to Winnipeg businesses across Manitoba. Specializing in eco-friendly janitorial solutions, green cleaning products, and sustainable maintenance practices that protect your workplace and the environment.
           </p>
           <div className="flex justify-center space-x-4">
             <button className="bg-white text-cyan-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
@@ -79,7 +79,7 @@ function SimpleHome() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-gray-900 mb-8">About Workplace Janitorial Services</h2>
             <p className="text-lg text-gray-700 mb-8">
-              We are Winnipeg's trusted commercial cleaning partner, providing reliable janitorial services to businesses across the city. Our commitment to eco-friendly cleaning solutions ensures a healthy environment for your employees and customers while protecting our planet.
+              As Winnipeg's premier commercial cleaning partner since 2009, we provide reliable janitorial services to businesses across Manitoba. Our ISO-certified team delivers comprehensive office cleaning, industrial maintenance, and specialized sanitization services. With a commitment to eco-friendly cleaning solutions, we ensure healthy work environments for your employees and customers while protecting our environment through sustainable practices and green cleaning products.
             </p>
             <div className="grid md:grid-cols-3 gap-8 mt-12">
               <div className="text-center">
