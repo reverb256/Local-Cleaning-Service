@@ -90,23 +90,23 @@ export default function About() {
             />
             
             {/* Service Excellence Promise */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-workplace-blue">
+            <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4" style={{borderColor: '#0277BD'}}>
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-workplace-blue rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{backgroundColor: '#0277BD'}}>
                     <Clock className="w-6 h-6 text-white" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-workplace-dark mb-4">
+                  <h3 className="text-2xl font-bold mb-4" style={{color: '#1A1A1A'}}>
                     Quality Beyond Time Commitment
                   </h3>
-                  <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                  <p className="text-lg leading-relaxed mb-4" style={{color: '#2D2D2D'}}>
                     We don't just complete tasks—we perfect them. Every service includes thorough 
                     attention to detail that ensures your space meets our rigorous standards.
                   </p>
-                  <div className="bg-gray-50 rounded-lg p-4">
-                    <p className="text-workplace-dark font-semibold text-sm">
+                  <div className="rounded-lg p-4" style={{backgroundColor: '#F0F9FF'}}>
+                    <p className="font-semibold text-sm" style={{color: '#1A1A1A'}}>
                       Our team takes pride in delivering exceptional results, every single time.
                     </p>
                   </div>
