@@ -408,6 +408,87 @@ select:focus,
   line-height: 1.6;
 }
 
+/* Intelligent Container Resizing System */
+.container-intelligent {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+}
+
+.container-auto-fill {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.container-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.flex-fill-remaining {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.flex-fill-remaining > * {
+  flex: 1 1 auto;
+  min-width: 280px;
+}
+
+.grid-adaptive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.grid-stretch-fill {
+  display: grid;
+  gap: 1.5rem;
+  align-items: stretch;
+  justify-items: stretch;
+}
+
+.aspect-fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dynamic grid sizing based on content */
+.grid-content-aware {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: start;
+}
+
+.grid-content-aware > * {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Eliminate awkward gaps */
+.no-gap-fill {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.5rem;
+}
+
+.no-gap-fill > * {
+  margin: 0.5rem;
+  flex: 1 1 calc(33.333% - 1rem);
+  min-width: 280px;
+}
+
 /* Comprehensive Responsive Design */
 
 /* Ultra-wide screens (2560px+) */
@@ -425,6 +506,14 @@ select:focus,
   .text-responsive-large {
     font-size: 2rem;
     line-height: 1.4;
+  }
+  
+  .container-auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+  
+  .container-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   }
 }
 
@@ -460,6 +549,18 @@ select:focus,
   
   .glass-card {
     padding: 1.5rem;
+  }
+  
+  .container-auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .container-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  .flex-fill-remaining > * {
+    min-width: 300px;
   }
 }
 
@@ -540,6 +641,29 @@ select:focus,
   /* Reduce section padding on mobile */
   section {
     padding: 2rem 0 !important;
+  }
+  
+  /* Mobile intelligent containers */
+  .container-auto-fill,
+  .container-auto-fit {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .flex-fill-remaining > * {
+    min-width: 100%;
+    flex: 1 1 100%;
+  }
+  
+  .no-gap-fill > * {
+    flex: 1 1 100%;
+    min-width: 100%;
+    margin: 0.25rem;
+  }
+  
+  .grid-content-aware {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
   /* Mobile-specific fixes */

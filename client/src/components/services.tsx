@@ -84,7 +84,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="container-auto-fit grid-stretch-fill">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

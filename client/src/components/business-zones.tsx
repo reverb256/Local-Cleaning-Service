@@ -90,7 +90,7 @@ export default function BusinessZones() {
         </div>
 
         {/* Comprehensive Services Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="flex-fill-remaining">
           <div className="design-container-floating p-8">
             <h4 className="text-xl font-bold text-workplace-blue mb-6">Office Area Services</h4>
             <ul className="space-y-3">

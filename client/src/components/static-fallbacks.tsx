@@ -28,7 +28,7 @@ export function StaticQuoteCalculator() {
     const baseRate = formData.serviceType === 'deep' ? 0.15 : formData.serviceType === 'eco' ? 0.10 : 0.12;
     const frequencyMultiplier = formData.frequency === 'weekly' ? 1 : formData.frequency === 'bi-weekly' ? 0.85 : 0.75;
     const additionalCost = formData.additionalServices.length * 50;
-    
+
     const monthlyPrice = (formData.squareFootage * baseRate * frequencyMultiplier * 4) + additionalCost;
     setEstimatedPrice(monthlyPrice);
   };
@@ -184,7 +184,7 @@ export function StaticQuoteCalculator() {
               </CardContent>
             </Card>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex-fill-remaining">
               <div>
                 <Label htmlFor="name" className="text-sm font-medium text-gray-700 mb-2 block">
                   Your Name *
@@ -215,7 +215,7 @@ export function StaticQuoteCalculator() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex-fill-remaining">
               <div>
                 <Label htmlFor="phone" className="text-sm font-medium text-gray-700 mb-2 block">
                   Phone Number
@@ -421,7 +421,7 @@ export function StaticAIChat() {
               </Button>
             </div>
           </div>
-          
+
           <CardContent className="p-6 space-y-4">
             <div className="text-center">
               <h4 className="font-bold text-workplace-dark mb-4">Contact Us</h4>

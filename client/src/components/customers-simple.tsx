@@ -75,7 +75,7 @@ export default function CustomersSimple() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
+        <div className="container-auto-fill grid-content-aware">
           {customers.map((customer, index) => (
             <div
               key={customer.name}
