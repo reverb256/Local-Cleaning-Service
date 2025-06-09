@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Calculator, Calendar, Shield, Leaf, Clock } from "lucide-react";
+import abstractBackground1 from "@assets/image_1749435064843.png";
+import abstractBackground2 from "@assets/image_1749435068929.png";
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -11,8 +13,23 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative flex items-center overflow-hidden hero-section">
-      {/* Glassmorphism Background */}
+      {/* Dynamic Abstract Background */}
       <div className="absolute inset-0 hero-gradient"></div>
+      <div 
+        className="absolute inset-0 opacity-20 bg-cover bg-center transition-opacity duration-1000"
+        style={{
+          backgroundImage: `url(${abstractBackground1})`,
+          backgroundBlendMode: 'overlay'
+        }}
+      ></div>
+      <div 
+        className="absolute inset-0 opacity-15 bg-cover bg-center transition-opacity duration-1000 animate-pulse"
+        style={{
+          backgroundImage: `url(${abstractBackground2})`,
+          backgroundBlendMode: 'soft-light',
+          animationDelay: '2s'
+        }}
+      ></div>
       <div className="absolute inset-0 glass-background"></div>
       
       <div className="relative z-10 container-responsive max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -145,6 +162,40 @@ export default function Hero() {
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Floating Abstract Accent Elements */}
+      <div className="absolute top-10 right-10 w-32 h-32 opacity-30 animate-float-slow">
+        <div 
+          className="w-full h-full rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(164, 214, 94, 0.4), rgba(0, 188, 212, 0.2))',
+            filter: 'blur(20px)',
+            animationDelay: '0s'
+          }}
+        ></div>
+      </div>
+      
+      <div className="absolute bottom-20 left-10 w-24 h-24 opacity-25 animate-float-reverse">
+        <div 
+          className="w-full h-full rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(0, 188, 212, 0.4), rgba(164, 214, 94, 0.2))',
+            filter: 'blur(15px)',
+            animationDelay: '3s'
+          }}
+        ></div>
+      </div>
+      
+      <div className="absolute top-1/2 right-1/4 w-16 h-16 opacity-20 animate-pulse">
+        <div 
+          className="w-full h-full rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent)',
+            filter: 'blur(10px)',
+            animationDelay: '1.5s'
+          }}
+        ></div>
       </div>
     </section>
   );

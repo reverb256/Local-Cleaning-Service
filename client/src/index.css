@@ -701,7 +701,43 @@ select:focus,
   }
   50% {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px var(--underglow-blue);
+    box-shadow: 0 10px 30px var(--underglow-green);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(15px) translateX(-8px) rotate(180deg);
+    opacity: 0.4;
+  }
+}
+
+@keyframes background-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
   }
 }
 
@@ -1110,6 +1146,20 @@ select:focus,
 .error-border {
   border-color: #CC0000;
   border-width: 2px;
+}
+
+/* Floating Animation Utilities */
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 10s ease-in-out infinite;
+}
+
+.animate-background-shift {
+  animation: background-shift 15s ease-in-out infinite;
+  background-size: 200% 200%;
 }
 
 /* Success states with proper contrast */
