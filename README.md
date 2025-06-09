@@ -161,8 +161,8 @@ npm run preview
 
 ## 🚀 Deployment
 
-### GitHub Pages + Cloudflare (Recommended)
-Deploy the static version with global CDN and optimization:
+### GitHub Pages (Primary Deployment)
+Deploy the static version for free hosting:
 
 ```bash
 # Automated deployment
@@ -174,11 +174,11 @@ npm run build -- --config vite.config.static.ts
 git add . && git commit -m "Deploy" && git push origin main
 ```
 
-### Cloudflare Pages Direct
-Alternative deployment with enhanced features:
-- Connect GitHub repository to Cloudflare Pages
-- Build command: `npm run build -- --config vite.config.static.ts`
-- Environment: `VITE_STATIC_BUILD=true`
+### Future Cloudflare Integration
+When ready, enhance with custom domain and CDN:
+- Configure DNS records in Cloudflare
+- Enable SSL and performance optimizations
+- See `CLOUDFLARE_DEPLOYMENT.md` for setup guide
 
 ### Production Server (Replit)
 Full-featured deployment with backend services:

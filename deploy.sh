@@ -50,10 +50,10 @@ fi
 echo "✅ Static build completed successfully"
 
 # Check for CNAME file
-if [ -f "client/public/CNAME" ]; then
+if [ -f "client/public/CNAME" ] && [ -s "client/public/CNAME" ]; then
     echo "✅ Custom domain configured: $(cat client/public/CNAME)"
 else
-    echo "⚠️  No custom domain configured (CNAME file missing)"
+    echo "ℹ️  Deploying to GitHub Pages default domain"
 fi
 
 # Commit and push changes
@@ -83,10 +83,11 @@ echo "3. Set source to 'GitHub Actions'"
 echo "4. Wait for deployment (2-5 minutes)"
 echo ""
 echo "🌐 Your site will be available at:"
-if [ -f "client/public/CNAME" ]; then
+if [ -f "client/public/CNAME" ] && [ -s "client/public/CNAME" ]; then
     echo "   https://$(cat client/public/CNAME)"
 else
-    echo "   https://$(git config --get remote.origin.url | sed 's/.*github.com[:/]\([^/]*\)\/\([^.]*\).*/\1.github.io\/\2/')"
+    echo "   https://yourusername.github.io/repository-name"
+    echo "   (Replace with your actual GitHub username and repository name)"
 fi
 echo ""
 echo "🔧 For Cloudflare integration:"
