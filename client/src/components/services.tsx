@@ -122,6 +122,100 @@ export default function Services() {
           })}
         </div>
         
+        {/* Contract Cleaning Service Section */}
+        <div className="mt-20 relative overflow-hidden rounded-3xl" style={{
+          background: 'linear-gradient(135deg, #0277BD 0%, #00BCD4 100%)',
+          minHeight: '400px'
+        }}>
+          <div className="absolute inset-0" style={{
+            background: 'url("https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=400") center/cover',
+            opacity: 0.15
+          }}></div>
+          
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-12">
+            {/* Content Side */}
+            <div className="text-white">
+              <h2 className="text-5xl font-bold mb-6 leading-tight">
+                CONTRACT CLEANING SERVICE
+              </h2>
+              <p className="text-xl mb-8 leading-relaxed opacity-95">
+                Cleaning programs are designed to maintain acceptable cleanliness that fits the budget. Regular 
+                Cleaning Services can be bundled with other cleaning services to create a complete Cleaning Program.
+              </p>
+              
+              {/* Service Features */}
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 rounded-full bg-workplace-green flex items-center justify-center">
+                    <span className="text-white text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-lg">Customized cleaning schedules to fit your business needs</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 rounded-full bg-workplace-green flex items-center justify-center">
+                    <span className="text-white text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-lg">Comprehensive service bundles for complete facility maintenance</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 rounded-full bg-workplace-green flex items-center justify-center">
+                    <span className="text-white text-sm font-bold">✓</span>
+                  </div>
+                  <span className="text-lg">Budget-conscious solutions without compromising quality</span>
+                </div>
+              </div>
+
+              <button 
+                onClick={() => {
+                  const element = document.getElementById('quote');
+                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="bg-workplace-green text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition-all duration-200 shadow-xl"
+              >
+                Get Contract Quote
+              </button>
+            </div>
+
+            {/* Floating Service Cards */}
+            <div className="relative h-80 lg:h-96">
+              {/* Office Cleaning Card */}
+              <div className="absolute top-4 right-8 bg-white rounded-xl shadow-xl p-4 max-w-40 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <img 
+                  src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=150" 
+                  alt="Office cleaning service" 
+                  className="w-full h-24 object-cover rounded-lg mb-2"
+                />
+                <p className="text-xs font-semibold text-workplace-dark">Office Deep Clean</p>
+              </div>
+
+              {/* Floor Care Card */}
+              <div className="absolute bottom-16 right-4 bg-white rounded-xl shadow-xl p-4 max-w-40 transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+                <img 
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=150" 
+                  alt="Floor cleaning service" 
+                  className="w-full h-24 object-cover rounded-lg mb-2"
+                />
+                <p className="text-xs font-semibold text-workplace-dark">Floor Care</p>
+              </div>
+
+              {/* Sanitization Card */}
+              <div className="absolute top-20 left-8 bg-white rounded-xl shadow-xl p-4 max-w-40 transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                <img 
+                  src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=150" 
+                  alt="Sanitization service" 
+                  className="w-full h-24 object-cover rounded-lg mb-2"
+                />
+                <p className="text-xs font-semibold text-workplace-dark">Sanitization</p>
+              </div>
+
+              {/* Central Service Icon */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-workplace-dark rounded-full flex items-center justify-center shadow-2xl">
+                <div className="text-white text-2xl">🧹</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Enhanced Call to Action */}
         <div className="text-center mt-20">
           <div className="rounded-2xl p-12 shadow-2xl" style={{background: 'linear-gradient(to right, #0277BD, #A4D65E)'}}>
