@@ -1,352 +1,318 @@
-# Production Deployment Guide
-## Workplace Janitorial Services - Enterprise Web Platform
+# Deployment Guide
 
-### System Overview
-Comprehensive deployment guide for the complete web platform featuring AI orchestration, autonomous SEO, WCAG AAA accessibility, and enterprise security compliance.
+Comprehensive deployment guide for Workplace Janitorial Services with dual deployment strategies supporting both static showcase and full-stack production environments.
 
-## Pre-Deployment Verification
+## 🚀 Deployment Strategies
 
-### Route Validation Status ✅
-All application routes verified and functional:
+### 1. Static Deployment (GitHub Pages) - Client Showcase
+**Perfect for demonstrations, portfolio showcase, and zero-cost hosting**
 
-#### Frontend Routes (Wouter)
-- `/` - Home page with complete navigation system
-- `/privacy-policy` - Legal compliance documentation
-- `/terms-of-service` - Service terms and conditions
-- `/sitemap` - SEO sitemap generation
+#### Features in Static Mode:
+- All visual design and animations preserved
+- Client-side quote calculator with fallback contact forms
+- Direct phone/email links replace form submissions
+- PWA functionality with offline support
+- Admin panel automatically hidden
 
-#### API Endpoints (Express)
-- `GET /api/quotes` - Quote retrieval system
-- `POST /api/quotes` - Quote submission with Zod validation
-- `GET /api/contacts` - Contact form submissions
-- `POST /api/contacts` - Contact processing system
-- `POST /api/chat` - AI chat integration
-- `GET /api/bookings` - Service booking management
-- `POST /api/bookings` - Booking creation system
+#### Setup Steps:
+1. **Repository Configuration**
+   ```bash
+   # Copy GitHub Actions workflow
+   cp github-pages-deploy.yml .github/workflows/deploy.yml
+   
+   # Ensure static files are in place
+   ls client/public/.nojekyll
+   ls client/public/404.html
+   ls client/public/CNAME
+   ```
 
-#### Navigation Anchors
-- `#hero` - Landing section
-- `#services` - Service portfolio
-- `#quote` - Interactive calculator
-- `#customers` - Client showcase (8 enterprise logos)
-- `#testimonials` - Success stories
-- `#about` - Company information
-- `#contact` - Contact system
+2. **GitHub Pages Settings**
+   - Repository Settings → Pages
+   - Source: GitHub Actions
+   - Custom domain: workplacejanitorial.ca
 
-### Database Schema ✅
-All tables configured and relationships established:
-```sql
-users (id, username, email, created_at)
-quotes (id, name, email, phone, service_type, square_footage, frequency, additional_services, address, status, created_at)
-contacts (id, name, email, phone, subject, message, priority, status, created_at)
-bookings (id, service_type, date, time, duration, location, special_instructions, status, created_at)
-chat_sessions (id, session_id, messages, context, created_at)
-api_limits (id, endpoint, request_count, window_start, created_at)
-```
+3. **Build and Deploy**
+   ```bash
+   # Automatic deployment on push to main
+   git push origin main
+   
+   # Manual static build
+   VITE_STATIC_BUILD=true vite build --config vite.config.static.ts
+   ```
 
-### Asset Integration ✅
-Client logos properly integrated:
-- Marriott Bonvoy
-- Long & McQuade Musical Instruments
-- The Grande by Lakeview
-- Memory Express
-- Benson Financial
-- Phason Agricultural Technology
-- Crown Royal
-- Gallagher Insurance
+### 2. Full-Stack Deployment (Production) - Business Operations
+**Complete functionality for actual business use**
 
-### Contact Information Consistency ✅
-Verified across all components:
-- Phone: (204) 415-2910
-- Email: info@workplacejanitorial.ca
-- Address: 2-761 Marion Street, Winnipeg, MB R2J 0K6
+#### Features in Full-Stack Mode:
+- PostgreSQL database integration
+- Real-time form processing
+- AI chat system with admin panel
+- Lead management and analytics
+- Backend API for all business operations
 
-## Deployment Steps
+#### Deployment Options:
 
-### 1. Environment Setup
+##### Option A: Replit Deployments (Recommended)
 ```bash
-# Clone repository
-git clone <repository-url>
-cd workplace-janitorial-services
-
-# Environment variables
-cp .env.example .env
-
-# Required variables
-export DATABASE_URL="postgresql://..."
-export REDIS_URL="redis://..."
-export CLOUDFLARE_API_TOKEN="..."
-export CLOUDFLARE_ACCOUNT_ID="..."
-export CLOUDFLARE_ZONE_ID="..."
+# One-click deployment from Replit interface
+# Automatic HTTPS and domain management
+# Built-in PostgreSQL hosting
 ```
 
-### 2. CloudFlare Workers Deployment
+##### Option B: Docker Deployment
 ```bash
-# Install Wrangler CLI
-npm install -g wrangler
+# Build and start containers
+docker-compose up -d
 
-# Authenticate with CloudFlare
-wrangler login
-
-# Deploy SEO Analysis Worker
-cd cloudflare/workers
-wrangler deploy seo-analyzer.js
-
-# Configure worker routes
-wrangler route add "seo-analyzer.workplacejanitorial.workers.dev/*" seo-analyzer
+# Verify services
+docker-compose ps
 ```
 
-### 3. Database Initialization
+##### Option C: Manual Server Deployment
+```bash
+# Production build
+npm run build
+
+# Start production server
+NODE_ENV=production npm start
+```
+
+## 🔧 Environment Configuration
+
+### Required Environment Variables
+```env
+# Database Configuration
+DATABASE_URL=postgresql://user:pass@host:port/db
+PGHOST=localhost
+PGPORT=5432
+PGUSER=username
+PGPASSWORD=password
+PGDATABASE=database_name
+
+# Application Settings
+NODE_ENV=production
+PORT=5000
+
+# Static Build Flag (GitHub Pages only)
+VITE_STATIC_BUILD=true
+```
+
+### Security Configuration
+```env
+# Content Security Policy
+CSP_ENABLED=true
+
+# Rate Limiting
+RATE_LIMIT_ENABLED=true
+RATE_LIMIT_WINDOW_MS=60000
+RATE_LIMIT_MAX_REQUESTS=100
+```
+
+## 🗄️ Database Setup
+
+### Schema Migration
+```bash
+# Push current schema to database
+npm run db:push
+
+# Verify tables created
+# Check: users, quotes, contacts, bookings, chat_sessions, api_limits
+```
+
+### Sample Data (Optional)
 ```sql
--- Lightweight schema for business data only
--- SEO data stored in CloudFlare R2/KV
-
-CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  username VARCHAR(255) UNIQUE NOT NULL,
-  email VARCHAR(255) UNIQUE NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW()
-);
-
-CREATE TABLE quotes (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  phone VARCHAR(255),
-  service_type VARCHAR(255) NOT NULL,
-  square_footage INTEGER,
-  frequency VARCHAR(255),
-  additional_services TEXT[],
-  address TEXT,
-  status VARCHAR(255) DEFAULT 'pending',
-  created_at TIMESTAMP DEFAULT NOW()
-);
-
-CREATE TABLE contacts (
-  id SERIAL PRIMARY KEY,
-  first_name VARCHAR(255) NOT NULL,
-  last_name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  phone VARCHAR(255),
-  subject VARCHAR(255),
-  message TEXT,
-  status VARCHAR(255) DEFAULT 'new',
-  created_at TIMESTAMP DEFAULT NOW()
-);
-
--- Indexes for performance
-CREATE INDEX idx_quotes_status ON quotes(status);
-CREATE INDEX idx_quotes_created ON quotes(created_at);
-CREATE INDEX idx_contacts_status ON contacts(status);
-CREATE INDEX idx_contacts_created ON contacts(created_at);
+-- Insert sample service areas
+INSERT INTO business_zones (name, description) VALUES 
+('Downtown Winnipeg', 'Central business district'),
+('St. Boniface', 'Historic and medical district'),
+('Transcona', 'Industrial and residential area');
 ```
 
-### 4. Lightweight Container Deployment
+## 🌐 Domain Configuration
+
+### Custom Domain Setup
+1. **DNS Configuration**
+   ```
+   Type: CNAME
+   Name: www
+   Value: yourusername.github.io (for GitHub Pages)
+   
+   Type: A
+   Name: @
+   Value: [Your server IP] (for production hosting)
+   ```
+
+2. **SSL Certificate**
+   - GitHub Pages: Automatic SSL
+   - Production: Configure SSL with Let's Encrypt or provider
+
+### CDN Configuration (Optional)
 ```yaml
-# docker-compose.production.yml
-version: '3.8'
-services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile.lightweight
-    deploy:
-      resources:
-        limits:
-          memory: 384M
-          cpus: '0.8'
-    environment:
-      - NODE_ENV=production
-      - DATABASE_URL=${DATABASE_URL}
-      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+# Cloudflare settings for optimal performance
+- Browser Cache TTL: 4 hours
+- Security Level: Medium
+- Minification: HTML, CSS, JS enabled
+- Brotli Compression: Enabled
 ```
 
-### 5. Resource Optimization Configuration
-```javascript
-// server/index.ts optimization
-process.env.NODE_OPTIONS = '--max-old-space-size=256';
+## 📊 Performance Optimization
 
-// Express configuration for minimal memory usage
-app.use(express.json({ limit: '1mb' }));
-app.use(express.urlencoded({ limit: '1mb', extended: false }));
-
-// PostgreSQL connection pool optimization
-const pool = new Pool({
-  max: 5,          // Maximum 5 connections
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+### Build Optimizations
+```typescript
+// vite.config.ts
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['@radix-ui/react-dialog', '@radix-ui/react-select']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000
+  }
 });
 ```
 
-## Security Implementation
+### Asset Optimization
+- Images compressed with quality 85
+- SVG icons optimized for size
+- Fonts preloaded for faster rendering
+- Critical CSS inlined
 
-### OWASP & ISO 27001 Compliance
-- Input sanitization using Zod schemas
-- Rate limiting per endpoint
-- Comprehensive security headers
-- Real-time threat detection
-- Encrypted data storage
+## 🔍 Post-Deployment Validation
 
-### Canadian AI Legal Compliance
-- AIDA (Artificial Intelligence and Data Act) compliance
-- PIPEDA privacy protection
-- Quebec Bill 64 privacy requirements
-- CASL anti-spam compliance
-- WCAG AAA accessibility standards
+### Automated Checks
+```bash
+# Health check endpoint
+curl -f http://localhost:5000/api/health
 
-## Monitoring & Alerts
+# Database connectivity
+curl -f http://localhost:5000/api/quotes
 
-### CloudFlare Analytics
+# Form submission test
+curl -X POST http://localhost:5000/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{"firstName":"Test","lastName":"User","email":"test@example.com","message":"Test"}'
+```
+
+### Manual Verification Checklist
+- [ ] **Homepage loads correctly**
+- [ ] **Quote calculator functions**
+- [ ] **Contact forms submit successfully**
+- [ ] **All images and assets load**
+- [ ] **Mobile responsiveness works**
+- [ ] **PWA installation prompt appears**
+- [ ] **Performance scores 95+ on Lighthouse**
+- [ ] **Accessibility audit passes WCAG AAA**
+- [ ] **SSL certificate is valid**
+- [ ] **Database queries execute properly**
+
+### Monitoring Setup
 ```javascript
-// Worker analytics automatically tracked
-export default {
-  async fetch(request, env, ctx) {
-    // CloudFlare automatically tracks:
-    // - Request volume
-    // - Response times
-    // - Error rates
-    // - Geographic distribution
+// Basic uptime monitoring
+const healthCheck = setInterval(async () => {
+  try {
+    const response = await fetch('/api/health');
+    if (!response.ok) {
+      console.error('Health check failed');
+      // Alert administrator
+    }
+  } catch (error) {
+    console.error('Health check error:', error);
   }
-};
+}, 300000); // Check every 5 minutes
 ```
 
-### Application Monitoring
-```javascript
-// Lightweight monitoring
-const metrics = {
-  requests: 0,
-  errors: 0,
-  avgResponseTime: 0,
-  memoryUsage: process.memoryUsage(),
-  uptime: process.uptime()
-};
+## 🚨 Troubleshooting
+
+### Common Issues
+
+#### Static Build Problems
+```bash
+# Issue: Build fails with module errors
+# Solution: Ensure all imports use relative paths
+# Check vite.config.static.ts configuration
+
+# Issue: Assets not loading
+# Solution: Verify base path is set to './' for GitHub Pages
 ```
 
-## SEO Automation Features
+#### Database Connection Issues
+```bash
+# Issue: Database connection timeout
+# Solution: Check DATABASE_URL format and network access
 
-### 1. Autonomous Competitor Analysis
-- **Frequency**: Every 6 hours
-- **Data Source**: Multiple search APIs (Google Custom, Serper, DuckDuckGo)
-- **Storage**: CloudFlare R2 with 7-day retention
-- **Processing**: Edge compute via Workers
+# Issue: Tables not found
+# Solution: Run database migration
+npm run db:push
+```
 
-### 2. Performance Monitoring
-- **Core Web Vitals**: Real-time tracking via CloudFlare RUM
-- **Lighthouse Scores**: Automated daily analysis
-- **Accessibility**: Continuous WCAG AAA compliance monitoring
+#### Performance Issues
+```bash
+# Issue: Slow loading times
+# Solution: Enable compression and check bundle size
+# Use vite-bundle-analyzer to identify large chunks
 
-### 3. Content Optimization
-- **AI Models**: CloudFlare AI (@cf/meta/llama-2-7b-chat-int8)
-- **Keyword Analysis**: Automated density optimization
-- **Schema Generation**: Dynamic structured data updates
+# Issue: High memory usage
+# Solution: Implement pagination for large datasets
+# Add connection pooling for database
+```
 
-### 4. Search Position Tracking
-- **Keywords**: Office cleaning Winnipeg, commercial cleaning, janitorial services
-- **Frequency**: Daily position checks
-- **Alerts**: Significant ranking changes (±5 positions)
-
-## Cost Optimization
-
-### CloudFlare Free Tier Limits
-```yaml
-daily_limits:
-  worker_requests: 100000
-  ai_requests: 10000
-  kv_reads: 100000
-  kv_writes: 1000
+### Error Monitoring
+```typescript
+// Production error handling
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error('Production error:', err);
   
-monthly_limits:
-  r2_storage: 10GB
-  r2_operations: 1000000
-  bandwidth: unlimited
-```
-
-### Resource Allocation
-```yaml
-server_resources:
-  total_memory: 512MB
-  app_allocation: 256MB
-  postgres_allocation: 128MB
-  redis_allocation: 64MB
-  system_overhead: 64MB
+  // Send error to monitoring service
+  if (process.env.NODE_ENV === 'production') {
+    // Log to external service
+  }
   
-cpu_allocation:
-  app_processes: 0.5 vCPU
-  database: 0.2 vCPU
-  system: 0.3 vCPU
+  res.status(500).json({
+    error: 'Internal server error',
+    timestamp: new Date().toISOString()
+  });
+});
 ```
 
-## Backup & Recovery
+## 📈 Scaling Considerations
 
-### Data Backup Strategy
-- **Business Data**: PostgreSQL daily backups to CloudFlare R2
-- **SEO Data**: Already stored in CloudFlare R2/KV (redundant)
-- **Configuration**: Git repository with environment variables
+### Horizontal Scaling
+- Load balancer configuration
+- Database connection pooling
+- Session store externalization
+- CDN implementation
 
-### Disaster Recovery
-- **RTO**: 15 minutes (CloudFlare Workers + database restore)
-- **RPO**: 24 hours (daily backups)
-- **Failover**: Automatic via CloudFlare load balancing
+### Vertical Scaling
+- Memory optimization
+- Database indexing
+- Query optimization
+- Caching strategies
 
-## Performance Benchmarks
+## 🔐 Security Hardening
 
-### Expected Performance
-- **Page Load Time**: < 2 seconds (CloudFlare CDN)
-- **API Response Time**: < 500ms (edge processing)
-- **SEO Analysis**: < 30 seconds (Worker + external APIs)
-- **Concurrent Users**: 100+ (with rate limiting)
+### Production Security Checklist
+- [ ] **Environment variables secured**
+- [ ] **Database credentials rotated**
+- [ ] **HTTPS enforced**
+- [ ] **CORS properly configured**
+- [ ] **Rate limiting active**
+- [ ] **Input validation enabled**
+- [ ] **SQL injection protection**
+- [ ] **XSS protection headers**
+- [ ] **Security headers implemented**
 
-### Memory Usage Targets
-- **Idle State**: 180MB
-- **Normal Load**: 250MB
-- **Peak Load**: 350MB (with graceful degradation)
+### Backup Strategy
+```bash
+# Database backup script
+#!/bin/bash
+pg_dump $DATABASE_URL > backup_$(date +%Y%m%d_%H%M%S).sql
 
-## Compliance Verification
+# Automated daily backups
+0 2 * * * /path/to/backup-script.sh
+```
 
-### WCAG AAA Checklist
-- [x] 7:1 contrast ratios
-- [x] Keyboard navigation
-- [x] Screen reader compatibility
-- [x] Skip links implementation
-- [x] Focus management
-- [x] Alternative text for images
-- [x] Proper heading hierarchy
-
-### Security Audit Results
-- [x] OWASP Top 10 compliance
-- [x] Input validation and sanitization
-- [x] Rate limiting implementation
-- [x] Security headers configuration
-- [x] Encryption for sensitive data
-- [x] Incident logging and response
-
-### Legal Compliance Status
-- [x] AIDA AI transparency requirements
-- [x] PIPEDA privacy protection
-- [x] CASL consent mechanisms
-- [x] Canadian accessibility standards
-- [x] Provincial privacy law compliance
-
-## Maintenance Schedule
-
-### Daily Automated Tasks
-- SEO position tracking
-- Performance monitoring
-- Security incident review
-- Backup verification
-
-### Weekly Manual Tasks
-- CloudFlare usage review
-- Performance optimization
-- Security log analysis
-- Compliance status check
-
-### Monthly Reviews
-- Cost optimization analysis
-- Security audit execution
-- Legal compliance review
-- Feature usage analytics
-
----
-
-*This deployment guide ensures optimal resource utilization while maintaining enterprise-grade security, compliance, and autonomous SEO capabilities within CloudFlare's free tier constraints.*
+This comprehensive deployment guide ensures successful deployment across both static showcase and production environments while maintaining security, performance, and reliability standards.

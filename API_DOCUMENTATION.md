@@ -1,59 +1,67 @@
-# API Documentation - Workplace Janitorial Services
+# API Documentation
 
-## Overview
-Complete REST API documentation for the Workplace Janitorial Services platform, including AI orchestration endpoints, business data management, and accessibility features.
+Comprehensive API reference for Workplace Janitorial Services platform with detailed endpoint specifications, authentication requirements, and usage examples.
 
 ## Base URL
+
 ```
-Development: http://localhost:5000/api
 Production: https://workplacejanitorial.ca/api
+Development: http://localhost:5000/api
 ```
 
 ## Authentication
-Currently using session-based authentication. All endpoints are publicly accessible for quote requests and contact forms.
 
-## Core Business Endpoints
+The API uses session-based authentication for protected endpoints.
 
-### Quotes Management
-
-#### Create Quote Request
-```http
-POST /api/quotes
-Content-Type: application/json
-
+```typescript
+// Session configuration
 {
-  "name": "John Smith",
-  "email": "john@company.com",
-  "phone": "(204) 555-0123",
-  "serviceType": "office-cleaning",
-  "squareFootage": 2500,
-  "frequency": "weekly",
-  "additionalServices": ["carpet-cleaning", "window-cleaning"],
-  "address": "123 Business Ave, Winnipeg, MB"
+  httpOnly: true,
+  secure: process.env.NODE_ENV === 'production',
+  maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  sameSite: 'strict'
 }
 ```
+
+## Rate Limiting
+
+All endpoints are protected with rate limiting:
+- **General endpoints**: 100 requests per 15 minutes per IP
+- **Contact endpoints**: 10 requests per 15 minutes per IP
+- **Quote endpoints**: 20 requests per 15 minutes per IP
+
+## Error Handling
+
+All endpoints return consistent error responses:
+
+```json
+{
+  "error": "Error message",
+  "details": ["Validation error details"],
+  "timestamp": "2025-06-09T01:00:00.000Z"
+}
+```
+
+## Endpoints
+
+### Health Check
+
+#### GET /api/health
+Returns server health status.
 
 **Response:**
 ```json
 {
-  "id": 1,
-  "name": "John Smith",
-  "email": "john@company.com",
-  "phone": "(204) 555-0123",
-  "serviceType": "office-cleaning",
-  "squareFootage": 2500,
-  "frequency": "weekly",
-  "additionalServices": ["carpet-cleaning", "window-cleaning"],
-  "address": "123 Business Ave, Winnipeg, MB",
-  "status": "pending",
-  "createdAt": "2025-01-08T22:50:00.000Z"
+  "status": "healthy",
+  "timestamp": "2025-06-09T01:00:00.000Z",
+  "uptime": 3600000
 }
 ```
 
-#### Get All Quotes
-```http
-GET /api/quotes
-```
+### Quotes
+
+#### GET /api/quotes
+Retrieves all quote requests (admin access required).
 
 **Response:**
 ```json
@@ -62,117 +70,271 @@ GET /api/quotes
     "id": 1,
     "name": "John Smith",
     "email": "john@company.com",
+    "phone": "204-555-0123",
+    "address": "123 Main St, Winnipeg, MB",
+    "squareFootage": 5000,
+    "frequency": "weekly",
+    "serviceType": "standard",
+    "additionalServices": ["carpet-cleaning", "window-cleaning"],
+    "estimatedPrice": "450.00",
     "status": "pending",
-    "createdAt": "2025-01-08T22:50:00.000Z"
+    "createdAt": "2025-06-09T01:00:00.000Z"
   }
 ]
 ```
 
-#### Get Quote by ID
-```http
-GET /api/quotes/{id}
-```
+#### POST /api/quotes
+Submits a new quote request.
 
-#### Update Quote Status
-```http
-PATCH /api/quotes/{id}/status
-Content-Type: application/json
-
+**Request Body:**
+```json
 {
-  "status": "approved"
+  "name": "John Smith",
+  "email": "john@company.com",
+  "phone": "204-555-0123",
+  "address": "123 Main St, Winnipeg, MB",
+  "squareFootage": 5000,
+  "frequency": "weekly",
+  "serviceType": "standard",
+  "additionalServices": ["carpet-cleaning"],
+  "estimatedPrice": "450.00"
 }
 ```
 
-### Contact Management
-
-#### Submit Contact Form
-```http
-POST /api/contacts
-Content-Type: application/json
-
+**Validation Schema:**
+```typescript
 {
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "email": "jane@company.com",
-  "phone": "(204) 555-0124",
-  "subject": "General Inquiry",
-  "message": "I need information about your cleaning services."
+  name: z.string().min(1).max(255),
+  email: z.string().email(),
+  phone: z.string().optional(),
+  address: z.string().min(1).max(500),
+  squareFootage: z.number().min(100).max(1000000),
+  frequency: z.enum(["daily", "weekly", "bi-weekly", "monthly"]),
+  serviceType: z.enum(["standard", "deep", "post-construction"]),
+  additionalServices: z.array(z.string()).optional(),
+  estimatedPrice: z.string().regex(/^\d+\.\d{2}$/)
 }
 ```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Quote request submitted successfully! We'll contact you within 24 hours.",
+  "quoteId": 1
+}
+```
+
+#### GET /api/quotes/:id
+Retrieves a specific quote by ID (admin access required).
 
 **Response:**
 ```json
 {
   "id": 1,
+  "name": "John Smith",
+  "email": "john@company.com",
+  "phone": "204-555-0123",
+  "address": "123 Main St, Winnipeg, MB",
+  "squareFootage": 5000,
+  "frequency": "weekly",
+  "serviceType": "standard",
+  "additionalServices": ["carpet-cleaning"],
+  "estimatedPrice": "450.00",
+  "status": "pending",
+  "createdAt": "2025-06-09T01:00:00.000Z"
+}
+```
+
+#### PATCH /api/quotes/:id/status
+Updates quote status (admin access required).
+
+**Request Body:**
+```json
+{
+  "status": "approved"
+}
+```
+
+**Valid Status Values:**
+- `pending`
+- `approved`
+- `rejected`
+- `completed`
+
+### Contacts
+
+#### GET /api/contacts
+Retrieves all contact form submissions (admin access required).
+
+**Response:**
+```json
+[
+  {
+    "id": 1,
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "jane@example.com",
+    "phone": "204-555-0199",
+    "subject": "Service Inquiry",
+    "message": "Looking for weekly office cleaning services.",
+    "status": "new",
+    "createdAt": "2025-06-09T01:00:00.000Z"
+  }
+]
+```
+
+#### POST /api/contact
+Submits a new contact form.
+
+**Request Body:**
+```json
+{
   "firstName": "Jane",
   "lastName": "Doe",
-  "email": "jane@company.com",
-  "phone": "(204) 555-0124",
-  "subject": "General Inquiry",
-  "message": "I need information about your cleaning services.",
-  "status": "new",
-  "createdAt": "2025-01-08T22:50:00.000Z"
+  "email": "jane@example.com",
+  "phone": "204-555-0199",
+  "subject": "Service Inquiry",
+  "message": "Looking for weekly office cleaning services."
 }
 ```
 
-#### Get All Contacts
-```http
-GET /api/contacts
-```
-
-### Booking Management
-
-#### Create Booking
-```http
-POST /api/bookings
-Content-Type: application/json
-
+**Validation Schema:**
+```typescript
 {
-  "name": "Office Complex Ltd",
-  "email": "manager@office.com",
-  "phone": "(204) 555-0125",
-  "serviceDate": "2025-01-15T09:00:00.000Z",
-  "serviceType": "deep-cleaning",
-  "duration": 4,
-  "specialRequests": "After hours cleaning required"
-}
-```
-
-#### Get All Bookings
-```http
-GET /api/bookings
-```
-
-## AI Orchestration Endpoints
-
-### Chat System
-
-#### Send Chat Message
-```http
-POST /api/chat
-Content-Type: application/json
-
-{
-  "message": "What are your business hours?",
-  "sessionId": "session_123456789"
+  firstName: z.string().min(1).max(100),
+  lastName: z.string().min(1).max(100),
+  email: z.string().email(),
+  phone: z.string().optional(),
+  subject: z.string().min(1).max(200),
+  message: z.string().min(1).max(2000)
 }
 ```
 
 **Response:**
 ```json
 {
-  "response": "Our business hours are Monday to Friday, 8:00 AM to 5:00 PM. We also offer 24/7 emergency cleaning services for urgent situations.",
-  "confidence": 0.95,
-  "fallbackToHuman": false,
-  "responseTime": 245,
+  "success": true,
+  "message": "Thank you for your message! We'll respond within 2 hours during business hours.",
+  "contactId": 1
+}
+```
+
+#### PATCH /api/contacts/:id/status
+Updates contact status (admin access required).
+
+**Request Body:**
+```json
+{
+  "status": "responded"
+}
+```
+
+**Valid Status Values:**
+- `new`
+- `in-progress`
+- `responded`
+- `closed`
+
+### Bookings
+
+#### GET /api/bookings
+Retrieves all service bookings (admin access required).
+
+**Response:**
+```json
+[
+  {
+    "id": 1,
+    "contactName": "Michael Johnson",
+    "company": "Tech Solutions Inc",
+    "email": "michael@techsolutions.com",
+    "phone": "204-555-0177",
+    "address": "456 Business Ave, Winnipeg, MB",
+    "preferredDate": "2025-06-15T09:00:00.000Z",
+    "frequency": "weekly",
+    "serviceType": "standard",
+    "specialRequirements": "Access after 6 PM only",
+    "status": "pending",
+    "createdAt": "2025-06-09T01:00:00.000Z"
+  }
+]
+```
+
+#### POST /api/bookings
+Creates a new service booking.
+
+**Request Body:**
+```json
+{
+  "contactName": "Michael Johnson",
+  "company": "Tech Solutions Inc",
+  "email": "michael@techsolutions.com",
+  "phone": "204-555-0177",
+  "address": "456 Business Ave, Winnipeg, MB",
+  "preferredDate": "2025-06-15T09:00:00.000Z",
+  "frequency": "weekly",
+  "serviceType": "standard",
+  "specialRequirements": "Access after 6 PM only"
+}
+```
+
+**Validation Schema:**
+```typescript
+{
+  contactName: z.string().min(1).max(255),
+  company: z.string().optional(),
+  email: z.string().email(),
+  phone: z.string().min(1),
+  address: z.string().min(1).max(500),
+  preferredDate: z.string().datetime().optional(),
+  frequency: z.enum(["one-time", "weekly", "bi-weekly", "monthly"]),
+  serviceType: z.enum(["standard", "deep", "post-construction", "emergency"]),
+  specialRequirements: z.string().optional()
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Booking request submitted successfully! We'll confirm your appointment within 24 hours.",
+  "bookingId": 1
+}
+```
+
+### AI Chat
+
+#### POST /api/chat
+Processes AI chat messages with contextual business information.
+
+**Request Body:**
+```json
+{
+  "message": "What are your office cleaning rates?",
   "sessionId": "session_123456789"
 }
 ```
 
-#### Get Chat Session
-```http
-GET /api/chat/sessions/{sessionId}
+**Validation Schema:**
+```typescript
+{
+  message: z.string().min(1).max(1000),
+  sessionId: z.string().min(1).max(100)
+}
 ```
+
+**Response:**
+```json
+{
+  "response": "Our office cleaning rates start at $0.08 per square foot for weekly service. For a typical 5,000 sq ft office, that's approximately $400 per week. We offer competitive rates with our 30-minute guarantee and include all supplies and equipment.",
+  "sessionId": "session_123456789",
+  "timestamp": "2025-06-09T01:00:00.000Z"
+}
+```
+
+#### GET /api/chat/sessions/:sessionId
+Retrieves chat session history (admin access required).
 
 **Response:**
 ```json
@@ -181,248 +343,199 @@ GET /api/chat/sessions/{sessionId}
   "messages": [
     {
       "role": "user",
-      "content": "What are your business hours?",
-      "timestamp": "2025-01-08T22:50:00.000Z"
+      "content": "What are your office cleaning rates?",
+      "timestamp": "2025-06-09T01:00:00.000Z"
     },
     {
-      "role": "assistant", 
-      "content": "Our business hours are Monday to Friday, 8:00 AM to 5:00 PM...",
-      "timestamp": "2025-01-08T22:50:01.000Z"
+      "role": "assistant",
+      "content": "Our office cleaning rates start at $0.08 per square foot...",
+      "timestamp": "2025-06-09T01:00:01.000Z"
     }
   ],
-  "createdAt": "2025-01-08T22:50:00.000Z"
+  "createdAt": "2025-06-09T01:00:00.000Z"
 }
 ```
 
-### Knowledge Base Queries
+### Admin Panel
 
-#### Search Knowledge Base
-```http
-GET /api/knowledge?q=pricing&category=services&limit=5
+#### POST /api/admin/commands
+Executes AI orchestration commands (admin access required).
+
+**Request Body:**
+```json
+{
+  "command": "update hero section text to emphasize 30-minute guarantee",
+  "target": "hero",
+  "action": "update_text"
+}
 ```
 
 **Response:**
 ```json
 {
-  "results": [
-    {
-      "id": "kb_001",
-      "category": "pricing",
-      "question": "What are your cleaning service rates?",
-      "answer": "Our rates vary based on square footage, frequency, and services required. Contact us for a free, customized quote.",
-      "keywords": ["pricing", "rates", "cost", "quote"],
-      "priority": 1
-    }
-  ],
-  "total": 1,
-  "query": "pricing"
+  "success": true,
+  "commandId": 1,
+  "message": "Command queued for execution",
+  "estimatedCompletion": "2025-06-09T01:05:00.000Z"
 }
 ```
 
-## Rate Limiting
-
-### Check Rate Limits
-```http
-GET /api/rate-limits/{endpoint}
-```
+#### GET /api/admin/commands
+Retrieves command execution history (admin access required).
 
 **Response:**
 ```json
-{
-  "endpoint": "/api/chat",
-  "requestCount": 5,
-  "resetTime": "2025-01-08T23:00:00.000Z",
-  "limitReached": false,
-  "remainingRequests": 5
+[
+  {
+    "id": 1,
+    "command": "update hero section text to emphasize 30-minute guarantee",
+    "target": "hero",
+    "action": "update_text",
+    "status": "completed",
+    "result": "Hero section updated successfully",
+    "createdAt": "2025-06-09T01:00:00.000Z",
+    "executedAt": "2025-06-09T01:05:00.000Z"
+  }
+]
+```
+
+## Input Sanitization
+
+All user inputs are sanitized using the following function:
+
+```typescript
+function sanitizeInput(input: string): string {
+  if (!input || typeof input !== 'string') return '';
+  
+  return input
+    // Remove script tags and event handlers
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/on\w+\s*=\s*["'][^"']*["']/gi, '')
+    .replace(/javascript:/gi, '')
+    .replace(/data:text\/html/gi, '')
+    .replace(/vbscript:/gi, '')
+    // Remove potential SQL injection patterns
+    .replace(/(\b(union|select|insert|update|delete|drop|create|alter|exec|execute)\b)/gi, '')
+    // Remove HTML tags and encode special characters
+    .replace(/<[^>]*>/g, '')
+    .replace(/[<>&"']/g, (match) => {
+      const htmlEntities: { [key: string]: string } = {
+        '<': '&lt;',
+        '>': '&gt;',
+        '&': '&amp;',
+        '"': '&quot;',
+        "'": '&#x27;'
+      };
+      return htmlEntities[match] || match;
+    })
+    .trim()
+    .substring(0, 1000); // Limit input length
 }
 ```
 
-### Reset Rate Limits
-```http
-DELETE /api/rate-limits/{endpoint}
-```
+## Example Usage
 
-## Error Responses
+### JavaScript/TypeScript Client
 
-### Standard Error Format
-```json
-{
-  "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "Missing required field: email",
-    "details": {
-      "field": "email",
-      "reason": "Required field is missing"
+```typescript
+class WorkplaceJanitorialAPI {
+  private baseURL = 'https://workplacejanitorial.ca/api';
+  
+  async submitQuote(quoteData: QuoteRequest): Promise<QuoteResponse> {
+    const response = await fetch(`${this.baseURL}/quotes`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(quoteData),
+      credentials: 'include'
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  },
-  "timestamp": "2025-01-08T22:50:00.000Z"
+    
+    return response.json();
+  }
+  
+  async submitContact(contactData: ContactRequest): Promise<ContactResponse> {
+    const response = await fetch(`${this.baseURL}/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(contactData),
+      credentials: 'include'
+    });
+    
+    return response.json();
+  }
+  
+  async sendChatMessage(message: string, sessionId: string): Promise<ChatResponse> {
+    const response = await fetch(`${this.baseURL}/chat`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message, sessionId }),
+      credentials: 'include'
+    });
+    
+    return response.json();
+  }
 }
 ```
 
-### Common Error Codes
-- `400` - Bad Request (validation errors)
-- `401` - Unauthorized (authentication required)
-- `403` - Forbidden (insufficient permissions)
-- `404` - Not Found (resource doesn't exist)
-- `429` - Too Many Requests (rate limit exceeded)
-- `500` - Internal Server Error (server error)
+### cURL Examples
 
-## Business Logic
+```bash
+# Submit a quote request
+curl -X POST https://workplacejanitorial.ca/api/quotes \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Smith",
+    "email": "john@company.com",
+    "phone": "204-555-0123",
+    "address": "123 Main St, Winnipeg, MB",
+    "squareFootage": 5000,
+    "frequency": "weekly",
+    "serviceType": "standard",
+    "additionalServices": ["carpet-cleaning"],
+    "estimatedPrice": "450.00"
+  }'
 
-### Service Types
-```json
-{
-  "serviceTypes": [
-    {
-      "id": "office-cleaning",
-      "name": "Office Cleaning",
-      "description": "Regular office maintenance cleaning",
-      "basePrice": "Starting at $0.05/sq ft"
-    },
-    {
-      "id": "deep-cleaning", 
-      "name": "Deep Cleaning",
-      "description": "Comprehensive sanitization service",
-      "basePrice": "Starting at $0.12/sq ft"
-    },
-    {
-      "id": "carpet-cleaning",
-      "name": "Carpet Cleaning", 
-      "description": "Professional carpet care",
-      "basePrice": "Starting at $0.25/sq ft"
-    },
-    {
-      "id": "window-cleaning",
-      "name": "Window Cleaning",
-      "description": "Interior and exterior windows",
-      "basePrice": "Starting at $3.00/window"
-    },
-    {
-      "id": "post-construction",
-      "name": "Post-Construction Cleanup",
-      "description": "After renovation cleaning",
-      "basePrice": "Starting at $0.15/sq ft"
-    }
-  ]
-}
+# Submit a contact form
+curl -X POST https://workplacejanitorial.ca/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "jane@example.com",
+    "phone": "204-555-0199",
+    "subject": "Service Inquiry",
+    "message": "Looking for weekly office cleaning services."
+  }'
+
+# Send chat message
+curl -X POST https://workplacejanitorial.ca/api/chat \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": "What are your office cleaning rates?",
+    "sessionId": "session_123456789"
+  }'
 ```
 
-### Frequency Options
-```json
-{
-  "frequencies": [
-    {"id": "daily", "name": "Daily", "discount": 0.15},
-    {"id": "weekly", "name": "Weekly", "discount": 0.10},
-    {"id": "bi-weekly", "name": "Bi-weekly", "discount": 0.05},
-    {"id": "monthly", "name": "Monthly", "discount": 0.00},
-    {"id": "one-time", "name": "One-time", "discount": 0.00}
-  ]
-}
-```
+## Business Hours
 
-### Service Areas
-```json
-{
-  "serviceAreas": [
-    "Winnipeg Downtown",
-    "St. Boniface", 
-    "Fort Garry",
-    "Transcona",
-    "North End",
-    "West Kildonan",
-    "East Kildonan", 
-    "River Heights",
-    "Tuxedo",
-    "Charleswood"
-  ]
-}
-```
+API responses include business context:
+- **Phone Support**: Monday-Friday 8AM-6PM, Saturday 9AM-4PM (CST)
+- **Emergency Services**: Available 24/7
+- **Response Time**: Contact forms answered within 2 hours during business hours
 
-## AI Knowledge Categories
+## Contact Information
 
-### Available Categories
-- `services` - Cleaning services and descriptions
-- `pricing` - Cost information and quotes
-- `scheduling` - Availability and booking
-- `company` - Business information and policies
-- `eco-friendly` - Green cleaning practices
-- `insurance` - Coverage and guarantees
-- `emergency` - 24/7 services
-- `contact` - Communication methods
+- **Phone**: (204) 415-2910
+- **Email**: info@workplacejanitorial.ca
+- **Address**: 2-761 Marion Street, Winnipeg, MB R2J 0K6
 
-### Sample Knowledge Items
-```json
-{
-  "knowledgeBase": [
-    {
-      "id": "kb_guarantee",
-      "category": "company",
-      "question": "Do you offer any service guarantees?",
-      "answer": "Yes! We offer a 30-minute guarantee - if we can't respond to your service call within 30 minutes, your next cleaning is free. We also provide full WCB coverage and comprehensive insurance.",
-      "keywords": ["guarantee", "30-minute", "insurance", "WCB"],
-      "priority": 1
-    },
-    {
-      "id": "kb_background_checks",
-      "category": "company", 
-      "question": "Are your staff background checked?",
-      "answer": "Absolutely. All our cleaning staff undergo thorough criminal background checks before employment. We prioritize the security and trust of our clients.",
-      "keywords": ["background check", "criminal", "security", "trust", "staff"],
-      "priority": 1
-    }
-  ]
-}
-```
-
-## Webhook Integration
-
-### Quote Status Updates
-```http
-POST /api/webhooks/quote-status
-Content-Type: application/json
-
-{
-  "quoteId": 1,
-  "oldStatus": "pending",
-  "newStatus": "approved",
-  "timestamp": "2025-01-08T22:50:00.000Z"
-}
-```
-
-### Contact Form Notifications
-```http
-POST /api/webhooks/contact-received
-Content-Type: application/json
-
-{
-  "contactId": 1,
-  "priority": "normal",
-  "subject": "General Inquiry",
-  "timestamp": "2025-01-08T22:50:00.000Z"
-}
-```
-
-## Security Headers
-
-All API responses include security headers:
-```http
-X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-X-XSS-Protection: 1; mode=block
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Content-Security-Policy: default-src 'self'
-```
-
-## CORS Policy
-```javascript
-{
-  "origin": ["https://workplacejanitorial.ca", "http://localhost:5000"],
-  "methods": ["GET", "POST", "PATCH", "DELETE"],
-  "allowedHeaders": ["Content-Type", "Authorization"],
-  "credentials": true
-}
-```
-
----
-
-*API Documentation for Workplace Janitorial Services - Professional office cleaning with modern technology integration.*
+This API documentation provides comprehensive information for integrating with the Workplace Janitorial Services platform, ensuring secure and efficient communication for all business operations.
