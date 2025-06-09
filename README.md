@@ -159,8 +159,39 @@ npm run preview
 - **Security Headers**: OWASP-compliant CSP configuration
 - **PWA Manifest**: Full progressive web app support
 
+## 🚀 Deployment
+
+### GitHub Pages + Cloudflare (Recommended)
+Deploy the static version with global CDN and optimization:
+
+```bash
+# Automated deployment
+./deploy.sh
+
+# Manual deployment
+export VITE_STATIC_BUILD=true
+npm run build -- --config vite.config.static.ts
+git add . && git commit -m "Deploy" && git push origin main
+```
+
+### Cloudflare Pages Direct
+Alternative deployment with enhanced features:
+- Connect GitHub repository to Cloudflare Pages
+- Build command: `npm run build -- --config vite.config.static.ts`
+- Environment: `VITE_STATIC_BUILD=true`
+
+### Production Server (Replit)
+Full-featured deployment with backend services:
+
+```bash
+# Production build
+npm run build
+npm start
+```
+
 ## 📚 Documentation
 
+- [`CLOUDFLARE_DEPLOYMENT.md`](./CLOUDFLARE_DEPLOYMENT.md) - GitHub Pages + Cloudflare setup
 - [`GITHUB_PAGES_DEPLOYMENT.md`](./GITHUB_PAGES_DEPLOYMENT.md) - Static deployment guide
 - [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md) - Production deployment
 - [`SECURITY_COMPLIANCE.md`](./SECURITY_COMPLIANCE.md) - Security implementation
