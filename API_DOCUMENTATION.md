@@ -2,11 +2,17 @@
 
 Comprehensive API reference for Workplace Janitorial Services platform with detailed endpoint specifications, authentication requirements, and usage examples.
 
+## Deployment Status - June 2025
+- **GitHub Pages**: Static deployment ready with fallback functionality
+- **Production Server**: Full API available with database integration
+- **Static Mode**: Contact forms redirect to phone/email when backend unavailable
+
 ## Base URL
 
 ```
 Production: https://workplacejanitorial.ca/api
 Development: http://localhost:5000/api
+GitHub Pages: Static fallbacks to contact information
 ```
 
 ## Authentication
