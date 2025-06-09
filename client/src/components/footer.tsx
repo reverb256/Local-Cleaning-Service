@@ -1,7 +1,7 @@
 import { Phone, Mail, MapPin, Facebook, Linkedin } from "lucide-react";
 import { Link } from "wouter";
 
-import wjs_logo_windows from "@assets/wjs-logo-windows.png";
+import wjs_logo from "@assets/image_1749430161724.png";
 
 const footerSections = [
   {
@@ -43,7 +43,7 @@ export default function Footer() {
           <div className="design-container-accent p-6">
             <div className="flex items-center mb-6">
               <img 
-                src={wjs_logo_windows} 
+                src={wjs_logo} 
                 alt="Workplace Janitorial Services" 
                 className="h-10 w-auto glow-underglow"
               />
