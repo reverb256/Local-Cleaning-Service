@@ -191,11 +191,13 @@ npm start
 
 ## 📚 Documentation
 
+- [`DEPLOYMENT_SUMMARY.md`](./DEPLOYMENT_SUMMARY.md) - Complete deployment overview
+- [`DEPLOYMENT_STATUS_FINAL.md`](./DEPLOYMENT_STATUS_FINAL.md) - Current readiness status
 - [`CLOUDFLARE_DEPLOYMENT.md`](./CLOUDFLARE_DEPLOYMENT.md) - GitHub Pages + Cloudflare setup
 - [`GITHUB_PAGES_DEPLOYMENT.md`](./GITHUB_PAGES_DEPLOYMENT.md) - Static deployment guide
-- [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md) - Production deployment
-- [`SECURITY_COMPLIANCE.md`](./SECURITY_COMPLIANCE.md) - Security implementation
-- [`ACCESSIBILITY_COMPLIANCE.md`](./ACCESSIBILITY_COMPLIANCE.md) - WCAG AAA details
+- [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md) - Production deployment strategies
+- [`API_DOCUMENTATION.md`](./API_DOCUMENTATION.md) - API reference and endpoints
+- [`ACCESSIBILITY_COMPLIANCE.md`](./ACCESSIBILITY_COMPLIANCE.md) - WCAG AAA compliance details
 
 ## 🔐 Environment Variables
 

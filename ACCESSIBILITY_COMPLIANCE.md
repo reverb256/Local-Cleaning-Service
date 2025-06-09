@@ -1,8 +1,8 @@
-# WCAG AAA Accessibility Compliance Documentation
+# WCAG AAA Accessibility Compliance Documentation - Updated June 2025
 ## Workplace Janitorial Services Website
 
 ### Overview
-This document outlines the comprehensive WCAG AAA accessibility implementation for the Workplace Janitorial Services website, ensuring full compliance with accessibility standards for users with disabilities.
+This document outlines the comprehensive WCAG AAA accessibility implementation for the Workplace Janitorial Services website, ensuring full compliance with accessibility standards across both GitHub Pages static deployment and full-stack production environments.
 
 ## WCAG AAA Compliance Features Implemented
 
