@@ -5,12 +5,14 @@ import path from 'path';
 // Static build configuration for GitHub Pages
 export default defineConfig({
   plugins: [react()],
+  root: './client',
   base: './', // Use relative paths for GitHub Pages
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
     emptyOutDir: true,
     sourcemap: false,
     rollupOptions: {
+      input: './client/index.html',
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
