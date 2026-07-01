@@ -1,0 +1,43 @@
+---
+import BaseHead      from '~/components/layout/BaseHead.astro';
+import Header        from '~/components/layout/Header.astro';
+import Footer        from '~/components/layout/Footer.astro';
+import ContactPanel  from '~/components/sections/ContactPanel.astro';
+import SmoothScroll  from '~/components/islands/SmoothScroll.tsx';
+---
+
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <BaseHead meta={{
+      title: 'Contact',
+      description:
+        'Send a message or call Workplace Janitorial Services in ' +
+        'Winnipeg. Replies in under 30 minutes during business hours.',
+      path: '/contact',
+    }}
+    breadcrumb={[
+      { name: 'Home',    path: '/' },
+      { name: 'Contact', path: '/contact' },
+    ]} />
+  </head>
+  <body class="bg-white">
+    <Header />
+    <main id="main">
+      <section class="container-page pt-16 pb-4 md:pt-20">
+        <span class="eyebrow">Contact</span>
+        <h1 class="mt-3 font-display text-4xl md:text-5xl text-ink-900 max-w-3xl">
+          Send a message. A real Winnipegger will reply.
+        </h1>
+        <p class="mt-5 text-lg text-ink-700 max-w-2xl leading-relaxed">
+          Pick whichever channel fits how you like to work. Phone,
+          email, or this form — all reach the same small team.
+        </p>
+      </section>
+      <ContactPanel />
+    </main>
+    <Footer />
+
+    <SmoothScroll client:idle />
+  </body>
+</html>

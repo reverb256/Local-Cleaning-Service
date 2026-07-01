@@ -1,0 +1,110 @@
+---
+import BaseHead    from '~/components/layout/BaseHead.astro';
+import Header      from '~/components/layout/Header.astro';
+import Footer      from '~/components/layout/Footer.astro';
+import PhoneLink   from '~/components/ui/PhoneLink.astro';
+import SmoothScroll from '~/components/islands/SmoothScroll.tsx';
+import { Reveal }  from '~/components/ui/Reveal.tsx';
+import { services } from '~/content/services';
+---
+
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <BaseHead meta={{
+      title: 'Services & pricing',
+      description:
+        'Four commercial-cleaning services: office, medical, retail ' +
+        'day-portering, and post-construction. Pricing per square foot ' +
+        'and per-visit, Winnipeg mid-market 2026.',
+      path: '/services',
+    }}
+    breadcrumb={[
+      { name: 'Home',    path: '/' },
+      { name: 'Services', path: '/services' },
+    ]} />
+  </head>
+  <body class="bg-white">
+    <Header />
+    <main id="main">
+      <section class="container-page pt-16 pb-8 md:pt-20 md:pb-10">
+        <span class="eyebrow">Services &amp; pricing</span>
+        <h1 class="mt-3 font-display text-4xl md:text-5xl text-ink-900 max-w-3xl">
+          Four kinds of spaces. One motion-tested playbook each.
+        </h1>
+        <p class="mt-5 text-lg text-ink-700 max-w-2xl leading-relaxed">
+          Pricing is calibrated against Winnipeg mid-market 2026 rates.
+          The number on your contract depends on layout, finishes, and
+          access — we confirm those in a 20-minute walk-through.
+        </p>
+      </section>
+
+      <section class="container-page pb-16 md:pb-20 space-y-6">
+        {
+          services.map((service, idx) => (
+            <Reveal client:load delay={0.04 * idx}>
+              <article
+                id={service.slug}
+                class="surface-card p-8 md:p-10 grid lg:grid-cols-[1.3fr_1fr] gap-8"
+              >
+                <div>
+                  <h2 class="font-display text-2xl md:text-3xl text-ink-900">
+                    {service.name}
+                  </h2>
+                  <p class="mt-3 text-ink-700 leading-relaxed">
+                    {service.summary}
+                  </p>
+                  <p class="mt-3 text-xs uppercase tracking-wider text-brand-700">
+                    {service.audience}
+                  </p>
+
+                  <h3 class="mt-6 text-xs uppercase tracking-wider text-ink-600">
+                    What's included
+                  </h3>
+                  <ul class="mt-3 space-y-1.5 text-ink-800">
+                    {
+                      service.includes.map((item) => (
+                        <li class="flex items-start gap-2">
+                          <span class="text-brand-600 font-bold">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </div>
+
+                <aside class="bg-ink-50 rounded-card p-6 self-start">
+                  <p class="text-xs uppercase tracking-wider text-ink-600">
+                    Indicative pricing
+                  </p>
+                  <p class="mt-2 font-display text-2xl text-ink-900">
+                    {service.priceRange}
+                  </p>
+                  <p class="mt-2 text-xs text-ink-600">
+                    Final number set at walk-through.
+                  </p>
+                  <div class="mt-5 flex flex-col gap-2">
+                    <a
+                      href="/quote"
+                      class="inline-flex items-center justify-center
+                             rounded-pill bg-brand-600 text-white px-5 h-11
+                             font-semibold hover:bg-brand-700
+                             transition-colors"
+                    >
+                      Get an instant estimate
+                    </a>
+                    <PhoneLink variant="inline" />
+                  </div>
+                </aside>
+              </article>
+            </Reveal>
+          ))
+        }
+      </section>
+    </main>
+    <Footer />
+
+    <SmoothScroll client:idle />
+    <PhoneLink variant="sticky" />
+  </body>
+</html>

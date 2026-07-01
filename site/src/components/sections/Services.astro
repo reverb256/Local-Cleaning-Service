@@ -1,0 +1,73 @@
+---
+/**
+ * Services.astro — excerpt (3 cards) for the home page.
+ * /services uses the same data through `services` directly; this
+ * section adds the home-page wrapping, eyebrow, and CTA.
+ */
+import { featuredServices, services } from '~/content/services';
+import { Reveal } from '~/components/ui/Reveal.tsx';
+---
+
+<section id="services" class="container-page py-20 md:py-24">
+  <Reveal client:load>
+    <span class="eyebrow">What we clean</span>
+  </Reveal>
+
+  <Reveal client:load delay={0.05}>
+    <h2 class="mt-3 font-display text-3xl md:text-4xl text-ink-900 max-w-2xl">
+      Four kinds of spaces — one motion-tested playbook for each.
+    </h2>
+  </Reveal>
+
+  <Reveal client:load delay={0.1}>
+    <p class="mt-4 text-ink-700 max-w-2xl">
+      Office tenants, clinics, retail floors, post-construction
+      handovers. Each has its own checklist, its own chemistry, and its
+      own audit cadence — and our crews carry the one they need.
+    </p>
+  </Reveal>
+
+  <div class="mt-12 grid md:grid-cols-3 gap-6">
+    {
+      featuredServices(3).map((service, idx) => (
+        <Reveal client:load delay={0.05 * idx}>
+          <article
+            id={service.slug}
+            class="surface-card p-7 h-full flex flex-col"
+          >
+            <div
+              class="w-12 h-12 rounded-pill bg-brand-50 text-brand-700
+                     flex items-center justify-center font-display
+                     text-xl"
+              aria-hidden="true"
+            >
+              {service.icon === 'office' && 'O'}
+              {service.icon === 'medical' && '+'}
+              {service.icon === 'post' && '◆'}
+              {service.icon === 'retail' && 'R'}
+            </div>
+            <h3 class="mt-4 font-display text-xl text-ink-900">
+              {service.name}
+            </h3>
+            <p class="mt-2 text-sm text-ink-700 flex-1">
+              {service.summary}
+            </p>
+            <p class="mt-3 text-xs uppercase tracking-wider text-brand-700">
+              {service.audience}
+            </p>
+          </article>
+        </Reveal>
+      ))
+    }
+  </div>
+
+  <p class="mt-10 text-sm text-ink-600">
+    <a
+      href="/services"
+      class="font-semibold text-brand-700 underline
+             underline-offset-4 decoration-2 hover:text-brand-800"
+    >
+      See all {services.length} services and pricing →
+    </a>
+  </p>
+</section>

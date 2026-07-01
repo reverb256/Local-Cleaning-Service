@@ -1,0 +1,79 @@
+/* ============================================================================
+   Design tokens — Tailwind 4 @theme
+   Edit this file to re-theme any future franchise spin-off.
+   Tailwind 4 promotes these tokens to native utilities automatically, so
+   `bg-brand-500`, `font-display`, `shadow-card`, `ease-out-quint` all work
+   without a tailwind.config.js.
+   ============================================================================
+*/
+
+@theme {
+  /* -- Color: ink (neutrals, dark slate scale) --------------------------- */
+  --color-ink-50:  #f8fafc;
+  --color-ink-100: #f1f5f9;
+  --color-ink-200: #e2e8f0;
+  --color-ink-300: #cbd5e1;
+  --color-ink-400: #94a3b8;
+  --color-ink-500: #64748b;
+  --color-ink-600: #475569;
+  --color-ink-700: #334155;
+  --color-ink-800: #1e293b;
+  --color-ink-900: #0f172a;
+  --color-ink-950: #020617;
+
+  /* -- Color: brand (cyan / turquoise) ---------------------------------- */
+  --color-brand-50:  #ecfeff;
+  --color-brand-100: #cffafe;
+  --color-brand-200: #a5f3fc;
+  --color-brand-300: #67e8f9;
+  --color-brand-400: #22d3ee;
+  --color-brand-500: #06b6d4;
+  --color-brand-600: #0891b2;
+  --color-brand-700: #0e7490;
+  --color-brand-800: #155e75;
+  --color-brand-900: #164e63;
+
+  /* -- Color: accent (mint, used sparingly for highlight pills) --------- */
+  --color-accent-300: #6ee7b7;
+  --color-accent-500: #10b981;
+  --color-accent-600: #059669;
+
+  /* -- Color: warm (sparingly, for warmth + "human" feel) --------------- */
+  --color-warm-50:  #fffbeb;
+  --color-warm-100: #fef3c7;
+  --color-warm-300: #fcd34d;
+
+  /* -- Type ------------------------------------------------------------- */
+  --font-display: "Fraunces", "ui-serif", Georgia, serif;
+  --font-body:    "Inter", "ui-sans-serif", system-ui, -apple-system,
+                  "Segoe UI", Roboto, sans-serif;
+
+  /* -- Type scale (1.250 — major third) --------------------------------- */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.5rem;
+  --text-5xl:  3.25rem;
+  --text-6xl:  4rem;
+
+  /* -- Radius ----------------------------------------------------------- */
+  --radius-card: 1rem;
+  --radius-card-lg: 1.5rem;
+  --radius-pill: 9999px;
+
+  /* -- Shadow ----------------------------------------------------------- */
+  --shadow-card:        0 1px 2px rgb(15 23 42 / 0.04),
+                        0 8px 24px rgb(15 23 42 / 0.06);
+  --shadow-card-hover:  0 4px 12px rgb(15 23 42 / 0.08),
+                        0 16px 40px rgb(15 23 42 / 0.10);
+  --shadow-cta:         0 12px 30px rgb(6 182 212 / 0.25);
+
+  /* -- Motion (consumed by GSAP / CSS transitions) ---------------------- */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-soft:  cubic-bezier(0.16, 1, 0.30, 1);
+  --ease-standard:  cubic-bezier(0.4, 0, 0.2, 1);
+}

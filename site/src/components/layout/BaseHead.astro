@@ -1,0 +1,93 @@
+---
+/**
+ * BaseHead.astro — every page starts with this in <head>.
+ *
+ * Pulls title/description/canonical/OG from props and emits:
+ *   - canonical link
+ *   - OpenGraph + Twitter Card meta
+ *   - favicon + manifest
+ *   - JSON-LD LocalBusiness schema (single tree-shaken instance)
+ *   - JSON-LD BreadcrumbList (optional)
+ *
+ * Pages pass `breadcrumb` to add structured-data for inner pages.
+ */
+import { brand, type Brand } from '~/lib/brand';
+import {
+  localBusinessJsonLd,
+  breadcrumbJsonLd,
+  pageTitle,
+  type PageMeta,
+} from '~/lib/seo';
+
+interface BreadcrumbItem { name: string; path: string }
+
+interface Props {
+  meta: PageMeta;
+  breadcrumb?: BreadcrumbItem[];
+}
+
+const { meta, breadcrumb = [] } = Astro.props;
+const canonical = new URL(meta.path, brand.url).toString().replace(/\/$/, '/');
+const ogImage = new URL(
+  meta.ogImage ?? '/og-image.svg',
+  brand.url,
+).toString();
+
+const businessLd = localBusinessJsonLd();
+const breadcrumbLd = breadcrumb.length
+  ? breadcrumbJsonLd(breadcrumb)
+  : null;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{pageTitle(meta.title)}</title>
+<meta name="description" content={meta.description} />
+<meta name="theme-color" content="#06b6d4" />
+<meta name="color-scheme" content="light" />
+
+{
+  meta.noindex && <meta name="robots" content="noindex, nofollow" />
+}
+
+<link rel="canonical" href={canonical} />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+<link rel="manifest" href="/manifest.webmanifest" />
+
+<!-- Performance: preconnect to Google Fonts (display:swap means late paint is fine). -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<!-- OpenGraph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={brand.name} />
+<meta property="og:title" content={meta.title} />
+<meta property="og:description" content={meta.description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content="en_CA" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={meta.title} />
+<meta name="twitter:description" content={meta.description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- JSON-LD: LocalBusiness (every page) -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(businessLd)}
+/>
+
+<!-- JSON-LD: BreadcrumbList (inner pages only) -->
+{
+  breadcrumbLd && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(breadcrumbLd)}
+    />
+  )
+}

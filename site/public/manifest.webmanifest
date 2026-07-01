@@ -1,0 +1,17 @@
+{
+  "name": "Workplace Janitorial Services",
+  "short_name": "Workplace Janitorial",
+  "description": "Bonded commercial cleaning in Winnipeg — office, medical, retail, post-construction.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#06b6d4",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}

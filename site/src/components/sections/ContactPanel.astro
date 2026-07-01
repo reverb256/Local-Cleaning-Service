@@ -1,0 +1,77 @@
+---
+/**
+ * ContactPanel.astro — used on /contact.
+ * Two-column layout: ContactForm island on the left, NAP+hours on the right.
+ */
+import { brand } from '~/lib/brand';
+import ContactForm from '~/components/islands/ContactForm.tsx';
+import { Reveal } from '~/components/ui/Reveal.tsx';
+---
+
+<section class="container-page py-16 md:py-20 grid lg:grid-cols-[1.4fr_1fr] gap-12 items-start">
+  <Reveal client:load>
+    <ContactForm client:visible />
+  </Reveal>
+
+  <Reveal client:load delay={0.1}>
+    <aside class="bg-ink-50 border border-ink-200 rounded-card-lg p-7 space-y-7">
+      <div>
+        <h2 class="font-display text-2xl text-ink-900">
+          Or just call.
+        </h2>
+        <p class="mt-2 text-sm text-ink-700 leading-relaxed">
+          We're a small team, so the same number reaches the same humans.
+          Most calls answered on the second ring.
+        </p>
+        <a
+          href={`tel:${brand.phone.tel}`}
+          class="mt-4 block font-display text-3xl text-brand-700
+                 underline underline-offset-4 decoration-2
+                 hover:text-brand-800"
+        >
+          {brand.phone.display}
+        </a>
+      </div>
+
+      <div>
+        <h3 class="text-xs uppercase tracking-wider text-ink-600">
+          Email
+        </h3>
+        <a
+          href={`mailto:${brand.email}`}
+          class="mt-1 inline-block text-ink-900 font-semibold
+                 hover:text-brand-700"
+        >
+          {brand.email}
+        </a>
+        <p class="mt-2 text-xs text-ink-500">
+          Replies under 30 minutes during business hours.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xs uppercase tracking-wider text-ink-600">
+          Office
+        </h3>
+        <p class="mt-1 text-ink-900 leading-relaxed">
+          {brand.address.street}<br />
+          {brand.address.city}, {brand.address.region} {brand.address.postal}
+        </p>
+        <p class="mt-2 text-xs text-ink-500">
+          By appointment — please call before stopping by.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xs uppercase tracking-wider text-ink-600">
+          Hours
+        </h3>
+        <ul class="mt-1 text-sm text-ink-900 space-y-0.5">
+          <li>Mon–Fri · 8:00 AM – 6:00 PM</li>
+          <li>Saturday · 9:00 AM – 4:00 PM</li>
+          <li class="text-ink-500">Sunday · closed</li>
+        </ul>
+      </div>
+    </aside>
+  </Reveal>
+</section>

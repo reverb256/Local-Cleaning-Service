@@ -1,0 +1,138 @@
+/* ============================================================================
+   Base layer — applied first so tokens above can be consumed.
+   Tailwind 4 exports: @import "tailwindcss"; pulls in everything.
+   =================================================================== */
+
+@import "./tokens.css";
+
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------------
+   Web fonts: Fraunces (display) + Inter (body).
+   Preconnect + display=swap so LCP isn't blocked.
+   ----------------------------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap");
+
+/* ------------------------------------------------------------------------
+   Element resets / defaults
+   ----------------------------------------------------------------------- */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable both-edges;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ink-50);
+  color: var(--color-ink-900);
+  font-feature-settings: "ss01", "cv11";
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 30;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  color: var(--color-ink-900);
+}
+
+h1 { font-size: clamp(2.25rem, 1.5rem + 3vw, 3.75rem); }
+h2 { font-size: clamp(1.75rem, 1.25rem + 2vw, 2.75rem); }
+h3 { font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem); }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 160ms var(--ease-out-soft);
+}
+
+::selection {
+  background: var(--color-brand-300);
+  color: var(--color-ink-900);
+}
+
+/* ------------------------------------------------------------------------
+   Focus rings — WCAG-visible. Single source of truth.
+   ----------------------------------------------------------------------- */
+:focus-visible {
+  outline: 3px solid var(--color-brand-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Inputs that look fine without outline get it back specifically */
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--color-brand-500);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------------
+   prefers-reduced-motion — honor it strictly.
+   Kills GSAP and Lenis reveals for users who opted out.
+   ----------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------------
+   Reusable utility shorthands composed from tokens
+   (kept here so component code stays terse)
+   ----------------------------------------------------------------------- */
+@utility container-page {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility eyebrow {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-brand-700);
+}
+
+@utility surface-card {
+  background: white;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: transform 240ms var(--ease-out-soft),
+              box-shadow 240ms var(--ease-out-soft);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface-card,
+  .surface-card:hover {
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------------------
+   Print — clean estimator printouts for QBR / contracts.
+   ----------------------------------------------------------------------- */
+@media print {
+  body { background: white; color: black; }
+  .no-print { display: none !important; }
+}

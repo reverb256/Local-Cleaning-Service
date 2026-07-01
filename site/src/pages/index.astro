@@ -1,0 +1,43 @@
+---
+import BaseHead      from '~/components/layout/BaseHead.astro';
+import Header        from '~/components/layout/Header.astro';
+import Footer        from '~/components/layout/Footer.astro';
+import Hero          from '~/components/sections/Hero.astro';
+import TrustBar      from '~/components/sections/TrustBar.astro';
+import Services      from '~/components/sections/Services.astro';
+import StatementPretext from '~/components/islands/StatementPretext.tsx';
+import Testimonials  from '~/components/sections/Testimonials.astro';
+import Faq           from '~/components/sections/Faq.astro';
+import CtaRegion     from '~/components/sections/CtaRegion.astro';
+import SmoothScroll  from '~/components/islands/SmoothScroll.tsx';
+import PhoneLink     from '~/components/ui/PhoneLink.astro';
+---
+
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <BaseHead meta={{
+      title: 'Workplace Janitorial Services',
+      description:
+        'Bonded, WCB-covered commercial cleaning in Winnipeg. ' +
+        'Office, medical, retail, post-construction. 30-minute response guarantee.',
+      path: '/',
+    }} />
+  </head>
+  <body>
+    <Header />
+    <main id="main">
+      <Hero />
+      <TrustBar />
+      <Services />
+      <StatementPretext client:visible />
+      <Testimonials />
+      <Faq />
+      <CtaRegion />
+    </main>
+    <Footer />
+
+    <SmoothScroll client:idle />
+    <PhoneLink variant="sticky" />
+  </body>
+</html>

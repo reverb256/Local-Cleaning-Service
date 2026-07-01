@@ -1,0 +1,109 @@
+---
+/**
+ * AboutPanel.astro — used on the /about page.
+ * One long-form editorial column: who we are, what we won't do,
+ * service-area coverage breakdown.
+ */
+import { brand } from '~/lib/brand';
+import { Reveal } from '~/components/ui/Reveal.tsx';
+---
+
+<section class="container-page py-16 md:py-20">
+  <div class="grid lg:grid-cols-[1.3fr_1fr] gap-12 items-start">
+    <Reveal client:load>
+      <article class="prose prose-ink-900 max-w-none">
+        <span class="eyebrow not-prose">{`Since ${brand.founded}`}</span>
+        <h2 class="not-prose mt-3 font-display text-3xl md:text-4xl text-ink-900">
+          A Winnipeg family business, on the same phone every day.
+        </h2>
+
+        <p class="mt-6 text-lg text-ink-800 leading-relaxed">
+          Workplace Janitorial Services has cleaned commercial spaces in
+          Winnipeg since {brand.founded}. We are a flat team of{' '}
+          fourteen staff and one owner-operator who still takes a
+          walk-through on every new account.
+        </p>
+
+        <p class="mt-4 text-ink-700 leading-relaxed">
+          There's no software behind the quote. There's no franchise
+          licence. We keep our prices honest because we don't have a
+          sales force to feed — the same person who answers your call
+          also plans your walk-through, and the same person you met
+          is the one your invoice names.
+        </p>
+
+        <p class="mt-4 text-ink-700 leading-relaxed">
+          We have grown by word of mouth, and that has kept us careful
+          with the standard. When a client tells us a washroom was
+          missed on a Tuesday, we hear about it before the invoice
+          is due — and we make it right.
+        </p>
+
+        <h3 class="not-prose mt-10 font-display text-2xl text-ink-900">
+          What we won't do
+        </h3>
+        <ul class="not-prose mt-3 space-y-2 text-ink-800">
+          <li class="flex gap-2">
+            <span class="text-brand-600 font-bold">✓</span>
+            Won't promise what we can't deliver — no "24/7 nationwide",
+            no "guaranteed microbiome".
+          </li>
+          <li class="flex gap-2">
+            <span class="text-brand-600 font-bold">✓</span>
+            Won't send strangers. Same crew, same faces, every visit.
+          </li>
+          <li class="flex gap-2">
+            <span class="text-brand-600 font-bold">✓</span>
+            Won't upsell you on chemistry you're already happy with.
+          </li>
+        </ul>
+
+        <h3 class="not-prose mt-10 font-display text-2xl text-ink-900">
+          Where we work
+        </h3>
+        <p class="text-ink-700 mt-3 leading-relaxed">
+          We provide regular service across {brand.serviceArea.length}{' '}
+          Winnipeg areas and the larger Manitoba corridor. Most
+          accounts are within a 25-minute drive of our St. Boniface
+          base. We will take one-off work anywhere in Manitoba with a
+          reasonable start window.
+        </p>
+      </article>
+    </Reveal>
+
+    <Reveal client:load delay={0.1}>
+      <aside class="bg-ink-900 text-ink-100 rounded-card-lg p-7 space-y-5 shadow-card">
+        <h3 class="font-display text-xl text-white">
+          By the numbers
+        </h3>
+        <dl class="space-y-3 text-sm">
+          <div class="flex justify-between border-b border-ink-800 pb-3">
+            <dt class="text-ink-400">Founded</dt>
+            <dd class="font-mono text-brand-300">{brand.founded}</dd>
+          </div>
+          <div class="flex justify-between border-b border-ink-800 pb-3">
+            <dt class="text-ink-400">Team size</dt>
+            <dd class="font-mono text-brand-300">14</dd>
+          </div>
+          <div class="flex justify-between border-b border-ink-800 pb-3">
+            <dt class="text-ink-400">Active accounts</dt>
+            <dd class="font-mono text-brand-300">62</dd>
+          </div>
+          <div class="flex justify-between border-b border-ink-800 pb-3">
+            <dt class="text-ink-400">Response time SLA</dt>
+            <dd class="font-mono text-brand-300">≤ 30&nbsp;min</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt class="text-ink-400">Liability coverage</dt>
+            <dd class="font-mono text-brand-300">$2 M</dd>
+          </div>
+        </dl>
+
+        <p class="text-xs text-ink-400 leading-relaxed">
+          Accounted for in our 2026 internal review; updated
+          yearly. Membership: Winnipeg Chamber of Commerce.
+        </p>
+      </aside>
+    </Reveal>
+  </div>
+</section>

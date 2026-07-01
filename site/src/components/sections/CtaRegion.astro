@@ -1,0 +1,64 @@
+---
+/**
+ * CtaRegion.astro — closing call-to-action strip on the home page.
+ *
+ * Single, full-bleed cyan-gradient panel with three-button row:
+ * primary / secondary phone / tertiary mail-to-contact.
+ */
+import PhoneLink from '~/components/ui/PhoneLink.astro';
+import { Reveal } from '~/components/ui/Reveal.tsx';
+---
+
+<section class="container-page pb-20 md:pb-24">
+  <Reveal client:load>
+    <div
+      class="relative overflow-hidden rounded-card-lg p-10 md:p-14
+             bg-gradient-to-br from-brand-600 to-brand-800 text-white
+             shadow-card-hover"
+    >
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 opacity-20
+               bg-[radial-gradient(60%_50%_at_30%_30%,white_0%,transparent_60%)]"
+      ></div>
+
+      <div class="relative max-w-3xl">
+        <h2 class="font-display text-3xl md:text-4xl leading-[1.15]">
+          Ready to stop worrying about cleaning?
+        </h2>
+        <p class="mt-4 text-brand-100 max-w-2xl leading-relaxed">
+          Pick the path that fits how your week works: a 30-second
+          online estimate, a direct call, or a written inquiry. We
+          answer within half an hour during business hours.
+        </p>
+
+        <div class="mt-7 flex flex-col sm:flex-row gap-3 sm:items-center">
+          <a
+            href="/quote"
+            class="inline-flex items-center justify-center gap-2
+                   rounded-pill bg-white text-brand-800 px-7 h-14
+                   font-semibold shadow-cta hover:scale-[1.02]
+                   active:scale-[0.98] transition-transform"
+          >
+            Get a 30-second estimate
+          </a>
+          <PhoneLink variant="cta" class="!bg-white/0 !text-white border border-white/30 hover:!bg-white/10" />
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center
+                   rounded-pill bg-transparent text-white px-6 h-14
+                   font-semibold hover:bg-white/10 transition-colors
+                   border border-white/30"
+          >
+            Send a message
+          </a>
+        </div>
+
+        <p class="mt-5 text-xs text-brand-100/80">
+          No spam, no drip campaigns, no "we'll be in touch soon."
+          Just a real person, in Winnipeg, picking up.
+        </p>
+      </div>
+    </div>
+  </Reveal>
+</section>

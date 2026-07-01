@@ -1,0 +1,61 @@
+---
+/**
+ * TrustBar.astro — single row of trust signals.
+ *
+ * Lives right under the hero. Hits the badges that matter to a
+ * property manager reading your homepage: bonded, WCB, screened,
+ * chemistry policy. No 'BBB A+' invention — keep claims factual.
+ */
+const tiles = [
+  {
+    badge: 'Bonded',
+    sub: '\u20142\u2014 M liability coverage',
+    icon: 'shield',
+  },
+  {
+    badge: 'WCB-covered',
+    sub: 'every team member, every visit',
+    icon: 'helmet',
+  },
+  {
+    badge: 'Background-checked staff',
+    sub: 'refreshed on a 2-year cycle',
+    icon: 'check',
+  },
+  {
+    badge: 'EcoLab default chemistry',
+    sub: 'low-VOC, scent-free on request',
+    icon: 'leaf',
+  },
+];
+---
+
+<section class="bg-warm-50 border-y border-warm-100">
+  <div
+    class="container-page py-8 grid grid-cols-2 md:grid-cols-4 gap-6
+           items-center"
+    aria-label="Trust signals"
+  >
+    {
+      tiles.map((tile) => (
+        <div class="flex items-start gap-3">
+          <span
+            class="mt-0.5 inline-flex w-10 h-10 items-center
+                   justify-center rounded-pill bg-white
+                   border border-warm-100 text-brand-700
+                   shrink-0 font-bold"
+            aria-hidden="true"
+          >
+            {tile.badge[0]}
+          </span>
+          <div>
+            <p class="font-semibold text-ink-900 text-sm">
+              {tile.badge}
+            </p>
+            <p class="text-xs text-ink-600">{tile.sub}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
