@@ -9,6 +9,7 @@ import { brand } from './src/lib/brand.ts';
 export default defineConfig({
   site: brand.url,
   output: 'static',
+  compressHTML: true,
   trailingSlash: 'never',
   build: {
     inlineStylesheets: 'auto',
